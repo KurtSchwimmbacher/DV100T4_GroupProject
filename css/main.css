@@ -1,0 +1,46 @@
+/* ============================================================================ */
+/* Nav Bar */
+
+.navbar{
+    background-color: #2b2b2b !important;
+    border-bottom: 3px solid #F18442;
+}
+
+.logo_title{
+    /* Set the font and colour for the logo */
+    font-family: 'Monoton', cursive;
+    color: #F18442;
+    /* correction on font size and vertical align */
+    font-size: 24px;
+    vertical-align: middle;
+}
+
+/* Styling for active nav link */
+.active{
+    color: #F18442 !important;
+    font-weight: 800;
+    border-bottom: 2px solid #F18442;
+}
+
+/* update width of nav links  */
+.nav-item{
+    display: flex;
+    align-self: center;
+    width: 25vh;
+}
+
+.nav-link{
+    color: white;
+}
+
+
+/* add hover effects on to nav links */
+.nav-link:hover{
+    color: #F18442 !important;
+    font-weight: 800;
+}
+
+/* update horizontal alignment of nav links */
+.navbar-nav{
+    margin-left: 15%;
+}
