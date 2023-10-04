@@ -1,11 +1,33 @@
 /* ============================================================================ */
+/* Global Styles */
+
+
+/* set all large headings to display font */
+h1{
+    font-family: 'Monoton', cursive;
+    color: #F18442;
+}
+
+/* set page background colour to dark color */
+body{
+    background-color: #2b2b2b;
+}
+
+/* set text on page to white */
+label, .form-text, p{
+    color: white;
+}
+
+/* ============================================================================ */
 /* Nav Bar */
 
+/* change the background colour of the navbar as a whole and add the border to create distinction */
 .navbar{
     background-color: #2b2b2b !important;
     border-bottom: 3px solid #F18442;
 }
 
+/* styling nav bar logo */
 .logo_title{
     /* Set the font and colour for the logo */
     font-family: 'Monoton', cursive;
@@ -29,6 +51,7 @@
     width: 25vh;
 }
 
+/* setting nav bar links to white */
 .nav-link{
     color: white;
 }
@@ -44,3 +67,36 @@
 .navbar-nav{
     margin-left: 15%;
 }
+
+
+/* ============================================================================ */
+/* Sign Up form */
+
+.sign-up_form{
+    width: 60%;
+    margin-left: 20%;
+    border: 2px solid #F18442;
+    border-radius: 15px;
+    padding: 5%;
+}
+.sign-up_header{
+    padding-left: 35%;
+    padding-right: 35%;
+}
+
+
+/* Overriding bootstrap primary button style */
+.btn-primary{
+    width: 70%;
+    margin-left: 15%;
+    border-radius: 15px;
+    background-color: #F18442;
+    border: none;
+}
+
+/* Overriding bootstrap primary button style hover effect */
+.btn-primary:hover{
+    background-color: white;
+    color: #F18442;
+}
+
