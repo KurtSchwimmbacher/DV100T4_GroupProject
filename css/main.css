@@ -1,0 +1,55 @@
+/* nav bar */
+
+.navbar-nav{
+   
+    padding-left: 350px;
+}
+
+.navbar-brand{
+    width: 55px;
+    height: 55px;
+    border-radius: 20px;
+    background-image: url(../assets/indie\ streams\ icon.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* Movie display Section */
+
+.placeholderTwo{
+    width: 200px;
+    height: 250px;
+    border: 2px solid gray;
+    border-radius: 2px;
+    margin-top: 60px;
+    background-color: black;
+    background-image: url(../assets/indie\ movie\ 1.5.jpg);
+    background-size: cover;
+    background-position:center;
+}
+
+.placeholderThree{
+    width: 200px;
+    height: 250px;
+    border: 2px solid gray;
+    border-radius: 2px;
+    margin-top: 60px;
+    background-color: black;
+    background-image: url(../assets/indie\ movie\ 9.jpeg);
+    background-size: cover;
+    background-position:center;
+}
+
+.placeholderFour{
+    width: 200px;
+    height: 250px;
+    border: 2px solid gray;
+    border-radius: 2px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    background-color: black;
+    background-image: url(../assets/indie\ movie\ 1.2.jpg);
+    background-size: cover;
+    background-position:center;
+}
