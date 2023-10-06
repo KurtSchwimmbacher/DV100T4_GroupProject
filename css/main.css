@@ -8,6 +8,10 @@ h1{
     color: #F18442;
 }
 
+h2,h3,h4,h5,h6,p,a{
+    font-family: 'Dosis', sans-serif;
+}
+
 /* set page background colour to dark color */
 body{
     background-color: #2b2b2b;
@@ -25,6 +29,13 @@ label, .form-text, p{
 /*============================================================================================= */
 /* Media Queries */
 @media(min-width: 300px){
+
+    /* fixing nav bar colours */
+    .navbar-toggler{
+        color: white;
+        background-color: #F18442;
+    }
+
     /* splash screen */
     /* -------------------------- */
 
@@ -38,6 +49,27 @@ label, .form-text, p{
         height: auto;
         align-self: center;
     }
+
+    .Welcome-splash{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .Welcome-splash h2{
+        color: white;
+    }
+    .Welcome-splash h1{
+        font-size: 32px;
+    }
+
+    .border-under-welcome{
+        width: 70%;
+        margin-left: 15%;
+        border-radius: 5%;
+        border-bottom: 1px solid white;
+    }
+
 
     /* -------------------------- */
     h1{
