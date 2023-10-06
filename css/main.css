@@ -18,6 +18,89 @@ label, .form-text, p{
     color: white;
 }
 
+
+
+
+
+/*============================================================================================= */
+/* Media Queries */
+@media(min-width: 300px){
+    /* splash screen */
+    /* -------------------------- */
+
+    .logo-con{
+        display: flex;
+        justify-content: center;
+    }
+
+    .splash-logo{
+        width: 40%;
+        height: auto;
+        align-self: center;
+    }
+
+    /* -------------------------- */
+    h1{
+        font-size: 16px;
+    }
+}
+
+@media(min-width:576px){
+    /* splash screen */
+    /* -------------------------- */
+    .splash-logo{
+        width: 139px;
+        height: 139px;
+    }
+
+    /* -------------------------- */
+    h1{
+        font-size: 16px;
+    }
+}
+
+@media(min-width:768px){
+    h1{
+        font-size: 22px;
+    }
+
+    .splash-bg{
+        width: 100%;
+        height: 100vh;
+        background-image: url("../assets/splash screen/Poster wall.jpg");
+    }
+
+    .sign-up_form{
+        width: 100%;
+    }
+    .sign-up_header{
+        padding-left: 35%;
+    }
+}
+
+@media(min-width:1200px){
+    h1{
+        font-size: 36px;
+    }
+
+    .sign-up_form{
+        width: 60%;
+        margin-left: 20%;
+        border: 2px solid #F18442;
+        border-radius: 15px;
+        padding: 5%;
+    }
+    .sign-up_header{
+        padding-left: 35%;
+        padding-right: 35%;
+    }
+
+}
+
+
+
+
+
 /* ============================================================================ */
 /* Nav Bar */
 
@@ -72,17 +155,7 @@ label, .form-text, p{
 /* ============================================================================ */
 /* Sign Up form */
 
-.sign-up_form{
-    width: 60%;
-    margin-left: 20%;
-    border: 2px solid #F18442;
-    border-radius: 15px;
-    padding: 5%;
-}
-.sign-up_header{
-    padding-left: 35%;
-    padding-right: 35%;
-}
+
 
 
 /* Overriding bootstrap primary button style */
@@ -100,3 +173,7 @@ label, .form-text, p{
     color: #F18442;
 }
 
+/* login nav link */
+.login-prompt{
+    margin-left: 33%;
+}
