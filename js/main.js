@@ -17,3 +17,8 @@ $(document).ready(function(){
     $("#PasswordLabel").hide();
     $("#PasswordConLabel").hide();
 });
+
+
+function validateLogin(){
+    
+};
