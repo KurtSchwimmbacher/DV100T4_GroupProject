@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Monoton&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
+/* ---------------------------------------------------------------- */
+/* Global CSS */
+
+/* Spacing */
+.full-heigth{
+    height: 100vh;
+}
+/* fonts */
+
+h2 {
+    font-family: 'Dosis', sans-serif;
+}
+
+/* ============================================================================ */
+/* Nav Bar */
+
+/* change the background colour of the navbar as a whole and add the border to create distinction */
+.navbar{
+    background-color: #2b2b2b !important;
+    border-bottom: 3px solid #F18442;
+}
+
+/* styling nav bar logo */
+.logo_title{
+    /* Set the font and colour for the logo */
+    font-family: 'Monoton', cursive;
+    color: #F18442;
+    /* correction on font size and vertical align */
+    font-size: 24px;
+    vertical-align: middle;
+}
+
+/* Styling for active nav link */
+.active{
+    color: #F18442 !important;
+    font-weight: 800;
+    border-bottom: 2px solid #F18442;
+}
+
+/* update width of nav links  */
+.nav-item{
+    display: flex;
+    align-self: center;
+    width: 25vh;
+}
+
+/* setting nav bar links to white */
+.nav-link{
+    color: white;
+}
+
+
+/* add hover effects on to nav links */
+.nav-link:hover{
+    color: #F18442 !important;
+    font-weight: 800;
+}
+
+/* update horizontal alignment of nav links */
+.navbar-nav{
+    margin-left: 15%;
+}
+
+/* ============================================================================ */
+/* Homepage */
+
+/* Carousel */
+
+/* Carousel Image */
+.carousel-image{
+    margin-top: -12vh;
+    object-position: top;
+    object-fit: cover;
+    max-height: 95vh;
+    width: 50vw;
+}
+/* Carousel Heading */
+.carousel-heading{
+    font-family: 'Monoton', sans-serif;
+    text-align: center;
+    color: coral;
+}
+.carousel-heading h1{
+    font-size: 60px;
+}
+
+/* Carousel Text */
+.carousel-text{
+    font-family: 'Dosis', sans-serif, bold;
+    text-align: center;
+    color: white;
+}
+#orange{
+    object-position: center !important;
+}
+/* Carousel Button */
+.carousel-btn{
+    text-align: center;
+}
+
+/* Carousel Btn Styling */
+.btn-primary{
+    background-color: coral !important;
+    color: rgb(0, 0, 0) !important;
+    border-radius: 10px;
+    border: 3px solid coral;
+    width: 15rem;
+    font-family: 'Dosis', sans-serif;
+    font-size: 24px;
+}
+.btn-primary:hover{
+    background-color: rgb(255, 255, 255) !important;
+    border: 3px solid coral !important;
+}
+
+/* Carousel Controls */
+.carousel-control-prev, .carousel-control-next {
+    top: auto;
+    left: 23rem;
+    bottom: 10rem;
+    width: 3rem;
+    height: 3rem;
+    border: 3px solid #000000;
+    background-color: #EBF4FC;
+    border-radius: 50%
+}
+.carousel-control-next{
+    left: 28rem;
+}
+
+/* ---------------------------------------------------------------- */
+
+/* Card */
+.card-img-top{
+    height: 23rem;
+    background-position: fixed;
+    background-size: cover;
+    object-fit: cover;
+}
+/* ============================================================================ */
+/* footer */
+.footer-con{
+    width: 100%;
+}
+
+footer i {
+    margin-left: 15px;
+    margin-right: 15px  ;
+}
+
+.footer-api-img{
+    margin-top: 7px;
+}
