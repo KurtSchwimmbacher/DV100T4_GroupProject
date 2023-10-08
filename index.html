@@ -13,11 +13,42 @@
   </head> 
   <body>
 
-
+      <!-- ----------------------------------------------------------- -->
       <!-- Navbar -->
-      <nav>
-
-
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="assets/logos/Logo Main.svg" alt="Logo" height="40">
+            <span class="logo_title" style="margin-left: 8px;">Indie Streams</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+  
+              <!-- Home nav link -->
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+  
+              <!-- Our Movies Nav Link -->
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Our Movies</a>
+              </li>
+  
+              <!-- My List Nav Link -->
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="pages/list.html">My List</a>
+              </li>
+  
+              <!-- Sign Up Nav Link -->
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="pages/login.html">Sign Up</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </nav>
 
       <!-- ----------------------------------------------------------- -->
@@ -40,9 +71,9 @@
                     <h1>Welcome <br> To <br>IndieStreams</h1>
                   </div>
                   <div class="carousel-text">
-                    <h2>Hello there! We're IndieStreams. We're the indie streaming service for all the foreign movie lovers!</h2>
+                    <h4>Hello there! We're IndieStreams. We're an indie streaming service for all you foreign movie lovers! Want Europian, Asian, African, or South American Films? We've got you. Now get watching!</h4>
                   </div>
-                  <div class="carousel-btn mt-5">
+                  <div class="carousel-btn mt-4">
                     <button type="button" class="btn btn-primary">Join Us!</button>
                   </div>
                 </div>
@@ -67,7 +98,7 @@
                     <h1>Our Top Three<br> Movies</h1>
                   </div>
                   <div class="carousel-text">
-                    <h2>Checkout our top three movies this week!</h2>
+                    <h4>Checkout our top three movies this week!</h4>
                   </div>
                   <div class="carousel-btn mt-5">
                     <button type="button" class="btn btn-primary">Watch Now</button>
@@ -95,7 +126,7 @@
                   <div class="carousel-text">
                     <h4>Based on Raymond Queneau's novel about a foulmouthed 11-year- old girl visiting her drag-queen uncle in Paris, and takes a sightseeing tour of the city, encountering various characters and unusual situations.</h4>
                   </div>
-                  <div class="carousel-btn mt-5">
+                  <div class="carousel-btn mt-4">
                     <button type="button" class="btn btn-primary">Watch Now</button>
                   </div>
                 </div>
@@ -243,9 +274,34 @@
 
         </div>
       </div>
+      
       <!-- ----------------------------------------------------------- -->
-
-
+      <!-- Footer -->
+      <footer>
+        <div class="container mt-5 pt-5 mb-5 footer-con">
+          <div class="row mt-5">
+            <!-- Logo Col -->
+            <div class="col-sm-12 col-md-12 col-lg-4 footer-brand">
+              <a class="navbar-brand" href="#">
+                <img src="assets/logos/Logo Main.svg" alt="Logo" class="footer-logo-img" height="32px">
+                <span class="logo_title" style="margin-left: 8px;">Indie Streams</span>
+              </a>
+            </div>
+            <!-- socials Col -->
+            <div class="col-sm-12 col-md-12 col-lg-4 mt-3 footer-socials" style="color: white; ">
+              <a><i class="bi bi-linkedin"></i></a> 
+              <a><i class="bi bi-twitter"></i></a>
+              <a><i class="bi bi-instagram"></i></a>
+              <a><i class="bi bi-facebook"></i></a>
+            </div>
+            <!-- API Col -->
+            <div class="col-sm-12 col-md-12 col-lg-4 mt-3 footer-api">
+              <img src="../assets/logos/TMDB Logo.svg" alt="Logo" class="footer-api-img" height="12px">
+              <span style="margin-left: 8px; color: white;">This product uses the TMDB API but is not endorsed or certified by TMDB.</span>
+            </div>
+          </div>
+        </div>
+      </footer>
 
     
     <!-- JS Links -->
