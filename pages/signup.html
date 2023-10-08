@@ -69,46 +69,67 @@
     <!-- Page Content -->
     <!-- Sign up form -->
     <div class="container">
-      <div class="row sign-up_form mt-5 pt-5 pb-5">
+      <div class="row sign-up_form mt-5">
 
-        <!-- image class -->
-        <div class="col-md-6">
-          <img src="../assets/Logo Main.svg" height="175px">
+        <!-- Logo on sign up -->
+        <div class="col-12 logo-con">
+            <img class="logLogo" src="../assets/Logo Main.svg">
         </div>
 
-
-
-        <div class="col-lg-12 col-md-6">
-          <form>
-            <h1 class="sign-up_header">
-              Sign Up
+        <!-- Title on sign up -->
+        <div class="col-12 title-con mt-3">
+            <h1 class="signup-header">
+                Sign Up
             </h1>
+        </div>
+
+        <!-- Subtitle on sign up -->
+        <div class="col-12 title-con">
+            <p>
+                Create an Account
+            </p>
+        </div>
+
+        <!-- line -->
+        <div class="border-under-welcome pt-2"></div>
+
+
+        <div class="col-lg-12 mt-2 form-con">
+          <form>
             <div class="mb-3">
               <label for="UsernameInput" class="form-label">Username</label>
               <input type="text" class="form-control" id="UsernameInput" aria-describedby="UsernameInput">
-              <div id="UsernameInput" class="form-text">For validation - to be hidden</div>
+              <div id="UsernameLabel" class="form-text">For validation - to be hidden</div>
             </div>
             <div class="mb-3">
               <label for="EmailInput" class="form-label">Email Address</label>
               <input type="email" class="form-control" id="EmailInput" aria-describedby="EmailInput">
-              <div id="EmailInput" class="form-text">We'll never share your email with anyone else.</div>
+              <div id="EmailLabel" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
               <label for="PasswordInput" class="form-label">Password</label>
               <input type="password" class="form-control" id="PasswordInput">
-              <div id="PasswordInput" class="form-text">For validation - to be hidden</div>
+              <div id="PasswordLabel" class="form-text">For validation - to be hidden</div>
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
-              <div id="PasswordInput" class="form-text">For validation - to be hidden</div>
+              <label for="PasswordConfirm" class="form-label">Confirm Password</label>
+              <input type="password" class="form-control" id="PasswordConfirm">
+              <div id="PasswordConLabel" class="form-text">For validation - to be hidden</div>
             </div>
             <button type="button" class="btn btn-primary">Sign Up</button>
 
-            <p class="login-prompt pt-3">Already have an account? <a class="login-link">Login</a></p>
-
           </form>
         </div>
+        <!-- end of form div -->
+
+          <!-- Subtitle on sign up -->
+          <div class="col-12 title-con">
+            <p class="login-prompt pt-3">
+                Already have an account? <a class="login-link">Login</a>
+            </p>
+        </div>
+
+
       </div>
     </div>
 
