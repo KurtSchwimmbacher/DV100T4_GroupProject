@@ -50,27 +50,6 @@ label, .form-text, p{
         height: auto;
     }
 
-    .Welcome-splash, .Welcome-splash2{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .Welcome-splash h2{
-        color: white;
-    }
-    .Welcome-splash2 h1{
-        font-size: 32px;
-    }
-
-    .border-under-welcome{
-        width: 70%;
-        margin-left: 15%;
-        border-radius: 5%;
-        border-bottom: 1px solid white;
-    }
-
 
     /* -------------------------- */
     h1{
@@ -81,11 +60,16 @@ label, .form-text, p{
 @media(min-width:576px){
     /* splash screen */
     /* -------------------------- */
-    .splash-logo{
-        width: 139px;
-        height: 139px;
+    .logo-con{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
+    .splash-logo{
+        width: 30%;
+        height: auto;
+    }
     /* -------------------------- */
     h1{
         font-size: 16px;
@@ -100,14 +84,20 @@ label, .form-text, p{
 
     /* splash screen */
     /* -------------------------- */
-    .splash-logo{
-        width: 139px;
-        height: 139px;
+    .logo-con{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    .splash-bg{
-        width: 100%;
-        height: 100vh;
-        background-image: url("../assets/splash screen/Poster wall.jpg");
+
+    .splash-logo{
+        width: 20%;
+        height: auto;
+    }
+
+    .button-log{
+        width: 80%;
+        margin-left: 10%;
     }
 
     /* -------------------------- */
@@ -126,6 +116,28 @@ label, .form-text, p{
     h1{
         font-size: 36px;
     }
+
+    
+    /* splash screen */
+    /* -------------------------- */
+    .logo-con{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .splash-logo{
+        width: 20%;
+        height: auto;
+    }
+
+    .button-log{
+        width: 70%;
+        margin-left: 15%;
+    }
+
+
+    /* -------------------------- */
 
     .sign-up_form{
         width: 60%;
@@ -197,10 +209,32 @@ label, .form-text, p{
 
 
 /* ============================================================================ */
+/* Splash Screen */
+
+.Welcome-splash, .Welcome-splash2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.Welcome-splash h2{
+    color: white;
+}
+.Welcome-splash2 h1{
+    font-size: 32px;
+}
+
+.border-under-welcome{
+    width: 70%;
+    margin-left: 15%;
+    border-radius: 5%;
+    border-bottom: 1px solid white;
+}
+
+
+/* ============================================================================ */
 /* Sign Up form */
-
-
-
 
 /* Overriding bootstrap primary button style */
 .btn-primary{
