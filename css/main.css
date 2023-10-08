@@ -94,6 +94,8 @@ label, .form-text, p{
         width: 100%;
         height: auto;
     }
+
+    
     
         /* footer */
         .footer-socials{
@@ -131,6 +133,18 @@ label, .form-text, p{
         display: flex;
     }
 
+        /* Library Page */
+        .movie-card{
+            width: 50%;
+        }
+        .card-img{
+            background-size: cover;
+            object-fit: cover;
+            width: 100%;
+            height: auto;
+        }
+
+
 }
 
 @media(min-width:768px){
@@ -163,6 +177,17 @@ label, .form-text, p{
         font-size: 32px;
     }
      
+        /* Library Page */
+        .movie-card{
+            width: 33%;
+        }
+        .card-img{
+            background-size: cover;
+            object-fit: cover;
+            width: 100%;
+            height: auto;
+        }
+
 
 }
 
@@ -206,6 +231,20 @@ label, .form-text, p{
     .logo-wall{
         display: none;
     }
+
+        /* Library Page */
+        .movie-card{
+            width: 25%;
+        }
+        .card-img{
+            background-size: cover;
+            object-fit: cover;
+            width: 100%;
+            height: auto;
+        }
+    
+
+
 
     /* footer */
     footer .row{
@@ -267,6 +306,28 @@ label, .form-text, p{
         padding-top: 5%;
         padding-bottom: 5%;
     }
+
+    /* Library Page */
+    .movie-card{
+        width: 25%;
+    }
+    .card-img{
+        background-size: cover;
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+    }
+    .overlay{
+        width: 100%;    
+        height: auto;
+        background-color: rgba(0,0,0,1);
+    }
+    .overlay:hover{
+        cursor: pointer;
+    }
+
+
+
 
 }
 
@@ -577,10 +638,5 @@ footer{
     color: #2b2b2b;
 }
 
-/* library cards */
-.lib-card{
-    border: #2b2b2b;
-}
-.lib-body{
-    background-color: #2b2b2b;
-}
+
+

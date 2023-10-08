@@ -29,6 +29,8 @@ $(document).ready(function(){
         validateLogin(adminUser,adminPass, userIn, passIn);
     });
 
+
+
 });
 
 // functions
