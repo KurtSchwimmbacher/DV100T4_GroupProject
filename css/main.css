@@ -1,4 +1,14 @@
 /* ============================================================================ */
+/* Global Styles */
+
+body{
+    background-color: #2b2b2b;
+}
+
+
+
+
+/* ============================================================================ */
 /* Nav Bar */
 
 /* change the background colour of the navbar as a whole and add the border to create distinction */
@@ -46,4 +56,19 @@
 /* update horizontal alignment of nav links */
 .navbar-nav{
     margin-left: 15%;
+}
+
+
+/* ============================================================================ */
+/* Single Movie Section */
+.single-film-title{
+    color: white;
+}
+
+badge{
+    
+}
+
+.info-circle{
+    float: right;
 }
