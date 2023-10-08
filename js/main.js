@@ -10,9 +10,6 @@ $(document).ready(function(){
     // set the validation text to be invisible
     clearValidationText();
 
-    // set the movie name to not be visible
-    hideMovieName();
-
     // navigate from splash screen to login screen
     $("#btnLogin").click(function(){
         window.location.href = "../pages/login.html";
@@ -66,8 +63,3 @@ function validateLogin(username, password, userIn, passIn){
         $("#UsernameLabel").show();
     }
 };
-
-
-function hideMovieName(){
-    $(".lib-body").hide();
-}
