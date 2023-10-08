@@ -65,8 +65,8 @@ body{
     color: white;
 }
 
-badge{
-    
+.badge{
+    vertical-align: top;
 }
 
 .info-circle{
