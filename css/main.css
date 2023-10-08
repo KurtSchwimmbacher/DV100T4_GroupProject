@@ -65,7 +65,16 @@ label, .form-text, p{
     .signup-header{
         font-size: 32px;
     }
-
+    /* form con */
+    .form-con{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+        /* logo wall */
+        .logo-wall{
+            width: 0%;
+        }
 
 }
 
@@ -83,9 +92,24 @@ label, .form-text, p{
         height: auto;
     }
     /* -------------------------- */
-    h1{
-        font-size: 16px;
+
+    /* sign up/login screen */
+
+    /* logo section */
+    .logLogo{
+        width: 0%;
+        height: auto;
     }
+    .signup-header{
+        font-size: 32px;
+    }
+    /* logo wall */
+    .logo-wall{
+        width: 35%;
+        height: auto;
+        display: flex;
+    }
+
 }
 
 @media(min-width:768px){
@@ -115,6 +139,40 @@ label, .form-text, p{
     /* -------------------------- */
 }
 
+
+@media(min-width:991px){
+    
+    /* ------------------------------------ */
+    /* sign up/login screen */
+
+    /* logo section */
+    .logLogo{
+        width: 40%;
+        height: auto;
+    }
+    .signup-header{
+        font-size: 32px;
+    }
+    /* form con */
+    .form-con{
+        display: block;
+    }
+    /* logo wall */
+    .logo-wall{
+        width: 0%;
+    }
+
+    /* form border radius */
+    .signup-form{
+        width: 80%;
+        margin-left: 10%;
+        border: 2px solid #F18442;
+        border-radius: 15px;
+        padding: 5%;
+    }
+}
+
+
 @media(min-width:1200px){
     h1{
         font-size: 36px;
@@ -139,19 +197,6 @@ label, .form-text, p{
         margin-left: 15%;
     }
 
-
-    /* -------------------------- */
-    /* sign up / login page */
-    .sign-up_form{
-        width: 80%;
-        margin-left: 10%;
-        border: 2px solid #F18442;
-        border-radius: 15px;
-        padding: 5%;
-    }
-
-
-    
 
 }
 
@@ -238,7 +283,7 @@ label, .form-text, p{
 /* Sign Up form */
 
 /* override logo div display */
-.logo-con, .form-con, .title-con{
+.logo-con,  .title-con{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
