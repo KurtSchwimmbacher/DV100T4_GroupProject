@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Indie Streams</title>
 
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Dosis&family=Monoton&display=swap');
+    </style>
+
     <!-- Css Links -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     
-
       <!-- JQuery -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -19,11 +22,11 @@
     <!-- JS Links -->
     <script src="../js/main.js"></script>
     
+    
 
 
 </head>
     <body>
-
     <!-- ------------------------------------------------------------------------------------------------ -->
     <!-- Nav Bar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -63,38 +66,51 @@
     </nav>
 
     <!-- ------------------------------------------------------------------------------------------------ -->
-    <!-- Logo -->
-    
-      <div class="logo-con pt-5">
-        <img class="splash-logo" src="../assets/Logo Main.svg">
-      </div>
+    <!-- Page Content -->
+    <!-- Sign up form -->
+    <div class="container">
+      <div class="row sign-up_form mt-5 pt-5 pb-5">
 
-
-      <!-- welcome to indie streams section -->
-      <div class="Welcome-splash pt-5">
-        <h2>Welcome to </h2>
-      </div>
-      <div class="Welcome-splash2 pt-2">
-        <h1>Indie Streams</h1>
-      </div>
-
-      <!-- line -->
-      <div class="border-under-welcome pt-2"></div>
-
-      <!-- buttons -->
-      <div class="container">
-        <div class="row mt-5">
-          <div class="col-sm-12 button-log">
-            <button type="button" class="btn btn-primary" id="btnLogin">Login</button>
-          </div>
+        <!-- image class -->
+        <div class="col-md-6">
+          <img src="../assets/Logo Main.svg" height="175px">
         </div>
-        <div class="row mt-3">
-          <div class="col-sm-12 button-log">
-            <button type="button" class="btn btn-primary" id="btnSignUp">Sign Up</button>
-          </div>
+
+
+
+        <div class="col-lg-12 col-md-6">
+          <form>
+            <h1 class="sign-up_header">
+              Sign Up
+            </h1>
+            <div class="mb-3">
+              <label for="UsernameInput" class="form-label">Username</label>
+              <input type="text" class="form-control" id="UsernameInput" aria-describedby="UsernameInput">
+              <div id="UsernameInput" class="form-text">For validation - to be hidden</div>
+            </div>
+            <div class="mb-3">
+              <label for="EmailInput" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="EmailInput" aria-describedby="EmailInput">
+              <div id="EmailInput" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+              <label for="PasswordInput" class="form-label">Password</label>
+              <input type="password" class="form-control" id="PasswordInput">
+              <div id="PasswordInput" class="form-text">For validation - to be hidden</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+              <div id="PasswordInput" class="form-text">For validation - to be hidden</div>
+            </div>
+            <button type="button" class="btn btn-primary">Sign Up</button>
+
+            <p class="login-prompt pt-3">Already have an account? <a class="login-link">Login</a></p>
+
+          </form>
         </div>
       </div>
+    </div>
 
-    
   </body>
 </html>
