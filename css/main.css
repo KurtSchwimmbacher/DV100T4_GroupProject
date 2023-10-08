@@ -22,7 +22,9 @@ label, .form-text, p{
     color: white;
 }
 
-
+.form-text{
+    color: red;
+}
 
 
 
