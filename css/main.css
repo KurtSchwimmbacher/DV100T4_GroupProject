@@ -42,24 +42,25 @@ label, .form-text, p{
     .logo-con{
         display: flex;
         justify-content: center;
+        align-items: center;
     }
 
     .splash-logo{
         width: 40%;
         height: auto;
-        align-self: center;
     }
 
-    .Welcome-splash{
+    .Welcome-splash, .Welcome-splash2{
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        align-items: center;
     }
 
     .Welcome-splash h2{
         color: white;
     }
-    .Welcome-splash h1{
+    .Welcome-splash2 h1{
         font-size: 32px;
     }
 
@@ -96,11 +97,22 @@ label, .form-text, p{
         font-size: 22px;
     }
 
+
+    /* splash screen */
+    /* -------------------------- */
+    .splash-logo{
+        width: 139px;
+        height: 139px;
+    }
     .splash-bg{
         width: 100%;
         height: 100vh;
         background-image: url("../assets/splash screen/Poster wall.jpg");
     }
+
+    /* -------------------------- */
+
+
 
     .sign-up_form{
         width: 100%;
