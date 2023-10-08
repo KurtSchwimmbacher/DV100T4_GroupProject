@@ -5,22 +5,154 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Indie Streams</title>
 
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Dosis&family=Monoton&display=swap');
+    </style>
+
     <!-- Css Links -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     
+      <!-- JQuery -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+
     <!-- JS Links -->
-    <!-- JQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="../js/main.js"></script>
+    
     
 
 
 </head>
     <body>
-    
+    <!-- ------------------------------------------------------------------------------------------------ -->
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="../assets/logos/Logo Main.svg" alt="Logo" height="40">
+          <span class="logo_title" style="margin-left: 8px;">Indie Streams</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+
+            <!-- Home nav link -->
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Home</a>
+            </li>
+
+            <!-- Our Movies Nav Link -->
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Our Movies</a>
+            </li>
+
+            <!-- My List Nav Link -->
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">My List</a>
+            </li>
+
+            <!-- Sign Up Nav Link -->
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Sign Up</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ------------------------------------------------------------------------------------------------ -->
+    <!-- Page Content -->
+    <!-- Sign up form -->
+    <div class="container">
+      <div class="row signup-form mt-5">
+
+        <!-- Logo on sign up -->
+        <div class="col-12 logo-con">
+            <img class="logLogo" src="../assets/logos/Logo Main.svg">
+        </div>
+
+        <!-- Title on sign up -->
+        <div class="col-12 title-con mt-3">
+            <h1 class="signup-header">
+                Login
+            </h1>
+
+        <!-- Subtitle on sign up -->
+        <div class="col-12 title-con">
+            <p>
+                Welcome Back
+            </p>
+        </div>
+
+        <!-- line -->
+        <div style="margin-left: 0%;" class="border-under-welcome pt-2 mb-4"></div>
+
+        <div class="col-md-4 col-sm-4 logo-wall">
+            <img style="width: 100%;" src="../assets/logos/Logo Main.svg">
+        </div>
+
+        <div class="col-lg-12 col-md-6 col-sm-6 mt-2 form-con">
+          <form>
+            <div class="mb-3">
+              <label for="UsernameInput" class="form-label">Username</label>
+              <input type="text" class="form-control" id="UsernameInput" aria-describedby="UsernameInput">
+              <div id="UsernameLabel" class="form-text">For validation - to be hidden</div>
+            </div>
+            <div class="mb-3">
+              <label for="PasswordInput" class="form-label">Password</label>
+              <input type="password" class="form-control" id="PasswordInput">
+              <div id="PasswordLabel" class="form-text">For validation - to be hidden</div>
+            </div>
+            <button type="button" class="btn btn-primary mt-2" id="loginBtn">Login</button>
+
+          </form>
+        </div>
+        <!-- end of form div -->
+
+          <!-- Subtitle on sign up -->
+          <div class="col-12 title-con">
+            <p class="login-prompt pt-3">
+                Don't have an account? <a class="login-link" href="signup.html">Sign Up</a>
+            </p>
+        </div>
+
+
+      </div>
+    </div>
+
+     <!-- ------------------------------------------------------------------------------------------------ -->
+    <!-- footer -->
+    <footer>
+      <div class="container mt-5 pt-5 mb-5 footer-con">
+        <div class="row mt-5">
+          <!-- Logo Col -->
+          <div class="col-sm-12 col-md-12 col-lg-4 footer-brand">
+            <a class="navbar-brand" href="#">
+              <img src="../assets/logos/Logo Main.svg" alt="Logo" class="footer-logo-img" height="32px">
+              <span class="logo_title" style="margin-left: 8px;">Indie Streams</span>
+            </a>
+          </div>
+          <!-- socials Col -->
+          <div class="col-sm-12 col-md-12 col-lg-4 mt-3 footer-socials" style="color: white; ">
+            <a><i class="bi bi-linkedin"></i></a> 
+            <a><i class="bi bi-twitter"></i></a>
+            <a><i class="bi bi-instagram"></i></a>
+            <a><i class="bi bi-facebook"></i></a>
+          </div>
+          <!-- API Col -->
+          <div class="col-sm-12 col-md-12 col-lg-4 mt-3 footer-api">
+            <img src="../assets/logos/TMDB Logo.svg" alt="Logo" class="footer-api-img" height="12px">
+            <span style="margin-left: 8px; color: white;">This product uses the TMDB API but is not endorsed or certified by TMDB.</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
   </body>
 </html>
