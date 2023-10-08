@@ -48,7 +48,7 @@
 
             <!-- Our Movies Nav Link -->
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="">Our Movies</a>
+              <a class="nav-link active" aria-current="page" href="#">Our Movies</a>
             </li>
 
             <!-- My List Nav Link -->
@@ -58,7 +58,7 @@
 
             <!-- Sign Up Nav Link -->
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Sign Up</a>
+              <a class="nav-link" aria-current="page" href="#">Sign Up</a>
             </li>
           </ul>
         </div>
@@ -67,63 +67,37 @@
 
     <!-- ------------------------------------------------------------------------------------------------ -->
     <!-- Page Content -->
-    <!-- Sign up form -->
-    <div class="container">
-      <div class="row signup-form mt-5">
 
-        <!-- Logo on sign up -->
-        <div class="col-12 logo-con">
-            <img class="logLogo" src="../assets/logos/Logo Main.svg">
-        </div>
-
-        <!-- Title on sign up -->
-        <div class="col-12 title-con mt-3">
-            <h1 class="signup-header">
-                Login
-            </h1>
-
-        <!-- Subtitle on sign up -->
-        <div class="col-12 title-con">
-            <p>
-                Welcome Back
-            </p>
-        </div>
-
-        <!-- line -->
-        <div style="margin-left: 0%;" class="border-under-welcome pt-2 mb-4"></div>
-
-        <div class="col-md-4 col-sm-4 logo-wall">
-            <img style="width: 100%;" src="../assets/logos/Logo Main.svg">
-        </div>
-
-        <div class="col-lg-12 col-md-6 col-sm-6 mt-2 form-con">
-          <form>
-            <div class="mb-3">
-              <label for="UsernameInput" class="form-label">Username</label>
-              <input type="text" class="form-control" id="UsernameInput" aria-describedby="UsernameInput">
-              <div id="UsernameLabel" class="form-text">For validation - to be hidden</div>
+    <!-- filters/settings button -->
+    
+    <!-- Trending Movies -->
+    <div class="container mt-5 mb-5 pb-5">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>Trending</h2>
             </div>
-            <div class="mb-3">
-              <label for="PasswordInput" class="form-label">Password</label>
-              <input type="password" class="form-control" id="PasswordInput">
-              <div id="PasswordLabel" class="form-text">For validation - to be hidden</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 movie-card">
+                <div class="card lib-card">
+                    <img src="../assets/Faces of Anne 2022.jpg" class="card-img" alt="...">
+                    <div class="card-body lib-body">
+                      <p class="card-text">Movie Title</p>
+                    </div>
+                  </div>
             </div>
-            <button type="button" class="btn btn-primary mt-2" id="loginBtn">Login</button>
 
-          </form>
+            <div class="col-sm-6 movie-card">
+                <div class="card lib-card">
+                    <img src="../assets/Faces of Anne 2022.jpg" class="card-img" alt="...">
+                    <div class="card-body lib-body">
+                      <p class="card-text">Movie Title</p>
+                    </div>
+                  </div>
+            </div>
         </div>
-        <!-- end of form div -->
-
-          <!-- Subtitle on sign up -->
-          <div class="col-12 title-con">
-            <p class="login-prompt pt-3">
-                Don't have an account? <a class="login-link" href="signup.html">Sign Up</a>
-            </p>
-        </div>
-
-
-      </div>
     </div>
+
 
      <!-- ------------------------------------------------------------------------------------------------ -->
     <!-- footer -->
@@ -152,6 +126,7 @@
         </div>
       </div>
     </footer>
+
 
 
   </body>
