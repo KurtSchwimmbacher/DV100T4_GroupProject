@@ -311,14 +311,9 @@ label, .form-text, p{
     .movie-card{
         width: 25%;
     }
-    .card-img{
-        background-size: cover;
-        object-fit: cover;
-        width: 100%;
-        height: auto;
-    }
 
-    .lib-card-test{
+
+    .lib-card{
         width: 100%;
         height: 100%;
         background-image: url("../assets/Ao\ to\ Orenji.jpg");
