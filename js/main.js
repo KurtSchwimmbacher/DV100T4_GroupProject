@@ -6,6 +6,7 @@ const adminPass = "Pass";
 
 $(document).ready(function(){
     console.log("Hello World")
+    
 
     // set the validation text to be invisible
     clearValidationText();
