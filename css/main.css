@@ -790,5 +790,21 @@ footer{
     color: #2b2b2b;
 }
 
+/* ============================================== */
+/* library page */
+
+.filters-con{
+    display: flex;
+    justify-content: end;
+}
+
+.filter-btn{
+    width: 24px;
+    height: auto;
+    margin-left: 3rem;
+}
+.filter-btn:hover{
+    cursor: pointer;
+}
 
 

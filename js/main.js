@@ -27,7 +27,9 @@ $(document).ready(function(){
         validateLogin(adminUser,adminPass, userIn, passIn);
     });
 
-
+    $("#filtersIcon").on('click',function(){
+        console.log("Click works")
+    });
 
 });
 
