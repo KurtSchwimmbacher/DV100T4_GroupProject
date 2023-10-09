@@ -798,6 +798,12 @@ footer{
     justify-content: end;
 }
 
+.filter-opt-con{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
 .filter-btn{
     width: 24px;
     height: auto;

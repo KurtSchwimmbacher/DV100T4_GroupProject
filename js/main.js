@@ -2,6 +2,7 @@
 // ===========================================================================================
 const adminUser = "Admin";
 const adminPass = "Pass";
+let filterCount = 1;
 
 
 $(document).ready(function(){
@@ -10,6 +11,9 @@ $(document).ready(function(){
 
     // set the validation text to be invisible
     clearValidationText();
+
+    // hide filters
+    $(".filter-opt-con").hide(); 
 
     // navigate from splash screen to login screen
     $("#btnLogin").click(function(){
@@ -26,9 +30,19 @@ $(document).ready(function(){
         let passIn = $("#PasswordInput").val() +"";
         validateLogin(adminUser,adminPass, userIn, passIn);
     });
+   
 
-    $("#filtersIcon").on('click',function(){
-        console.log("Click works")
+    // show and hide filters
+    $("#filtersIcon").on('click',function(){ 
+        filterCount++;
+        $(".filter-opt-con").toggle();
+        if(filterCount%2 === 0){
+            $("#filtersIcon").prop('src', "../assets/svgs/funnel-fill.svg");
+        }
+        else{
+            $("#filtersIcon").prop('src', "../assets/svgs/funnel.svg");
+        }
+        
     });
 
 });
