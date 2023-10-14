@@ -105,8 +105,14 @@
                 <h2 id="test">Trending</h2>
             </div>
         </div>
-        <div class="row row-con">
-            <div class="col-sm-6 col-md-4 col-lg-3 mb-2 ">
+        <!-- row contains trending movie cards -->
+        <div class="row row-con" id="trendingContainer">
+            <!-- Trending rows append here -->
+        </div>
+
+        <!-- trending images template -->
+        <template id="moviePosterTemplate">
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-5 movie-col">
                 <div class="card lib-card"  id="moviePoster">
                     <div class="overlay" id="overlay">
                         <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
@@ -116,37 +122,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-4 col-lg-3 mb-2 ">
-                <div class="card lib-card">
-                    <div class="overlay">
-                        <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
-                        <div id="cardBody" class="card-body lib-body">
-                            <h2 id="cardTitle" class="card-text">Movie Title</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3 mb-2 ">
-                <div class="card lib-card">
-                    <div class="overlay">
-                        <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
-                        <div id="cardBody" class="card-body lib-body">
-                            <h2 id="cardTitle" class="card-text">Movie Title</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3 mb-2 ">
-                <div class="card lib-card">
-                    <div class="overlay">
-                        <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
-                        <div id="cardBody" class="card-body lib-body">
-                            <h2 id="cardTitle" class="card-text">Movie Title</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </template>
         
         <!-- region rows -->
         <!-- africa row -->
@@ -156,46 +132,7 @@
             </div>
         </div>
         <div class="row mt-2 row-con" >
-            <div class="col-sm-6 col-md-4 col-lg-3 mb-2 ">
-                <div class="card lib-card">
-                    <div class="overlay">
-                        <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
-                        <div id="cardBody" class="card-body lib-body">
-                            <h2 id="cardTitle" class="card-text">Movie Title</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3 mb-2 ">
-                <div class="card lib-card">
-                    <div class="overlay">
-                        <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
-                        <div id="cardBody" class="card-body lib-body">
-                            <h2 id="cardTitle" class="card-text">Movie Title</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3 mb-2 ">
-                <div class="card lib-card">
-                    <div class="overlay">
-                        <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
-                        <div id="cardBody" class="card-body lib-body">
-                            <h2 id="cardTitle" class="card-text">Movie Title</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3 mb-2 ">
-                <div class="card lib-card">
-                    <div class="overlay">
-                        <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
-                        <div id="cardBody" class="card-body lib-body">
-                            <h2 id="cardTitle" class="card-text">Movie Title</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
 
             <!-- European row -->
@@ -205,96 +142,18 @@
                 </div>
             </div>
             <div class="row mt-2 row-con" >
-                <div class="col-sm-6 col-md-4 col-lg-3 mb-2 ">
-                    <div class="card lib-card">
-                        <div class="overlay">
-                            <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
-                            <div id="cardBody" class="card-body lib-body">
-                                <h2 id="cardTitle" class="card-text">Movie Title</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mb-2 ">
-                    <div class="card lib-card">
-                        <div class="overlay">
-                            <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
-                                <div id="cardBody" class="card-body lib-body">
-                                    <h2 id="cardTitle" class="card-text">Movie Title</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-3 mb-2 ">
-                        <div class="card lib-card">
-                            <div class="overlay">
-                                <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
-                                <div id="cardBody" class="card-body lib-body">
-                                    <h2 id="cardTitle" class="card-text">Movie Title</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-3 mb-2 ">
-                        <div class="card lib-card">
-                            <div class="overlay">
-                                <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
-                                <div id="cardBody" class="card-body lib-body">
-                                    <h2 id="cardTitle" class="card-text">Movie Title</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Asia row -->
-                <div class="row mt-5">
-                    <div class="col-12">
-                        <h2>Asian Titles</h2>
-                    </div>
+            </div>
+
+            <!-- Asia row -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h2>Asian Titles</h2>
                 </div>
-                <div class="row mt-2 row-con">
-                    <div class="col-sm-6 col-md-4 col-lg-3 mb-2 ">
-                        <div class="card lib-card">
-                            <div class="overlay">
-                                <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
-                                <div id="cardBody" class="card-body lib-body">
-                                    <h2 id="cardTitle" class="card-text">Movie Title</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-3 mb-2 ">
-                        <div class="card lib-card">
-                            <div class="overlay">
-                                <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
-                                    <div id="cardBody" class="card-body lib-body">
-                                        <h2 id="cardTitle" class="card-text">Movie Title</h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3 mb-2 ">
-                            <div class="card lib-card">
-                                <div class="overlay">
-                                    <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
-                                    <div id="cardBody" class="card-body lib-body">
-                                        <h2 id="cardTitle" class="card-text">Movie Title</h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3 mb-2 ">
-                            <div class="card lib-card">
-                                <div class="overlay">
-                                    <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
-                                    <div id="cardBody" class="card-body lib-body">
-                                        <h2 id="cardTitle" class="card-text">Movie Title</h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+            <div class="row mt-2 row-con">
+
+            </div>
 
         <!-- Indian row -->
         <div class="row mt-5">
@@ -303,47 +162,8 @@
             </div>
         </div>
         <div class="row mt-2 row-con">
-            <div class="col-sm-6 col-md-4 col-lg-3 mb-2 ">
-                <div class="card lib-card">
-                    <div class="overlay">
-                        <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
-                        <div id="cardBody" class="card-body lib-body">
-                            <h2 id="cardTitle" class="card-text">Movie Title</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3 mb-2 ">
-                <div class="card lib-card">
-                    <div class="overlay">
-                        <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
-                            <div id="cardBody" class="card-body lib-body">
-                                <h2 id="cardTitle" class="card-text">Movie Title</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mb-2 ">
-                    <div class="card lib-card">
-                        <div class="overlay">
-                            <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
-                            <div id="cardBody" class="card-body lib-body">
-                                <h2 id="cardTitle" class="card-text">Movie Title</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mb-2 ">
-                    <div class="card lib-card">
-                        <div class="overlay">
-                            <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
-                            <div id="cardBody" class="card-body lib-body">
-                                <h2 id="cardTitle" class="card-text">Movie Title</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+        </div>
 
     </div>
 

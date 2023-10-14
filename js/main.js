@@ -153,6 +153,9 @@ $.ajax({
     // code to add movie titles to cards
     $("#cardTitleBrowse").html(movies[0].title);
 
+  let trendingMovies = movies.splice(0,4);
+  loadTrendingMovies(trendingMovies);
+
 
 });
 
@@ -160,49 +163,49 @@ $.ajax({
 
 // movie click navigate to single movie page
 let movieName = "Default Name";
-$("#overlay").click(function(){
-    // stores name of movie clicked on to be sent to local storage
-    movieName = $(this).find("#cardTitleBrowse").text();
+$("#overlay").on('click',function(){
+  console.log("click works")
+  // stores name of movie clicked on to be sent to local storage
+  movieName = $(this).find("#cardTitleBrowse").text();
 
-    // sends movie name to local storage so that it can be pulled on single movies page
-    localStorage.setItem("clickedMovie", JSON.stringify(movieName));
+  // sends movie name to local storage so that it can be pulled on single movies page
+  localStorage.setItem("clickedMovie", JSON.stringify(movieName));
 
-    // navigates to single movie page
-    window.location.href = "../pages/singleFilm.html";
+  // navigates to single movie page
+  window.location.href = "../pages/singleFilm.html";
 });
 
-// function to listen to clicked on movie and update info
-setInterval(function () {
-    // gets movie clicked on browse page's name from local storage
-    let singleMovieName = JSON.parse(localStorage.getItem("clickedMovie"));
+// // function to listen to clicked on movie and update info
+// setInterval(function () {
+//     // gets movie clicked on browse page's name from local storage
+//     let singleMovieName = JSON.parse(localStorage.getItem("clickedMovie"));
 
-    // container for object from movie array to compare names and then update page
-    let movieInfo;
+//     // container for object from movie array to compare names and then update page
+//     let movieInfo;
 
-    // listens for changes to movie clicked on in local storage to update single movies page
-    if ($("#singleFilmTitle").text() !== singleMovieName) {
-        // updates name on single movies page
-        $("#singleFilmTitle").text(singleMovieName);
+//     // listens for changes to movie clicked on in local storage to update single movies page
+//     if ($("#singleFilmTitle").text() !== singleMovieName) {
+//         // updates name on single movies page
+//         $("#singleFilmTitle").text(singleMovieName);
 
-        // loops through movies array to compare names and store movie object
-        for(i = 0; i <movies.length; i++){
-            if(movies[i].title === singleMovieName){
-                movieInfo = movies[i];
-            }
-        }
+//         // loops through movies array to compare names and store movie object
+//         for(i = 0; i <movies.length; i++){
+//             if(movies[i].title === singleMovieName){
+//                 movieInfo = movies[i];
+//             }
+//         }
 
-        // set all the other movie info
-        // set movie description
-        $("#singleMovieDesc").text(movieInfo.overview);
-        // set the movie image
-        console.log(movieInfo)
-        $("#miniPoster").prop('src',"https://image.tmdb.org/t/p/original"+movieInfo.backdrop_path)
-        // change the large movie poster
-        let imgUrl = "https://image.tmdb.org/t/p/original"+movieInfo.backdrop_path;
-        $("#trailerImg").css("background-image","url(" + imgUrl + ")");
+//         // set all the other movie info
+//         // set movie description
+//         $("#singleMovieDesc").text(movieInfo.overview);
+//         // set the movie image
+//         $("#miniPoster").prop('src',"https://image.tmdb.org/t/p/original"+movieInfo.backdrop_path)
+//         // change the large movie poster
+//         let imgUrl = "https://image.tmdb.org/t/p/original"+movieInfo.backdrop_path;
+//         $("#trailerImg").css("background-image","url(" + imgUrl + ")");
 
-    }
-}, 100);
+//     }
+// }, 100);
 
 
 });
@@ -246,3 +249,30 @@ function sortMovies(){
     {return b.vote_average - a.vote_average}
     );
 }
+
+// load trending movies
+function loadTrendingMovies(moviesToShow){
+  
+    // Clear all cards before loading movies
+    $("#trendingContainer").empty();
+
+    for(let i = 0; i < moviesToShow.length; i++){
+        const currentTrip = moviesToShow[i];
+
+        // ===============================================================
+        // load movies on trip page
+
+        // select the trip container and add trip array to it
+        $("#trendingContainer").append($("#moviePosterTemplate").html());
+
+        // Create a variable that contains the most recently added card
+        let current = $("#trendingContainer").children().eq(i);
+        
+        // Set the content for the current trip card from the trip array
+        $(current).find("#cardTitleBrowse").text(currentTrip.title);
+        // set img url 
+        let imgUrl ="https://image.tmdb.org/t/p/original" + currentTrip.backdrop_path;
+        $(current).find("#moviePoster").css("background-image","url(" + imgUrl + ")");       
+    }
+
+};
