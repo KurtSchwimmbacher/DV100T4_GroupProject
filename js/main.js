@@ -59,6 +59,9 @@ $.ajax({
 }).done(function(){
     // outputs the results of the movies
     console.log(temp.results.reverse())
+    let res = temp.results.reverse();
+    $("#imgToRep").prop('src',"https://image.tmdb.org/t/p/original"+res[0].backdrop_path)
+    console.log("https://image.tmdb.org/t/p/original"+res[0].backdrop_path)
 });
 
 
