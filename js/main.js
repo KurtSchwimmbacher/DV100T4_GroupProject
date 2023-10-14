@@ -58,10 +58,14 @@ $.ajax({
     }
 }).done(function(){
     // outputs the results of the movies
-    console.log(temp.results.reverse())
-    let res = temp.results.reverse();
-    $("#imgToRep").prop('src',"https://image.tmdb.org/t/p/original"+res[0].backdrop_path)
-    console.log("https://image.tmdb.org/t/p/original"+res[0].backdrop_path)
+    let movies = temp.results;
+    // reverse order of array because order.asc on api doesnt return ratings properly
+    movies = movies.reverse();
+    console.log(movies)
+    
+    // code to change image poster
+    let imgUrl = "https://image.tmdb.org/t/p/original"+movies[0].backdrop_path;
+    $("#moviePoster").css("background-image","url(" + imgUrl + ")");
 });
 
 
