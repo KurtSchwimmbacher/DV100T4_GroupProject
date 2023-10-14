@@ -3,6 +3,7 @@
 const adminUser = "Admin";
 const adminPass = "Pass";
 let filterCount = 1;
+let movies = [];
 
 
 $(document).ready(function(){
@@ -58,15 +59,32 @@ $.ajax({
     }
 }).done(function(){
     // outputs the results of the movies
-    let movies = temp.results;
+    movies = temp.results;
     // reverse order of array because order.asc on api doesnt return ratings properly
     movies = movies.reverse();
     console.log(movies)
-    
-    // code to change image poster
+
+    // code to change image poster to changed to iterate dynamically
     let imgUrl = "https://image.tmdb.org/t/p/original"+movies[0].backdrop_path;
     $("#moviePoster").css("background-image","url(" + imgUrl + ")");
+
+
+    // code to add movie titles to cards
+    $("#cardTitle").html(movies[0].title);
+
+
 });
+
+
+// movie click navigate to single movie page
+$("#overlay").on('click',function(){
+    // calls function to update singleMovie pages to reflect clicked on movies details
+
+    // navigates to single movie page
+    window.location.href = "../pages/singleFilm.html";
+});
+
+
 
 
 });
