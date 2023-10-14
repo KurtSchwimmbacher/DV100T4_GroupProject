@@ -143,18 +143,18 @@ $.ajax({
     // call function to sort movies
     sortMovies();
     sortMovies(movies[0].vote_average)
-    console.log(movies)
 
     // code to change image poster to changed to iterate dynamically
     let imgUrl = "https://image.tmdb.org/t/p/original"+movies[0].backdrop_path;
     $("#moviePoster").css("background-image","url(" + imgUrl + ")");
 
 
-    // code to add movie titles to cards
-    $("#cardTitleBrowse").html(movies[0].title);
+  // code to add movie titles to cards
+  $("#cardTitleBrowse").html(movies[0].title);
 
-  let trendingMovies = movies.splice(0,4);
+  let trendingMovies = movies.slice(0,4);
   loadTrendingMovies(trendingMovies);
+  console.log(movies)
 
 
 });
@@ -163,7 +163,9 @@ $.ajax({
 
 // movie click navigate to single movie page
 let movieName = "Default Name";
-$("#overlay").on('click',function(){
+
+$("#trendingContainer").on('click','#overlay',function(){
+
   console.log("click works")
   // stores name of movie clicked on to be sent to local storage
   movieName = $(this).find("#cardTitleBrowse").text();
@@ -173,39 +175,42 @@ $("#overlay").on('click',function(){
 
   // navigates to single movie page
   window.location.href = "../pages/singleFilm.html";
+
 });
 
-// // function to listen to clicked on movie and update info
-// setInterval(function () {
-//     // gets movie clicked on browse page's name from local storage
-//     let singleMovieName = JSON.parse(localStorage.getItem("clickedMovie"));
+// function to listen to clicked on movie and update info
+setInterval(function () {
+    // gets movie clicked on browse page's name from local storage
+    let singleMovieName = JSON.parse(localStorage.getItem("clickedMovie"));
 
-//     // container for object from movie array to compare names and then update page
-//     let movieInfo;
+    // container for object from movie array to compare names and then update page
+    let movieInfo;
 
-//     // listens for changes to movie clicked on in local storage to update single movies page
-//     if ($("#singleFilmTitle").text() !== singleMovieName) {
-//         // updates name on single movies page
-//         $("#singleFilmTitle").text(singleMovieName);
+    // listens for changes to movie clicked on in local storage to update single movies page
+    if ($("#singleFilmTitle").text() !== singleMovieName) {
+        // updates name on single movies page
+        $("#singleFilmTitle").text(singleMovieName);
 
-//         // loops through movies array to compare names and store movie object
-//         for(i = 0; i <movies.length; i++){
-//             if(movies[i].title === singleMovieName){
-//                 movieInfo = movies[i];
-//             }
-//         }
+        // loops through movies array to compare names and store movie object
+        for(i = 0; i <movies.length; i++){
+            if(movies[i].title === singleMovieName){
+              console.log(movies[i]);
+              movieInfo = movies[i];
+            }
+        }
 
-//         // set all the other movie info
-//         // set movie description
-//         $("#singleMovieDesc").text(movieInfo.overview);
-//         // set the movie image
-//         $("#miniPoster").prop('src',"https://image.tmdb.org/t/p/original"+movieInfo.backdrop_path)
-//         // change the large movie poster
-//         let imgUrl = "https://image.tmdb.org/t/p/original"+movieInfo.backdrop_path;
-//         $("#trailerImg").css("background-image","url(" + imgUrl + ")");
+        console.log(movieInfo)
+        // set all the other movie info
+        // set movie description
+        $("#singleMovieDesc").text(movieInfo.overview);
+        // set the movie image
+        $("#miniPoster").prop('src',"https://image.tmdb.org/t/p/original"+movieInfo.backdrop_path)
+        // change the large movie poster
+        let imgUrl = "https://image.tmdb.org/t/p/original"+movieInfo.backdrop_path;
+        $("#trailerImg").css("background-image","url(" + imgUrl + ")");
 
-//     }
-// }, 100);
+    }
+}, 100);
 
 
 });
