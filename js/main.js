@@ -84,18 +84,36 @@ $.ajax({
 // movie click navigate to single movie page
 let movieName = "Default Name";
 $("#overlay").click(function(){
-    // calls function to update singleMovie pages to reflect clicked on movies details
+    // stores name of movie clicked on to be sent to local storage
     movieName = $(this).find("#cardTitleBrowse").text();
+
+    // sends movie name to local storage so that it can be pulled on single movies page
     localStorage.setItem("clickedMovie", JSON.stringify(movieName));
 
     // navigates to single movie page
     window.location.href = "../pages/singleFilm.html";
 });
 
+// function to listen to clicked on movie and update info
 setInterval(function () {
+    // gets movie clicked on browse page's name from local storage
     let singleMovieName = JSON.parse(localStorage.getItem("clickedMovie"));
+
+    // container for object from movie array to compare names and then update page
+    let movieInfo;
+
+    // listens for changes to movie clicked on in local storage to update single movies page
     if ($("#singleFilmTitle").text() !== singleMovieName) {
+        // updates name on single movies page
         $("#singleFilmTitle").text(singleMovieName);
+
+        // loops through movies array to compare names and store movie object
+        for(i = 0; i <movies.length; i++){
+            if(movies[i].title === singleMovieName){
+                movieInfo = movies[i];
+            }
+        }
+        console.log(movieInfo);
     }
 }, 100);
 
