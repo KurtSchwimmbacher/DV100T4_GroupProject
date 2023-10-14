@@ -74,7 +74,7 @@ $.ajax({
 
 
     // code to add movie titles to cards
-    $("#cardTitle").html(movies[0].title);
+    $("#cardTitleBrowse").html(movies[0].title);
 
 
 });
@@ -82,14 +82,22 @@ $.ajax({
 
 
 // movie click navigate to single movie page
-$("#overlay").on('click',function(){
+let movieName = "Default Name";
+$("#overlay").click(function(){
     // calls function to update singleMovie pages to reflect clicked on movies details
+    movieName = $(this).find("#cardTitleBrowse").text();
+    localStorage.setItem("clickedMovie", JSON.stringify(movieName));
 
     // navigates to single movie page
     window.location.href = "../pages/singleFilm.html";
 });
 
-
+setInterval(function () {
+    let singleMovieName = JSON.parse(localStorage.getItem("clickedMovie"));
+    if ($("#singleFilmTitle").text() !== singleMovieName) {
+        $("#singleFilmTitle").text(singleMovieName);
+    }
+}, 100);
 
 
 });
