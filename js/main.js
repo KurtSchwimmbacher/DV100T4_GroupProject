@@ -4,6 +4,7 @@ const adminUser = "Admin";
 const adminPass = "Pass";
 let filterCount = 1;
 let movies = [];
+let testArr = [12, 11, 13, 5, 6 ];
 
 
 $(document).ready(function(){
@@ -53,15 +54,18 @@ let jap ="JP";
 
 $.ajax({
     type:"GET",
-    url:"https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_origin_country="+jap,
+    // gets the first page of results
+    url:"https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country="+jap,
     success: function(data){
         temp = data;
     }
 }).done(function(){
     // outputs the results of the movies
     movies = temp.results;
-    // reverse order of array because order.asc on api doesnt return ratings properly
-    movies = movies.reverse();
+
+    // call function to sort movies
+    sortMovies();
+    sortMovies(movies[0].vote_average)
     console.log(movies)
 
     // code to change image poster to changed to iterate dynamically
@@ -74,6 +78,7 @@ $.ajax({
 
 
 });
+
 
 
 // movie click navigate to single movie page
@@ -122,3 +127,9 @@ function validateLogin(username, password, userIn, passIn){
         $("#UsernameLabel").show();
     }
 };
+
+function sortMovies(){
+    movies.sort(function(a, b)
+    {return b.vote_average - a.vote_average}
+    );
+}
