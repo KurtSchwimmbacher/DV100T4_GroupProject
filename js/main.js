@@ -45,6 +45,23 @@ $(document).ready(function(){
         
     });
 
+
+// api Pulls
+// country codes used to control regional results, combine with method to filter results by a specific place
+let jap ="JP";
+
+$.ajax({
+    type:"GET",
+    url:"https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_origin_country="+jap,
+    success: function(data){
+        temp = data;
+    }
+}).done(function(){
+    // outputs the results of the movies
+    console.log(temp.results.reverse())
+});
+
+
 });
 
 // functions
