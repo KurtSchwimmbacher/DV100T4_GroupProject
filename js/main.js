@@ -166,7 +166,6 @@ let movieName = "Default Name";
 
 $("#trendingContainer").on('click','#overlay',function(){
 
-  console.log("click works")
   // stores name of movie clicked on to be sent to local storage
   movieName = $(this).find("#cardTitleBrowse").text();
 
@@ -194,12 +193,10 @@ setInterval(function () {
         // loops through movies array to compare names and store movie object
         for(i = 0; i <movies.length; i++){
             if(movies[i].title === singleMovieName){
-              console.log(movies[i]);
               movieInfo = movies[i];
             }
         }
 
-        console.log(movieInfo)
         // set all the other movie info
         // set movie description
         $("#singleMovieDesc").text(movieInfo.overview);
