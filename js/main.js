@@ -152,8 +152,9 @@ $.ajax({
   // code to add movie titles to cards
   $("#cardTitleBrowse").html(movies[0].title);
 
+  // load movies in trending section of browse page
   let trendingMovies = movies.slice(0,4);
-  loadTrendingMovies(trendingMovies);
+  loadMovies(trendingMovies);
   console.log(movies)
 
 
@@ -184,6 +185,7 @@ setInterval(function () {
 
     // container for object from movie array to compare names and then update page
     let movieInfo;
+    let genreArr = [];
 
     // listens for changes to movie clicked on in local storage to update single movies page
     if ($("#singleFilmTitle").text() !== singleMovieName) {
@@ -196,6 +198,8 @@ setInterval(function () {
               movieInfo = movies[i];
             }
         }
+
+        loadPills(movieInfo.genre);
 
         // set all the other movie info
         // set movie description
@@ -253,28 +257,54 @@ function sortMovies(){
 }
 
 // load trending movies
-function loadTrendingMovies(moviesToShow){
+function loadMovies(moviesToShow){
   
     // Clear all cards before loading movies
     $("#trendingContainer").empty();
 
     for(let i = 0; i < moviesToShow.length; i++){
-        const currentTrip = moviesToShow[i];
+        const currentMovie = moviesToShow[i];
 
         // ===============================================================
         // load movies on trip page
 
-        // select the trip container and add trip array to it
+        // select the trending container and add movie array to it
         $("#trendingContainer").append($("#moviePosterTemplate").html());
 
         // Create a variable that contains the most recently added card
         let current = $("#trendingContainer").children().eq(i);
         
-        // Set the content for the current trip card from the trip array
-        $(current).find("#cardTitleBrowse").text(currentTrip.title);
+        // Set the content for the current movie card from the movie array
+        $(current).find("#cardTitleBrowse").text(currentMovie.title);
         // set img url 
-        let imgUrl ="https://image.tmdb.org/t/p/original" + currentTrip.backdrop_path;
+        let imgUrl ="https://image.tmdb.org/t/p/original" + currentMovie.backdrop_path;
         $(current).find("#moviePoster").css("background-image","url(" + imgUrl + ")");       
     }
 
+};
+
+
+// code to load pills into single films page
+function loadPills(genresArr){
+  $("#pillContainer").empty();
+
+  for(let i = 0; i < genresArr.length; i++){
+    const currentGenre = genresArr[i];
+
+    // test to convert genre id to genre name
+    for(let j = 0; j < genreList.length; j++){
+      if(genreList[j].id === currentGenre){
+        currentGenre = genreList[j].name;
+        console.log("genre names: "+currentGenre)
+      };
+    };
+
+
+    // add genres to to pill container
+    $("#pillContainer").append($("#pillTemplate").html());
+    let current = $("#pillContainer").children().eq(i);
+
+    $(current).find("#pillTxt").text(currentGenre);
+
+  }
 };
