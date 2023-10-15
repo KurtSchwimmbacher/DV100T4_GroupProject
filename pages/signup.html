@@ -20,7 +20,7 @@
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 
     <!-- JS Links -->
-    <script src="/js/signup.js"></script>
+    <script src="../js/signup.js"></script>
     <script src="../js/main.js"></script>
     
     
@@ -100,28 +100,38 @@
         </div>
 
         <div class="col-lg-12 col-md-6 col-sm-6 mt-2 form-con">
-          <form id="form" action="/">
-            <div class="input-control">
-              <label for="UsernameInputSU" class="form-label">Username</label>
-              <input type="text" class="form-control" id="UsernameInputSU" aria-describedby="UsernameInput"  required>
-              <div id="UsernameLabel" class="form-text">For validation - to be hidden</div>
-            </div>
-            <div class="input-control">
-              <label for="EmailInputSU" class="form-label">Email Address</label>
-              <input type="email" class="form-control" id="EmailInputSU" aria-describedby="EmailInput">
-              <div id="EmailLabel" class="form-text">We'll never share your email with anyone else.</div>
-            </div>
-            <div class="input-control">
-              <label for="PasswordInputSU" class="form-label">Password</label>
-              <input type="password" class="form-control" id="PasswordInputSU"   required>
-              <div id="PasswordLabel" class="form-text">For validation - to be hidden</div>
-            </div>
-            <div class= "input-control">
-              <label for="PasswordConfirmSU" class="form-label">Confirm Password</label>
-              <input type="password" class="form-control" id="PasswordConfirmSU"   required>
-              <div id="PasswordConLabel" class="form-text">For validation - to be hidden</div>
-            </div>
-            <button type="button" class="btn btn-primary mt-2">Sign Up</button>
+          <!-- sign up form -->
+          <form id="signUpForm" novalidate="">
+
+
+            <form id="signUpForm" class="mt-3" novalidate="">
+              <!-- username input group -->
+              <div class="form-group">
+                <label>Username</label>
+                <input type="text" class="form-control" id="UsernameInputSU" name="username" minlength="6" maxlength="15" required >
+                <div class="invalid-feedback">Please enter a valid Username</div>
+              </div>
+              <!-- email input group -->
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" id="EmailInputSU" name="email" required >
+                <div class="invalid-feedback">Please enter a valid Username</div>
+              </div>
+              <!-- password input group -->
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" id="PasswordInputSU" name="password" minlength="8"  required>
+                <div class="invalid-feedback">Password needs to be at least 8 characters long</div>
+              </div>
+              <!-- confirm password input group -->
+              <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" class="form-control" id="PasswordConfirmSU" name="confirm password"  required>
+                <div class="invalid-feedback">Passwords do not match</div>
+              </div>
+              <!-- button -->
+              <button type="submit" class="btn btn-primary mt-4"> Sign Up</button>
+            </form>
 
           </form>
         </div>
