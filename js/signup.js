@@ -97,4 +97,5 @@ $("#signUpForm").submit(function(event){
     $(this).addClass('was-validated');
 
 });
+
 });
