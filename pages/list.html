@@ -48,88 +48,108 @@
         </nav>
   </div>
 
+ 
+
   <!------------------Movies Display Section---------------------->
 
   
 
 <!------------------Movies Display Section (CARDS DISPLAY THAT HAS WORDS)---------------------->
 
-<!--SECTION ONE-->
- <div class="container-fluid">
+
+ <div class="container-fluid" id="temp">
   <div class="row" style="padding-top: 20px; background-color: #2B2B27;">
+
+
+    <!--Sort/Filter Section-->
+
+    <div class="btn-group" role="group" aria-label="Basic radio toggle button group" style="margin-bottom: 30px;" id="platform">
+      <input type="radio" class="btn-check" name="sortRadio" id="allShows" value="allStreams" autocomplete="off">
+      <label class="btn btn-outline-light" for="allShows">ALL SHOWS</label>
+
+      <input type="radio" class="btn-check" name="sortRadio" id="series" value="tvShows" autocomplete="off">
+      <label class="btn btn-outline-light" for="series">SERIES</label>
     
-      <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
-        <div class="card mb-3" style="max-width: 540px;">
-          <div class="row g-0">
-            <div class="col-md-4 ">
-              <img src="../assets/indie movie 1.2.jpg" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif; ">Title Of Movie</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-   
+      <input type="radio" class="btn-check" name="sortRadio" id="movies" value="tvMovies" autocomplete="off">
+      <label class="btn btn-outline-light" for="movies">MOVIES</label>
+    </div>
+    
+    <!--SECTION ONE OF THE CARDS-->
 
-    <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
-      <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="../assets/indie movie 1.2.jpg" class="img-fluid rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif; ">Title Of Movie</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-            </div>
+
+  <div id="soapiesBox" class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4 "> 
+          <img src="../assets/indie movie 1.2.jpg" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">               
+          <div class="card-body">
+            <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif;" id="title">TThe green knight</h5>
+            <p class="card-text" id="description">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
           </div>
         </div>
       </div>
     </div>
-
-    <div class=" col-xl-3 col-lg-4 col-md-6 col-xs-12">
-      <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="../assets/indie movie 1.2.jpg" class="img-fluid rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif; ">Title Of Movie</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class=" col-xl-3 col-lg-4 col-md-6 col-xs-12">
-      <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="../assets/indie movie 1.2.jpg" class="img-fluid rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif; ">Title Of Movie</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
   </div>
- </div>
 
 
- <!--SECTION TWO-->
- <div class="container-fluid">
+<div id="soapiesBox" class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="../assets/indie movie 1.2.jpg" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif; " id="title">The green knight</h5>
+          <p class="card-text" id="description">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="soapiesBox" class=" col-xl-3 col-lg-4 col-md-6 col-xs-12">
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="../assets/indie movie 1.2.jpg" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif; " id="title">The green knight</h5>
+          <p class="card-text" id="description">This is a wider card with supporting text below as a natural lead-in to additional content. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="soapiesBox" class=" col-xl-3 col-lg-4 col-md-6 col-xs-12">
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="../assets/indie movie 1.2.jpg" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif; " id="title">The green knight</h5>
+          <p class="card-text" id="description">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+</div>
+
+
+
+ <!--SECTION TWO OF THE CARDS-->
+ <div class="container-fluid"  id="temp">
   <div class="row" style="padding-top: 20px; background-color: #2B2B27;">
     
       <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
@@ -140,7 +160,7 @@
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif; ">Title Of Movie</h5>
+                <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif; ">When you finish saving the world</h5>
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
               </div>
             </div>
@@ -157,7 +177,7 @@
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif; ">Title Of Movie</h5>
+              <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif; ">When you finish saving the world</h5>
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
             </div>
           </div>
@@ -173,7 +193,7 @@
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif; ">Title Of Movie</h5>
+              <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif; ">When you finish saving the world</h5>
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. </p>
             </div>
           </div>
@@ -189,7 +209,7 @@
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif; ">Title Of Movie</h5>
+              <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif; ">When you finish saving the world</h5>
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
             </div>
           </div>
@@ -201,8 +221,8 @@
   </div>
  </div>
 
-<!--SECTION THREE-->
- <div class="container-fluid">
+<!--SECTION THREE OF THE CARDS-->
+ <div class="container-fluid"  id="temp">
   <div class="row" style="padding-top: 20px; background-color: #2B2B27;">
     
       <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
@@ -213,7 +233,7 @@
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif; ">Title Of Movie</h5>
+                <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif; ">Pearl</h5>
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
               </div>
             </div>
@@ -230,7 +250,7 @@
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif; ">Title Of Movie</h5>
+              <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif; ">Pearl</h5>
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
             </div>
           </div>
@@ -246,7 +266,7 @@
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif; ">Title Of Movie</h5>
+              <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif; ">Pearl</h5>
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. </p>
             </div>
           </div>
@@ -262,7 +282,7 @@
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif; ">Title Of Movie</h5>
+              <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif; ">Pearl</h5>
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
             </div>
           </div>
@@ -286,3 +306,6 @@
       
 </body>
   </html>
+
+
+  
