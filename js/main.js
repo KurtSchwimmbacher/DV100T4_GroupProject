@@ -199,7 +199,7 @@ setInterval(function () {
             }
         }
 
-        loadPills(movieInfo.genre);
+        // loadPills(movieInfo.genre);
 
         // set all the other movie info
         // set movie description
@@ -285,26 +285,26 @@ function loadMovies(moviesToShow){
 
 
 // code to load pills into single films page
-function loadPills(genresArr){
-  $("#pillContainer").empty();
+// function loadPills(genresArr){
+//   $("#pillContainer").empty();
 
-  for(let i = 0; i < genresArr.length; i++){
-    const currentGenre = genresArr[i];
+//   for(let i = 0; i < genresArr.length; i++){
+//     const currentGenre = genresArr[i];
 
-    // test to convert genre id to genre name
-    for(let j = 0; j < genreList.length; j++){
-      if(genreList[j].id === currentGenre){
-        currentGenre = genreList[j].name;
-        console.log("genre names: "+currentGenre)
-      };
-    };
+//     // test to convert genre id to genre name
+//     for(let j = 0; j < genreList.length; j++){
+//       if(genreList[j].id === currentGenre){
+//         currentGenre = genreList[j].name;
+//         console.log("genre names: "+currentGenre)
+//       };
+//     };
 
 
-    // add genres to to pill container
-    $("#pillContainer").append($("#pillTemplate").html());
-    let current = $("#pillContainer").children().eq(i);
+//     // add genres to to pill container
+//     $("#pillContainer").append($("#pillTemplate").html());
+//     let current = $("#pillContainer").children().eq(i);
 
-    $(current).find("#pillTxt").text(currentGenre);
+//     $(current).find("#pillTxt").text(currentGenre);
 
-  }
-};
+//   }
+// };
