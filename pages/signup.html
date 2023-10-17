@@ -24,7 +24,7 @@
 
     <!-- JS Links -->
     <script src="../js/signup.js"></script>
-    <script src="../js/main.js"></script>
+    <!-- <script src="../js/main.js"></script> -->
     
     
     
@@ -123,14 +123,14 @@
               <!-- password input group -->
               <div class="form-group">
                 <label>Password</label>
-                <input type="password" class="form-control" id="PasswordInputSU" name="password" minlength="8"  required>
-                <div class="invalid-feedback">Password needs to be at least 8 characters long</div>
+                <input type="password" class="form-control" id="passwordInput" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  required>
+                <div class="invalid-feedback">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</div>
               </div>
               <!-- confirm password input group -->
               <div class="form-group">
                 <label>Confirm Password</label>
-                <input type="password" class="form-control" id="PasswordConfirmSU" name="confirm password"   required>
-                <div class="invalid-feedback">Passwords do not match</div>
+                <input type="password" class="form-control" id="confirmPasswordInput" name="confirmPassword"  required>
+                <div class="invalid-feedback">Passwords Must Match</div>
               </div>
               <!-- button -->
               <button type="submit" class="btn btn-primary mt-4"> Sign Up</button>
