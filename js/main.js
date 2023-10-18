@@ -1,19 +1,18 @@
+// Code for Home page + Login
+
+
 // variables
 // ===========================================================================================
 const adminUser = "Admin";
 const adminPass = "Pass";
-let filterCount = 1;
+
 
 
 $(document).ready(function(){
-    console.log("Hello World")
-    
-
     // set the validation text to be invisible
     clearValidationText();
 
-    // hide filters
-    $(".filter-opt-con").hide(); 
+  
 
     // navigate from splash screen to login screen
     $("#btnLogin").click(function(){
@@ -32,23 +31,28 @@ $(document).ready(function(){
     });
    
 
-    // show and hide filters
-    $("#filtersIcon").on('click',function(){ 
-        filterCount++;
-        $(".filter-opt-con").toggle();
-        if(filterCount%2 === 0){
-            $("#filtersIcon").prop('src', "../assets/svgs/funnel-fill.svg");
-        }
-        else{
-            $("#filtersIcon").prop('src', "../assets/svgs/funnel.svg");
-        }
-        
-    });
+
+
+
 
 });
 
 // functions
 // ===========================================================================================
+
+
+
+
+function displayStreams(displayStreams){
+    
+    let streams = [];
+
+    streams = arrPlaylist.sort(show => show.name === appliedSort)
+}
+
+
+
+
 // function to clear validation text
 function clearValidationText(){
     
@@ -80,3 +84,5 @@ function validateLogin(username, password, userIn, passIn){
         $("#UsernameLabel").show();
     }
 };
+
+

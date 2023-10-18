@@ -1,0 +1,198 @@
+/* css for list page */
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Monoton&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
+
+
+/* ---------------------------------------------------------------- */
+/* Global CSS */
+
+/* Spacing */
+.full-height{
+    height: 100vh;
+}
+/* fonts */
+
+/* set all large headings to display font */
+h1{
+    font-family: 'Monoton', cursive;
+    color: #F18442;
+}
+
+
+h2,h3,h4,h5,h6,p,a{
+    font-family: 'Dosis', sans-serif;
+    color: white;
+}
+
+/* set page background colour to dark color */
+body{
+    background-color: #2b2b2b;
+}
+
+/* set text on page to white */
+label, .form-text, p{
+    color: white;
+}
+
+.form-text{
+    color: red;
+}
+
+
+/* ============================================================================ */
+/* Nav Bar */
+
+/* change the background colour of the navbar as a whole and add the border to create distinction */
+.navbar{
+    background-color: #2b2b2b !important;
+    border-bottom: 3px solid #F18442;
+}
+
+.logo_title{
+    font-family: 'Monoton', cursive;
+    color: #F18442;
+    font-size: 24px;
+    vertical-align: middle;
+}
+
+.active{
+    color: #F18442 !important;
+    font-weight: 800;
+    border-bottom: 2px solid #F18442;
+}
+
+.nav-item{
+    display: flex;
+    align-self: center;
+    width: 25vh;
+}
+
+
+.nav-link{
+    color: white;
+}
+
+
+.nav-link:hover{
+    color: #F18442 !important;
+    font-weight: 800;
+}
+
+.navbar-nav{
+    margin-left: 15%;
+}
+/*============================================================================================= */
+/* nav bar end */
+
+
+
+/*============================================================================================= */
+/* Media Queries */
+/*============================================================================================= */
+/* Media Queries */
+@media(min-width: 300px){
+
+    h1{
+        font-size: 16px;
+    }
+
+    /* fixing nav bar colours */
+    .navbar-toggler{
+        color: white;
+        background-color: #F18442;
+    }   
+    
+    /* footer */
+    .footer-socials{
+        text-align: center;
+    }
+    .footer-brand{
+        text-align: center;
+    }
+    .footer-api{
+        text-align: center;
+    }
+
+}
+
+@media(min-width:576px){
+
+}
+
+@media(min-width:768px){
+    h1{
+        font-size: 22px;
+    }
+}
+
+
+@media(min-width:991px){
+/* footer */
+footer .row{
+    display: table;
+    text-align: center;
+}
+.footer-socials{
+    display: table-cell;
+    text-align: center;
+}
+.footer-brand{
+    display: table-cell;
+    text-align: center;
+}
+.footer-api{
+    display: table-cell;
+    text-align: center;
+}
+
+}
+
+
+@media(min-width:1200px){
+    h1{
+        font-size: 36px;
+    }
+
+}
+/* =========================================================================== */
+/* end of media queries */
+
+
+/* =========================================================================== */
+/* Body of document styles */
+
+/* filters buttons */
+.watchlist-filters{
+    padding-top: 20px;
+}
+
+
+
+/* watchlist card styling */
+.card-text{
+    color: black;
+}
+
+/* =========================================================================== */
+/* end of Body of document styles */
+
+
+
+/* ============================================================================ */
+/* footer */
+.footer-con{
+    width: 100%;
+}
+
+footer i {
+    margin-left: 15px;
+    margin-right: 15px  ;
+}
+
+.footer-api-img{
+    margin-top: 7px;
+}
+/* ============================================================================ */
+/* footer end */

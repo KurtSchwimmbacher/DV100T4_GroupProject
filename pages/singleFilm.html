@@ -10,12 +10,16 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     
+<!-- ajax -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+
     <!-- JS Links -->
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="../js/main.js"></script>
+    <script src="../js/singleMovie.js"></script>
     
 
 
@@ -67,7 +71,7 @@
     <div class="container-fluid mt-3">
       <div class="row">
         <div class="col-12" style="display: flex; align-items: center; justify-content: center;">
-          <div class="trailer-img" style="display: flex; justify-content: center;">
+          <div class="trailer-img" style="display: flex; justify-content: center;" id="trailerImg">
             <img src="../assets/svgs/play-circle-fill.svg" class="play-trailer">
           </div>
         </div>
@@ -75,24 +79,32 @@
     </div>
 
     <!-- ------------------------------------------------------------------------------------------------ -->
-    <!-- Movie Pills-->
+    <!-- Movie Pills and title-->
         <div class="container">
           <div class="row mt-5">
             <div class="col-sm-12">
-              <h2 class="single-film-title">
+              <h2 class="single-film-title" id="singleFilmTitle">
                 Nazrana
               </h2>
             </div>
           </div>
           <!-- pill row -->
           <div class="row">
-            <div class="col-12-sm">
-              <span class="badge text-bg-dark">1961</span>
-              <span class="badge text-bg-dark">PG13</span>
-              <span class="badge text-bg-dark">1h20m</span>
-              <span class="badge text-bg-dark">HD</span>
+            <div class="col-sm-6" id="pillContainer">
+              <span class="badge text-bg-dark" id="pillTemplate">HD</span>
+              <span class="badge text-bg-dark" id="pillTemplate">HD</span>
+              <span class="badge text-bg-dark" id="pillTemplate">HD</span>
+
+             
+            </div>
+            <div class="col-sm-6">
               <span class="badge text-bg-dark info-circle"><i class="bi bi-info-circle"></i></span>
             </div>
+
+            <template id="pillTemplate">
+              <span class="badge text-bg-dark" id="pillTxt">HD</span>
+            </template>
+
           </div>
 
         </div>
@@ -105,12 +117,12 @@
 
         <div class="col-6">
           <div class="image-con">
-            <img class="mini-poster" src="../assets/Ao to Orenji.jpg">
+            <img class="mini-poster" src="../assets/Ao to Orenji.jpg" id="miniPoster">
           </div>
         </div>
 
         <div class="col-6">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima ratione nostrum officia mollitia voluptas dolor, dicta aliquid libero quisquam! Dolorum laboriosam repellendus ut nobis dignissimos voluptatem adipisci illum possimus itaque!</p>
+          <p id="singleMovieDesc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima ratione nostrum officia mollitia voluptas dolor, dicta aliquid libero quisquam! Dolorum laboriosam repellendus ut nobis dignissimos voluptatem adipisci illum possimus itaque!</p>
         </div>
       </div>
     </div>
