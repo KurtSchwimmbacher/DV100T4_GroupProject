@@ -126,7 +126,22 @@ label, .form-text, p{
     opacity: 1;
 }
 
-    
+ .play-logo{
+    width: 30%;
+    margin-left: 33%;
+    padding-top: 50%;
+}
+
+.overlay{
+    width: 100%;    
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    opacity: 0;
+}
+.overlay:hover{
+    cursor: pointer;
+    opacity: 1;
+}
     
         /* footer */
         .footer-socials{
@@ -543,6 +558,7 @@ label, .form-text, p{
 /* Carousel */
 
 /* Carousel Image */
+
 .carousel-image{
     margin-top: -12vh;
     object-position: top;
@@ -569,40 +585,37 @@ label, .form-text, p{
 #orange{
     object-position: center !important;
 }
-/* Carousel Button */
-.carousel-btn{
-    text-align: center;
-}
 
 /* Carousel Btn Styling */
+.carousel-btn{
+
+}
 .btn-primary{
     background-color: coral !important;
     color: rgb(0, 0, 0) !important;
     border-radius: 10px;
-    border: 3px solid coral;
     width: 15rem;
+    height: 3rem;
     font-family: 'Dosis', sans-serif;
-    font-size: 24px;
+    font-size: 22px;
 }
 .btn-primary:hover{
+    cursor: pointer;
     background-color: rgb(255, 255, 255) !important;
     border: 3px solid coral !important;
 }
 
 /* Carousel Controls */
 .carousel-control-prev, .carousel-control-next {
-    top: auto;
-    left: 23rem;
-    bottom: 10rem;
+
+    align-self: center;
     width: 3rem;
     height: 3rem;
     border: 3px solid #000000;
     background-color: #EBF4FC;
     border-radius: 50%
 }
-.carousel-control-next{
-    left: 28rem;
-}
+
 
 /* ---------------------------------------------------------------- */
 
@@ -612,6 +625,44 @@ label, .form-text, p{
     background-position: fixed;
     background-size: cover;
     object-fit: cover;
+}
+@media(min-width: 300px){
+    .carousel-heading h1{
+     font-size: 30px;   
+    }
+    .carousel-text h4{
+      font-size: 18px;  
+    }
+}
+@media(min-width: 576px){
+    .carousel-heading h1{
+     font-size: 40px;   
+    }
+    .carousel-text h4{
+        font-size: 20px; 
+    }
+}
+
+@media(min-width: 768px){
+    .carousel-heading h1{
+     font-size: 50px;   
+    }
+}
+@media(min-width: 991px){
+    .carousel-heading h1{
+     font-size: 60px;   
+    }
+    .carousel-text h4{
+        font-size: 22px; 
+    }
+}
+@media(min-width: 1200px){
+    .carousel-heading h1{
+  
+    }
+    .carousel-text h4{
+        font-size: 24px; 
+    }
 }
 
 /* ============================================================================ */
