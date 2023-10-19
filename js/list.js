@@ -21,6 +21,13 @@ const arrPlaylist = [
 
    
 ];
+
+// Get movies from local storage
+// ===========================================================================================
+
+let movies = JSON.parse(localStorage.getItem("clickedMovies")) || [];
+console.log(movies);
+
 // ================================================================================
 
 $(document).ready(function(){

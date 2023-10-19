@@ -420,7 +420,10 @@ label, .form-text, p{
 /* Carousel Controls */
 .carousel-control-prev, .carousel-control-next {
 
-    align-self: center;
+    left: 20%;
+    top: 75%;
+    right: auto;
+    bottom: 20%;
     width: 3rem;
     height: 3rem;
     border: 3px solid #000000;
@@ -428,6 +431,9 @@ label, .form-text, p{
     border-radius: 50%
 }
 
+.carousel-control-next{
+    left: 33%;
+}
 
 /* ---------------------------------------------------------------- */
 
@@ -442,12 +448,14 @@ label, .form-text, p{
 /* Media Queries for Homepage*/
 
 @media(min-width: 300px){
+
     .carousel-heading h1{
      font-size: 30px;   
     }
     .carousel-text h4{
       font-size: 18px;  
     }
+
 }
 @media(min-width: 576px){
     .carousel-heading h1{
@@ -456,11 +464,20 @@ label, .form-text, p{
     .carousel-text h4{
         font-size: 20px; 
     }
+
 }
 
 @media(min-width: 768px){
     .carousel-heading h1{
      font-size: 50px;   
+    }
+
+    .carousel-image{
+        margin-top: -15vh;
+        object-position: top;
+        object-fit: cover;
+        max-height: 95vh;
+        width: 50vw;
     }
 }
 @media(min-width: 991px){
@@ -470,6 +487,14 @@ label, .form-text, p{
     .carousel-text h4{
         font-size: 22px; 
     }
+
+    .carousel-image{
+        margin-top: -12vh;
+        object-position: top;
+        object-fit: cover;
+        max-height: 95vh;
+        width: 50vw;
+    }
 }
 @media(min-width: 1200px){
     .carousel-heading h1{
@@ -477,6 +502,14 @@ label, .form-text, p{
     }
     .carousel-text h4{
         font-size: 24px; 
+    }
+
+    .carousel-image{
+        margin-top: -12vh;
+        object-position: top;
+        object-fit: cover;
+        max-height: 95vh;
+        width: 50vw;
     }
 }
 
