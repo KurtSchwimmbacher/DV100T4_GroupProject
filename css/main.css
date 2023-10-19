@@ -438,6 +438,9 @@ label, .form-text, p{
     background-size: cover;
     object-fit: cover;
 }
+
+/* Media Queries for Homepage*/
+
 @media(min-width: 300px){
     .carousel-heading h1{
      font-size: 30px;   

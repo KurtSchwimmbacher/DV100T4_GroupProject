@@ -197,8 +197,37 @@ setInterval(function () {
 
 
 });
-// ==========================================================================================
 
+// ===============================================================================================================
+// Add to watchlist
+
+// There is already an onclick on the cards so everytime you click the add icon it takes you to the single movie page. How do you fix this?
+// It's an array because we want to be able to save multiple movies to the watchlist
+let watchlistMovieName = [];
+
+// It has to be onclick because of movie template right??? Why doesn't anyting I select work.
+$("#trendingContainer").on('click','add-icon',function(){
+
+  // If I have it right you only need the movie name and img.
+  title = $(this).find("#cardTitleBrowse").text();
+  img = $(this).find("#moviePoster").attr('src');
+
+  watchlistMovieName.push({
+    movieName: title,
+    movieImg: img
+  })
+
+  // will this pull the watchlist array in and is this even correct?
+  localStorage.setItem("watchlistMovies", JSON.stringify(watchlistMovieName));
+
+
+});
+
+//point and case T^T... nothing is appearing on the console??? Is it to do with the placement?
+// Is it because #trendingContainer has been selected before? IDK
+$("#trendingContainer").click(function(){
+  console.log("Why doesn't it work?????");
+})
 
 // ===============================================================================================================
 // functions
@@ -234,5 +263,4 @@ function loadMovies(moviesToShow){
     }
 
 };
-
 

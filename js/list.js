@@ -58,3 +58,8 @@ function loadShows(){
     }
 };
 
+// ======================================================
+// Add to Watchlist
+
+let watchlistData = JSON.parse(localStorage.getItem('watchlistMovie'));
+console.log(watchlistData);
