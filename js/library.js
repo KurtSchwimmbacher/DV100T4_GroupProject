@@ -296,7 +296,7 @@ $.ajax({
       
 })
 
-area = "DE";
+area = "GB";
 $.ajax({
   type:"GET",
   // gets the first page of results
@@ -322,10 +322,13 @@ $.ajax({
     
       // load movies in trending section of browse page
       let trendingMovies = movies.slice(0,4);
-      for(i = 4; i <=8; i++){
-        euroArr[i] = trendingMovies[i-4];
+      for(i = 0; i < 4; i++){
+        euroArr.push(trendingMovies[i])
       }
-      euroArr.pop();
+      sortMovies(euroArr);
+      for(i = 0; i <8; i++){
+        console.log(euroArr[i].vote_average)
+      }
       console.log(euroArr);
       loadAfricanMovies(euroArr);
 })
