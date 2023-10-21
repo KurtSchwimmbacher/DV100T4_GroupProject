@@ -62,6 +62,7 @@ label, .form-text, p{
 
 .row-con{
     height: 300vh;
+    margin-bottom: 300vh;
 }
 
 .movie-col{
@@ -123,6 +124,7 @@ label, .form-text, p{
 
 .row-con{
     height: 110vh;
+    margin-bottom: 110vh;
 }
 
 .lib-card{
@@ -218,6 +220,7 @@ label, .form-text, p{
 
 .row-con{
     height: 50vh;
+    margin-bottom: 60vh;
 }
 
 .movie-col{
