@@ -234,10 +234,10 @@ function loadTrendingMovies(moviesToShow){
 };
 
 // load african movies
-function loadAfricanMovies(moviesToShow){
+function fillEuroMovies(moviesToShow){
   
   // Clear all cards before loading movies
-  $("#africanContainer").empty();
+  $("#europeContainer").empty();
 
   for(let i = 0; i < moviesToShow.length; i++){
       const currentMovie = moviesToShow[i];
@@ -246,10 +246,10 @@ function loadAfricanMovies(moviesToShow){
       // load movies
 
       // select the trending container and add movie array to it
-      $("#africanContainer").append($("#moviePosterTemplate").html());
+      $("#europeContainer").append($("#moviePosterTemplate").html());
 
       // Create a variable that contains the most recently added card
-      let current = $("#africanContainer").children().eq(i);
+      let current = $("#europeContainer").children().eq(i);
       
       // Set the content for the current movie card from the movie array
       $(current).find("#cardTitleBrowse").text(currentMovie.title);
@@ -275,6 +275,7 @@ $.ajax({
   }
 }).done(function(){
   // outputs the results of the movies
+  movies.length = 0;
   movies = temp.results;
 
   // call function to sort movies
@@ -296,7 +297,7 @@ $.ajax({
       
 })
 
-area = "GB";
+area = "DE";
 $.ajax({
   type:"GET",
   // gets the first page of results
@@ -321,16 +322,17 @@ $.ajax({
       $("#cardTitleBrowse").html(movies[0].title);
     
       // load movies in trending section of browse page
+      sortMovies(movies);
       let trendingMovies = movies.slice(0,4);
       for(i = 0; i < 4; i++){
         euroArr.push(trendingMovies[i])
       }
-      sortMovies(euroArr);
+
       for(i = 0; i <8; i++){
         console.log(euroArr[i].vote_average)
       }
       console.log(euroArr);
-      loadAfricanMovies(euroArr);
+      fillEuroMovies(euroArr);
 })
 
 };
