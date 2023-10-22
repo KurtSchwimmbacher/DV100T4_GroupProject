@@ -454,6 +454,20 @@ function fillIndianMovies(moviesToShow){
       // when the button is clicked
       card.on('click','.add-icon',function(){
 
+        // if(localStorage.getItem("WatchList") != null){
+        //   watchlistArr = JSON.parse(localStorage.getItem("WatchList"));
+        //   console.log(watchlistArr)
+        // }
+
+        // for(i = 0; i < watchlistArr.length; i++){
+        //   if(moviesToShow.id === watchlistArr[i]){
+        //     isAdded = true;
+        //   }
+        //   else{
+        //     isAdded = false;
+        //   }
+        // }
+
         // if checks if the the movie has been added, not foolproof
         if(!isAdded){
           // updates button appearance
