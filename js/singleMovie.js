@@ -37,8 +37,33 @@ function getMovieDetails(movieID){
       dataType: 'json',
       success: function(data){
           console.log(data)
+          const movie = data;
+
+          let imgUrl = "https://image.tmdb.org/t/p/original"+movie.backdrop_path;
+          $("#trailerImg").css("background-image","url(" + imgUrl + ")");
+          $("#miniPoster").attr('src', imgUrl);
+          $("#singleFilmTitle").text(movie.title);
+          $("#singleMovieDesc").text(movie.overview);
+
+          for(i = 0; i< movie.genres.length; i++){
+            let pill =$( `<span class="badge text-bg-dark" id="pill3">${movie.genres[i].name}</span>`);
+            $("#pillContainer").append(pill);
+          }
+
+          let rating = movie.vote_average.toFixed(1);
+          pill = $(`<span class="badge text-bg-dark" id="pill3">${rating}/10</span>`);
+          $("#pillContainer").append(pill);
 
 
+          for(i = 0; i< movie.spoken_languages.length; i++){
+            pill = $(`<span class="badge text-bg-dark" id="pill3">${movie.spoken_languages[i].english_name}</span>`);
+            $("#pillContainer").append(pill);
+          }
+
+          for(i = 0; i< movie.production_companies.length; i++){
+            let pill =$( `<span class="badge text-bg-dark" id="pill3">${movie.production_companies[i].name}</span>`);
+            $("#pillContainer").append(pill);
+          }
           
       },
       error: function(error){
