@@ -188,25 +188,29 @@ function loadTrendingMovies(moviesToShow){
   
     // Clear all cards before loading movies
     $("#trendingContainer").empty();
-
-    for(let i = 0; i < moviesToShow.length; i++){
-        const currentMovie = moviesToShow[i];
-
-        // ===============================================================
-        // load movies
-
-        // select the trending container and add movie array to it
-        $("#trendingContainer").append($("#moviePosterTemplate").html());
-
-        // Create a variable that contains the most recently added card
-        let current = $("#trendingContainer").children().eq(i);
-        
-        // Set the content for the current movie card from the movie array
-        $(current).find("#cardTitleBrowse").text(currentMovie.title);
-        // set img url 
-        let imgUrl ="https://image.tmdb.org/t/p/original" + currentMovie.backdrop_path;
-        $(current).find("#moviePoster").css("background-image","url(" + imgUrl + ")");       
-    }
+    moviesToShow.forEach(moviesToShow => {
+      let imgUrl = "https://image.tmdb.org/t/p/original" + moviesToShow.backdrop_path;
+        const card = $(`
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-5 movie-col">
+        <div class="card lib-card"  id="moviePoster" style="background-image: url(${imgUrl});">
+            <div class="overlay" id="overlay">
+                <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
+                <div id="cardBody" class="card-body lib-body">
+                    <h2 id="cardTitleBrowse" class="card-text movie-title">${moviesToShow.title}</h2>
+                </div>
+            </div>
+          </div>
+        </div>`);
+  
+        $(moviesToShow).find("#moviePoster").css("background-image","url(" + imgUrl + ")"); 
+  
+      card.click(function(){
+        window.location.href = `singleFilm.html?id=${moviesToShow.id}`;
+      });
+  
+      $("#trendingContainer").append(card);
+  
+    });
 
 };
 
@@ -216,24 +220,30 @@ function fillEuroMovies(moviesToShow){
   // Clear all cards before loading movies
   $("#europeContainer").empty();
 
-  for(let i = 0; i < moviesToShow.length; i++){
-      const currentMovie = moviesToShow[i];
+  moviesToShow.forEach(moviesToShow => {
+    let imgUrl = "https://image.tmdb.org/t/p/original" + moviesToShow.backdrop_path;
+      const card = $(`
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-5 movie-col">
+      <div class="card lib-card"  id="moviePoster" style="background-image: url(${imgUrl});">
+          <div class="overlay" id="overlay">
+              <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
+              <div id="cardBody" class="card-body lib-body">
+                  <h2 id="cardTitleBrowse" class="card-text movie-title">${moviesToShow.title}</h2>
+              </div>
+          </div>
+        </div>
+      </div>`);
 
-      // ===============================================================
-      // load movies
+      $(moviesToShow).find("#moviePoster").css("background-image","url(" + imgUrl + ")"); 
 
-      // select the trending container and add movie array to it
-      $("#europeContainer").append($("#moviePosterTemplate").html());
+    card.click(function(){
+      window.location.href = `singleFilm.html?id=${moviesToShow.id}`;
+    });
 
-      // Create a variable that contains the most recently added card
-      let current = $("#europeContainer").children().eq(i);
-      
-      // Set the content for the current movie card from the movie array
-      $(current).find("#cardTitleBrowse").text(currentMovie.title);
-      // set img url 
-      let imgUrl ="https://image.tmdb.org/t/p/original" + currentMovie.backdrop_path;
-      $(current).find("#moviePoster").css("background-image","url(" + imgUrl + ")");       
-  }
+    $("#europeContainer").append(card);
+
+  });
+
 
 };
 
@@ -241,27 +251,33 @@ function fillEuroMovies(moviesToShow){
 // load african movies
 function fillAfricanMovies(moviesToShow){
   
-  // Clear all cards before loading movies
+
   $("#africanContainer").empty();
 
-  for(let i = 0; i < moviesToShow.length; i++){
-      const currentMovie = moviesToShow[i];
+  moviesToShow.forEach(moviesToShow => {
+    let imgUrl = "https://image.tmdb.org/t/p/original" + moviesToShow.backdrop_path;
+      const card = $(`
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-5 movie-col">
+      <div class="card lib-card"  id="moviePoster" style="background-image: url(${imgUrl});">
+          <div class="overlay" id="overlay">
+              <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
+              <div id="cardBody" class="card-body lib-body">
+                  <h2 id="cardTitleBrowse" class="card-text movie-title">${moviesToShow.title}</h2>
+              </div>
+          </div>
+        </div>
+      </div>`);
 
-      // ===============================================================
-      // load movies
+      $(moviesToShow).find("#moviePoster").css("background-image","url(" + imgUrl + ")"); 
 
-      // select the trending container and add movie array to it
-      $("#africanContainer").append($("#moviePosterTemplate").html());
+    card.click(function(){
+      window.location.href = `singleFilm.html?id=${moviesToShow.id}`;
+    });
 
-      // Create a variable that contains the most recently added card
-      let current = $("#africanContainer").children().eq(i);
-      
-      // Set the content for the current movie card from the movie array
-      $(current).find("#cardTitleBrowse").text(currentMovie.title);
-      // set img url 
-      let imgUrl ="https://image.tmdb.org/t/p/original" + currentMovie.backdrop_path;
-      $(current).find("#moviePoster").css("background-image","url(" + imgUrl + ")");       
-  }
+    $("#africanContainer").append(card);
+
+  });
+
 
 };
 
@@ -269,27 +285,33 @@ function fillAfricanMovies(moviesToShow){
 // load asian movies
 function fillAsianMovies(moviesToShow){
   
-  // Clear all cards before loading movies
+ 
   $("#asianContainer").empty();
 
-  for(let i = 0; i < moviesToShow.length; i++){
-      const currentMovie = moviesToShow[i];
+  moviesToShow.forEach(moviesToShow => {
+    let imgUrl = "https://image.tmdb.org/t/p/original" + moviesToShow.backdrop_path;
+      const card = $(`
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-5 movie-col">
+      <div class="card lib-card"  id="moviePoster" style="background-image: url(${imgUrl});">
+          <div class="overlay" id="overlay">
+              <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
+              <div id="cardBody" class="card-body lib-body">
+                  <h2 id="cardTitleBrowse" class="card-text movie-title">${moviesToShow.title}</h2>
+              </div>
+          </div>
+        </div>
+      </div>`);
 
-      // ===============================================================
-      // load movies
+      $(moviesToShow).find("#moviePoster").css("background-image","url(" + imgUrl + ")"); 
 
-      // select the trending container and add movie array to it
-      $("#asianContainer").append($("#moviePosterTemplate").html());
+    card.click(function(){
+      window.location.href = `singleFilm.html?id=${moviesToShow.id}`;
+    });
 
-      // Create a variable that contains the most recently added card
-      let current = $("#asianContainer").children().eq(i);
-      
-      // Set the content for the current movie card from the movie array
-      $(current).find("#cardTitleBrowse").text(currentMovie.title);
-      // set img url 
-      let imgUrl ="https://image.tmdb.org/t/p/original" + currentMovie.backdrop_path;
-      $(current).find("#moviePoster").css("background-image","url(" + imgUrl + ")");       
-  }
+    $("#asianContainer").append(card);
+
+  });
+
 
 };
 
