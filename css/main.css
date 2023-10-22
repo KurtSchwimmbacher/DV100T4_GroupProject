@@ -525,7 +525,9 @@ footer i {
     margin: 5px;
 }
 
-
+.play-trailer:hover{
+    cursor: pointer;
+}
 
 
 
