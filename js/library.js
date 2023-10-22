@@ -170,30 +170,6 @@ $("#trendingContainer").on('click','#overlay',function(){
 
 });
 
-// function to listen to clicked on movie and update info
-setInterval(function () {
-    // gets movie clicked on browse page's name from local storage
-    let singleMovieName = JSON.parse(localStorage.getItem("clickedMovie"));
-
-    // container for object from movie array to compare names and then update page
-    let movieInfo;
-    let genreArr = [];
-
-    // listens for changes to movie clicked on in local storage to update single movies page
-    if ($("#singleFilmTitle").text() !== singleMovieName) {
-        // updates name on single movies page
-        $("#singleFilmTitle").text(singleMovieName);
-
-        // loops through movies array to compare names and store movie object
-        for(i = 0; i <movies.length; i++){
-            if(movies[i].title === singleMovieName){
-              movieInfo = movies[i];
-            }
-        }
-
-    }
-}, 100);
-
 
 });
 // ==========================================================================================
@@ -320,28 +296,33 @@ function fillAsianMovies(moviesToShow){
 
 // load indian movies
 function fillIndianMovies(moviesToShow){
-  
-  // Clear all cards before loading movies
+
   $("#indianContainer").empty();
 
-  for(let i = 0; i < moviesToShow.length; i++){
-      const currentMovie = moviesToShow[i];
+  moviesToShow.forEach(moviesToShow => {
+    let imgUrl = "https://image.tmdb.org/t/p/original" + moviesToShow.backdrop_path;
+      const card = $(`
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-5 movie-col">
+      <div class="card lib-card"  id="moviePoster" style="background-image: url(${imgUrl});">
+          <div class="overlay" id="overlay">
+              <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
+              <div id="cardBody" class="card-body lib-body">
+                  <h2 id="cardTitleBrowse" class="card-text movie-title">${moviesToShow.title}</h2>
+              </div>
+          </div>
+        </div>
+      </div>`);
 
-      // ===============================================================
-      // load movies
+      $(moviesToShow).find("#moviePoster").css("background-image","url(" + imgUrl + ")"); 
 
-      // select the trending container and add movie array to it
-      $("#indianContainer").append($("#moviePosterTemplate").html());
+    card.click(function(){
+      window.location.href = `singleFilm.html?id=${moviesToShow.id}`;
+    });
 
-      // Create a variable that contains the most recently added card
-      let current = $("#indianContainer").children().eq(i);
-      
-      // Set the content for the current movie card from the movie array
-      $(current).find("#cardTitleBrowse").text(currentMovie.title);
-      // set img url 
-      let imgUrl ="https://image.tmdb.org/t/p/original" + currentMovie.backdrop_path;
-      $(current).find("#moviePoster").css("background-image","url(" + imgUrl + ")");       
-  }
+    $("#indianContainer").append(card);
+
+  });
+
 
 };
 
@@ -378,6 +359,7 @@ $.ajax({
       // load movies in trending section of browse page
       let trendingMovies = movies.slice(0,4);
       euroArr = trendingMovies;
+      console.log(euroArr)
       
 })
 
