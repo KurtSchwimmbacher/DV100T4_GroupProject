@@ -2,88 +2,20 @@
 // variables
 // =========================================================================
 
-const genreList =[
-  {
-      "id": 28,
-      "name": "Action"
-    },
-    {
-      "id": 12,
-      "name": "Adventure"
-    },
-    {
-      "id": 16,
-      "name": "Animation"
-    },
-    {
-      "id": 35,
-      "name": "Comedy"
-    },
-    {
-      "id": 80,
-      "name": "Crime"
-    },
-    {
-      "id": 99,
-      "name": "Documentary"
-    },
-    {
-      "id": 18,
-      "name": "Drama"
-    },
-    {
-      "id": 10751,
-      "name": "Family"
-    },
-    {
-      "id": 14,
-      "name": "Fantasy"
-    },
-    {
-      "id": 36,
-      "name": "History"
-    },
-    {
-      "id": 27,
-      "name": "Horror"
-    },
-    {
-      "id": 10402,
-      "name": "Music"
-    },
-    {
-      "id": 9648,
-      "name": "Mystery"
-    },
-    {
-      "id": 10749,
-      "name": "Romance"
-    },
-    {
-      "id": 878,
-      "name": "Science Fiction"
-    },
-    {
-      "id": 10770,
-      "name": "TV Movie"
-    },
-    {
-      "id": 53,
-      "name": "Thriller"
-    },
-    {
-      "id": 10752,
-      "name": "War"
-    },
-    {
-      "id": 37,
-      "name": "Western"
-    }
-];
 
 // =========================================================================
 
 $(document).ready(function(){
+  
+  const urlParams = new URLSearchParams(window.location.search);
+  const movieID = urlParams.get('id');
+
+  if(movieID){
+      getMovieDetails(movieID);
+  }
+  else{
+      // error message
+  }
 
 });
 
@@ -95,3 +27,22 @@ $(document).ready(function(){
 // =========================================================================
 // functions
 // code to load pills into single films page
+
+function getMovieDetails(movieID){
+  const apiURL = `https://api.themoviedb.org/3/movie/${movieID}?api_key=34e9f99aa672c944811b83fab5b6c232`;
+
+  $.ajax({
+      url: apiURL,
+      method: 'GET',
+      dataType: 'json',
+      success: function(data){
+          console.log(data)
+
+
+          
+      },
+      error: function(error){
+          // handle as it comes
+      }
+  })
+}
