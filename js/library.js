@@ -255,8 +255,8 @@ function fillIndianMovies(moviesToShow){
       });
 
       card.on('click','.add-icon',function(){
-
-        console.log("added to watch list")
+        console.log()
+        $(this).children().addClass("bi bi-check-circle").removeClass("bi-plus-circle");
       });
 
     $("#indianContainer").append(card);
