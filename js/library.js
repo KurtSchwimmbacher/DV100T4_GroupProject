@@ -111,7 +111,7 @@ function loadTrendingMovies(moviesToShow){
                 <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
             </div>
           </div>
-          <div id="cardBody" class="card-body mt-2">
+          <div id="cardBody" class="card-body mt-2 mb-3">
             <h2 id="cardTitleBrowse" class="card-text movie-title">${moviesToShow.title}</h2>
             <p class="add-icon"><i class="bi bi-plus-circle"></i></p>
         </div>
@@ -191,7 +191,7 @@ function fillEuroMovies(moviesToShow){
               <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
           </div>
         </div>
-        <div id="cardBody" class="card-body mt-2">
+        <div id="cardBody" class="card-body mt-2 mb-3">
           <h2 id="cardTitleBrowse" class="card-text movie-title">${moviesToShow.title}</h2>
           <p class="add-icon"><i class="bi bi-plus-circle"></i></p>
       </div>
@@ -273,7 +273,7 @@ function fillAfricanMovies(moviesToShow){
               <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
           </div>
         </div>
-        <div id="cardBody" class="card-body mt-2">
+        <div id="cardBody" class="card-body mt-2 mb-3">
           <h2 id="cardTitleBrowse" class="card-text movie-title">${moviesToShow.title}</h2>
           <p class="add-icon"><i class="bi bi-plus-circle"></i></p>
       </div>
@@ -355,7 +355,7 @@ function fillAsianMovies(moviesToShow){
               <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
           </div>
         </div>
-        <div id="cardBody" class="card-body mt-2">
+        <div id="cardBody" class="card-body mt-2 mb-3">
           <h2 id="cardTitleBrowse" class="card-text movie-title">${moviesToShow.title}</h2>
           <p class="add-icon"><i class="bi bi-plus-circle"></i></p>
       </div>
@@ -436,7 +436,7 @@ function fillIndianMovies(moviesToShow){
               <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
           </div>
         </div>
-        <div id="cardBody" class="card-body mt-2">
+        <div id="cardBody" class="card-body mt-2 mb-3">
           <h2 id="cardTitleBrowse" class="card-text movie-title">${moviesToShow.title}</h2>
           <p class="add-icon"><i class="bi bi-plus-circle"></i></p>
       </div>
@@ -504,7 +504,7 @@ function fillIndianMovies(moviesToShow){
 
 function loadEuroMovies(){
 // api Pulls
-let euroArr;
+let euroArr = [];
 let area = "FR";
 $.ajax({
   type:"GET",
@@ -575,7 +575,7 @@ $.ajax({
 
 function loadAfricanMovies(){
   // api Pulls
-  let afriArr;
+  let afriArr = [];
   let area = "NG";
   $.ajax({
     type:"GET",
@@ -635,7 +635,7 @@ function loadAfricanMovies(){
         sortMovies(movies);
         let trendingMovies = movies.slice(0,4);
         for(i = 0; i < 4; i++){
-          afriArr.push(trendingMovies[i])
+          afriArr.push(trendingMovies[i]);
         }
 
         fillAfricanMovies(afriArr);
@@ -646,7 +646,7 @@ function loadAfricanMovies(){
 
   function loadAsianMovies(){
     // api Pulls
-    let asiaArr;
+    let asiaArr = [];
     let area = "KR";
     $.ajax({
       type:"GET",
