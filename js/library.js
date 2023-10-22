@@ -77,12 +77,6 @@ $.ajax({
 // ==============================================================================================================
 // api dynamic load page
 
-// movie click navigate to single movie page
-let movieName = "Default Name";
-
-$(".add-icon").on('click',function(){
-  console.log("add click works");
-});
 
 
 
@@ -257,8 +251,12 @@ function fillIndianMovies(moviesToShow){
 
       card.on('click','.lib-card',function(){
 
-        console.log("movie poster click works")
         window.location.href = `singleFilm.html?id=${moviesToShow.id}`;
+      });
+
+      card.on('click','.add-icon',function(){
+
+        console.log("added to watch list")
       });
 
     $("#indianContainer").append(card);
