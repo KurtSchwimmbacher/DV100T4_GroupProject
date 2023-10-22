@@ -425,4 +425,14 @@ footer i {
 .filter-btn:hover, .filter-opt-con p:hover{
     cursor: pointer;
 }
+
+
+.add-icon{
+    float: right;
+    margin-top: -11%;
+}
+
+.add-icon:hover{
+    cursor: pointer;
+}
 /* ============================================== */

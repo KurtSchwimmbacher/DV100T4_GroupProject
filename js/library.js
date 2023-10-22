@@ -6,84 +6,7 @@ let filterCount = 1;
 let movies = [];
 let genres = [];
 
-const genreList =[
-  {
-      "id": 28,
-      "name": "Action"
-    },
-    {
-      "id": 12,
-      "name": "Adventure"
-    },
-    {
-      "id": 16,
-      "name": "Animation"
-    },
-    {
-      "id": 35,
-      "name": "Comedy"
-    },
-    {
-      "id": 80,
-      "name": "Crime"
-    },
-    {
-      "id": 99,
-      "name": "Documentary"
-    },
-    {
-      "id": 18,
-      "name": "Drama"
-    },
-    {
-      "id": 10751,
-      "name": "Family"
-    },
-    {
-      "id": 14,
-      "name": "Fantasy"
-    },
-    {
-      "id": 36,
-      "name": "History"
-    },
-    {
-      "id": 27,
-      "name": "Horror"
-    },
-    {
-      "id": 10402,
-      "name": "Music"
-    },
-    {
-      "id": 9648,
-      "name": "Mystery"
-    },
-    {
-      "id": 10749,
-      "name": "Romance"
-    },
-    {
-      "id": 878,
-      "name": "Science Fiction"
-    },
-    {
-      "id": 10770,
-      "name": "TV Movie"
-    },
-    {
-      "id": 53,
-      "name": "Thriller"
-    },
-    {
-      "id": 10752,
-      "name": "War"
-    },
-    {
-      "id": 37,
-      "name": "Western"
-    }
-];
+
 // ==========================================================================================
 
 
@@ -157,18 +80,12 @@ $.ajax({
 // movie click navigate to single movie page
 let movieName = "Default Name";
 
-$("#trendingContainer").on('click','#overlay',function(){
-
-  // stores name of movie clicked on to be sent to local storage
-  movieName = $(this).find("#cardTitleBrowse").text();
-
-  // sends movie name to local storage so that it can be pulled on single movies page
-  localStorage.setItem("clickedMovie", JSON.stringify(movieName));
-
-  // navigates to single movie page
-  window.location.href = "../pages/singleFilm.html";
-
+$(".add-icon").on('click',function(){
+  console.log("add click works");
 });
+
+
+
 
 
 });
@@ -328,18 +245,21 @@ function fillIndianMovies(moviesToShow){
       <div class="card lib-card"  id="moviePoster" style="background-image: url(${imgUrl});">
           <div class="overlay" id="overlay">
               <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
-              <div id="cardBody" class="card-body lib-body">
-                  <h2 id="cardTitleBrowse" class="card-text movie-title">${moviesToShow.title}</h2>
-              </div>
           </div>
         </div>
+        <div id="cardBody" class="card-body mt-2">
+          <h2 id="cardTitleBrowse" class="card-text movie-title">${moviesToShow.title}</h2>
+          <p class="add-icon"><i class="bi bi-plus-circle"></i></p>
+      </div>
       </div>`);
 
       $(moviesToShow).find("#moviePoster").css("background-image","url(" + imgUrl + ")"); 
 
-    card.click(function(){
-      window.location.href = `singleFilm.html?id=${moviesToShow.id}`;
-    });
+      card.on('click','.lib-card',function(){
+
+        console.log("movie poster click works")
+        window.location.href = `singleFilm.html?id=${moviesToShow.id}`;
+      });
 
     $("#indianContainer").append(card);
 
@@ -596,3 +516,5 @@ function loadAfricanMovies(){
       })
       
       };
+
+      
