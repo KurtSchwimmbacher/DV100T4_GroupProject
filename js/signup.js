@@ -1,7 +1,7 @@
 
 
 // variables
-
+let userID = 0;
 
 $(document).ready(function(){
 
@@ -53,27 +53,45 @@ $("#signUpForm").submit(function(event){
       let username = $("#UsernameInputSU").val();
       let email = $("#EmailInputSU").val();
 
-      let profile = {
-        user: username,
-        email : email,
-        pass: password
-      }
+    let profile;
+    let toStore = [];
 
       let isIn = false;
-      console.log(profile)
       let users = JSON.parse(localStorage.getItem("userProfiles"));
-      if(users.length === 0){
-        let toStore = JSON.stringify(profile)
-        localStorage.setItem("userProfiles",toStore);
+      if(users === null){
+        userID++;
+        profile = {
+          id : userID,
+          user: username,
+          email : email,
+          pass: password
+        }
+  
+        toStore[userID] = JSON.stringify(profile)
+        localStorage.setItem("userProfiles",toStore[userID]);
       }
       else{
         for(i = 0; i < users.length; i++){
           if(users[i].user === profile.user){
             isIn = true;
+            console.log("already have an account")
           }
         }
       }
-      window.location.href = '../index.html';
+      if(!isIn && users != null){
+        userID++;
+         profile = {
+          id : userID,
+          user: username,
+          email : email,
+          pass: password
+        }
+
+        toStore[userID] = JSON.stringify(profile)
+        localStorage.setItem("userProfiles",toStore[userID]);
+      }
+
+      window.location.href = `../index.html?id=${profile.id}`;
   }
   $(this).addClass('was-validated');
 
