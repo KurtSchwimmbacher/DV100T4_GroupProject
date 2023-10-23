@@ -13,43 +13,42 @@
   </head> 
   <body>
 
-      <!-- ----------------------------------------------------------- -->
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="assets/logos/Logo Main.svg" alt="Logo" height="40">
-            <span class="logo_title" style="margin-left: 8px;">Indie Streams</span>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-  
-              <!-- Home nav link -->
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-              </li>
-  
-              <!-- Our Movies Nav Link -->
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="pages/library.html">Our Movies</a>
-              </li>
-  
-              <!-- My List Nav Link -->
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="pages/list.html">My List</a>
-              </li>
-  
-              <!-- Sign Up Nav Link -->
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="pages/login.html">Sign Up</a>
-              </li>
-            </ul>
-          </div>
+      <!---------nav bar---------------->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="../assets/logos/Logo Main.svg" alt="Logo" height="40">
+          <span class="logo_title" style="margin-left: 8px;">Indie Streams</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+
+            <!-- Home nav link -->
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            </li>
+
+            <!-- Our Movies Nav Link -->
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="pages/library.html">Our Movies</a>
+            </li>
+
+            <!-- My List Nav Link -->
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="pages/list.html">My List</a>
+            </li>
+
+            <!-- Sign Up Nav Link -->
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="pages/signup.html">Sign Up</a>
+            </li>
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
 
       <!-- ----------------------------------------------------------- -->
       <!-- Carousel -->
@@ -215,72 +214,36 @@
       <!-- ----------------------------------------------------------- -->
 
       <!-- Cards -->
-      <div class="container">
 
-        <!-- Trending -->
+  
+  <!-- Trending Movies -->
+  <div class="container mt-5 mb-5 pb-5">
+      <div class="row">
+          <div class="col-sm-12">
+              <h2 id="test">Trending</h2>
+          </div>
+      </div>
+      <!-- row contains trending movie cards -->
+      <div class="row row-con" id="trendingContainer" style="margin-bottom: 60vh;">
+          <!-- Trending rows append here -->
+      </div>
 
-        <div class="row mt-5">
-          <h2>Popular</h2>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2">
-            <div class="">
-              <div class="image">
-                <img src="assets/Watshitachi wa Douka Shiteiru.jpg" class="card-img-top image-fluid" alt="...">
+      <!-- trending images template -->
+      <template id="moviePosterTemplate">
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-5 movie-col">
+          <div class="card lib-card"  id="moviePoster" style="background-image: url(${imgUrl});">
+              <div class="overlay" id="overlay">
+                  <img class="play-logo" src="../assets/svgs/plus-circle.svg">
               </div>
             </div>
+            <div id="cardBody" class="card-body lib-body">
+              <h2 id="cardTitleBrowse" class="card-text movie-title">${moviesToShow.title}</h2>
           </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2">
-            <div class="image">
-              <img src="assets/Nazrana.jpg" class="card-img-top image-fluid" alt="...">
-            </div>
           </div>
+      </template>
 
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2">
-            <div class="image">
-              <img src="assets/Faces of Anne 2022.jpg" class="card-img-top image-fluid" alt="...">
-            </div>
-          </div>
+  </div>
 
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2">
-            <div class="image">
-              <img src="assets/Swing Kids.jpg" class="card-img-top image-fluid" alt="...">
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Coming Soon -->
-        
-        <div class="row mt-5">
-          <h2>Coming Soon</h2>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2">
-            <div class="image">
-              <img src="assets/Dear Zindagi.jpg" class="card-img-top image-fluid" alt="...">
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2">
-            <div class="image">
-              <img src="assets/Somwhere I never traveled.jpg" class="card-img-top image-fluid" alt="...">
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2">
-            <div class="image">
-              <img src="assets/Gangubai Kathiawadi (2022).jpg" class="card-img-top image-fluid" alt="...">
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2">
-            <div class="image">
-              <img src="assets/Zazie dans le metro.jpg" class="card-img-top image-fluid" alt="...">
-            </div>
-          </div>
-
-        </div>
-      </div>
       
       <!-- ----------------------------------------------------------- -->
       <!-- Footer -->

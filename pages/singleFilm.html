@@ -46,7 +46,7 @@
 
             <!-- Our Movies Nav Link -->
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="../pages/library.html">Our Movies</a>
+              <a class="nav-link active" aria-current="page" href="../pages/library.html">Our Movies</a>
             </li>
 
             <!-- My List Nav Link -->
@@ -72,7 +72,7 @@
       <div class="row">
         <div class="col-12" style="display: flex; align-items: center; justify-content: center;">
           <div class="trailer-img" style="display: flex; justify-content: center;" id="trailerImg">
-            <img src="../assets/svgs/play-circle-fill.svg" class="play-trailer">
+            <img src="../assets/svgs/plus-circle.svg" class="play-trailer">
           </div>
         </div>
       </div>
@@ -91,19 +91,14 @@
           <!-- pill row -->
           <div class="row">
             <div class="col-sm-6" id="pillContainer">
-              <span class="badge text-bg-dark" id="pillTemplate">HD</span>
-              <span class="badge text-bg-dark" id="pillTemplate">HD</span>
-              <span class="badge text-bg-dark" id="pillTemplate">HD</span>
+
+            
 
              
             </div>
             <div class="col-sm-6">
               <span class="badge text-bg-dark info-circle"><i class="bi bi-info-circle"></i></span>
             </div>
-
-            <template id="pillTemplate">
-              <span class="badge text-bg-dark" id="pillTxt">HD</span>
-            </template>
 
           </div>
 
@@ -123,6 +118,11 @@
 
         <div class="col-6">
           <p id="singleMovieDesc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima ratione nostrum officia mollitia voluptas dolor, dicta aliquid libero quisquam! Dolorum laboriosam repellendus ut nobis dignissimos voluptatem adipisci illum possimus itaque!</p>
+        
+          <button type="button" class="btn btn-primary mt-4" id="singleFilmAddToList">Add to Watchlist
+
+          </button>
+        
         </div>
       </div>
     </div>

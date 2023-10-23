@@ -60,6 +60,7 @@ label, .form-text, p{
 
 .row-con{
     height: 300vh;
+    margin-bottom: 300vh;
 }
 
 .movie-col{
@@ -131,6 +132,7 @@ label, .form-text, p{
 
 .row-con{
     height: 110vh;
+    margin-bottom: 110vh;
 }
 
 .lib-card{
@@ -243,6 +245,7 @@ label, .form-text, p{
 
 .row-con{
     height: 50vh;
+    margin-bottom: 60vh;
 }
 
 .movie-col{
@@ -458,6 +461,16 @@ footer i {
     margin-left: 3rem;
 }
 .filter-btn:hover, .filter-opt-con p:hover{
+    cursor: pointer;
+}
+
+
+.add-icon{
+    float: right;
+    margin-top: -11%;
+}
+
+.add-icon:hover{
     cursor: pointer;
 }
 /* ============================================== */
