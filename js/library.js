@@ -40,34 +40,8 @@ loadEuroMovies();
 loadAfricanMovies();
 loadAsianMovies();
 loadIndianMovies();
+loadTrendingMovies();
 
-// load trending movies
-$.ajax({
-  type:"GET",
-  // gets the first page of results
-  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=JP`,
-  success: function(data){
-      temp = data;
-  }
-}).done(function(){
-  // outputs the results of the movies
-  movies = temp.results;
-
-  // call function to sort movies
-  sortMovies();
-  sortMovies(movies[0].vote_average)
-
-      // code to change image poster to changed to iterate dynamically
-      let imgUrl = "https://image.tmdb.org/t/p/original"+movies[0].backdrop_path;
-      $("#moviePoster").css("background-image","url(" + imgUrl + ")");
-    
-    
-      // code to add movie titles to cards
-      $("#cardTitleBrowse").html(movies[0].title);
-    
-      // load movies in trending section of browse page
-      let trendingMovies = movies.slice(0,8);
-      loadTrendingMovies(trendingMovies);
 
 })
 
@@ -94,8 +68,74 @@ function sortMovies(){
     );
 }
 
+
+function loadTrendingMovies(){
+  // load trending movies
+// $.ajax({
+//   type:"GET",
+//   // gets the first page of results
+//   url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=JP`,
+//   success: function(data){
+//       temp = data;
+//   }
+// }).done(function(){
+//   // outputs the results of the movies
+//   movies = temp.results;
+
+//   // call function to sort movies
+//   sortMovies();
+//   sortMovies(movies[0].vote_average)
+
+//       // code to change image poster to changed to iterate dynamically
+//       let imgUrl = "https://image.tmdb.org/t/p/original"+movies[0].backdrop_path;
+//       $("#moviePoster").css("background-image","url(" + imgUrl + ")");
+    
+    
+//       // code to add movie titles to cards
+//       $("#cardTitleBrowse").html(movies[0].title);
+    
+//       // load movies in trending section of browse page
+//       let trendingMovies = movies.slice(0,8);
+//       loadTrendingMovies(trendingMovies);
+
+
+let moviesToShow = [];
+let area = "FR";
+$.ajax({
+  type:"GET",
+  // gets the first page of results
+  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+  success: function(data){
+      temp = data;
+  }
+}).done(function(){
+  // outputs the results of the movies
+  movies.length = 0;
+  movies = temp.results;
+
+  // call function to sort movies
+  sortMovies();
+  sortMovies(movies[0].vote_average)
+
+      // code to change image poster to changed to iterate dynamically
+      let imgUrl = "https://image.tmdb.org/t/p/original"+movies[0].backdrop_path;
+      $("#moviePoster").css("background-image","url(" + imgUrl + ")");
+    
+    
+      // code to add movie titles to cards
+      $("#cardTitleBrowse").html(movies[0].title);
+    
+      // load movies in trending section of browse page
+      let trendingMovies = movies.slice(0,4);
+      euroArr = trendingMovies;
+      console.log(euroArr)
+      
+})
+
+}
+
 // load trending movies
-function loadTrendingMovies(moviesToShow){
+function fillTrendingMovies(moviesToShow){
   
     // Clear all cards before loading movies
     let isAdded = false;
