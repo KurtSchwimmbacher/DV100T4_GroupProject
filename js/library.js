@@ -61,42 +61,9 @@ loadTrendingMovies();
 
 // ===============================================================================================================
 // functions
-function sortMovies(){
-    movies.sort(function(a, b)
-    {return b.vote_average - a.vote_average}
-    );
-}
 
 
 function loadTrendingMovies(){
-  // load trending movies
-// $.ajax({
-//   type:"GET",
-//   // gets the first page of results
-//   url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=JP`,
-//   success: function(data){
-//       temp = data;
-//   }
-// }).done(function(){
-//   // outputs the results of the movies
-//   movies = temp.results;
-
-//   // call function to sort movies
-//   sortMovies();
-//   sortMovies(movies[0].vote_average)
-
-//       // code to change image poster to changed to iterate dynamically
-//       let imgUrl = "https://image.tmdb.org/t/p/original"+movies[0].backdrop_path;
-//       $("#moviePoster").css("background-image","url(" + imgUrl + ")");
-    
-    
-//       // code to add movie titles to cards
-//       $("#cardTitleBrowse").html(movies[0].title);
-    
-//       // load movies in trending section of browse page
-//       let trendingMovies = movies.slice(0,8);
-//       loadTrendingMovies(trendingMovies);
-
 
 let moviesToShow = [];
 let area = "FR";
@@ -106,6 +73,7 @@ $.ajax({
   url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
   success: function(data){
       temp = data;
+      
   }
 }).done(function(){
   // outputs the results of the movies
@@ -113,8 +81,12 @@ $.ajax({
   movies = temp.results;
 
   // call function to sort movies
-  sortMovies();
-  sortMovies(movies[0].vote_average)
+  // sortedMovies = sortedMovies.sort((a,b) =>{
+  //   let VoteAva = a.vote_average;
+  //   let VoteAvb = b.vote_average;
+    
+  //   return VoteAvb-VoteAva;
+  //   });
 
       // code to change image poster to changed to iterate dynamically
       let imgUrl = "https://image.tmdb.org/t/p/original"+movies[0].backdrop_path;
@@ -128,6 +100,8 @@ $.ajax({
       let trendingMovies = movies.slice(0,4);
       euroArr = trendingMovies;
       console.log(euroArr)
+
+
       
 })
 
@@ -230,7 +204,7 @@ function fillEuroMovies(moviesToShow){
               <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
           </div>
         </div>
-        <div id="cardBody" class="card-body mt-2 mb-3">
+        <div id="cardBody" class="card-body mt-2 mb-5">
           <h2 id="cardTitleBrowse" class="card-text movie-title">${moviesToShow.title}</h2>
           <p class="add-icon"><i class="bi bi-plus-circle"></i></p>
       </div>
@@ -560,70 +534,48 @@ function loadEuroMovies(){
 let euroArr = [];
 let area = "FR";
 $.ajax({
+  dataType: 'json',
   type:"GET",
   // gets the first page of results
   url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
   success: function(data){
-      temp = data;
+      let temp = data.results;
+    
+    euroArr = temp;
+
+  },
+    error: function(error){
+      // handle as it comes
   }
-}).done(function(){
-  // outputs the results of the movies
-  movies.length = 0;
-  movies = temp.results;
-
-  // call function to sort movies
-  sortMovies();
-  sortMovies(movies[0].vote_average)
-
-      // code to change image poster to changed to iterate dynamically
-      let imgUrl = "https://image.tmdb.org/t/p/original"+movies[0].backdrop_path;
-      $("#moviePoster").css("background-image","url(" + imgUrl + ")");
-    
-    
-      // code to add movie titles to cards
-      $("#cardTitleBrowse").html(movies[0].title);
-    
-      // load movies in trending section of browse page
-      let trendingMovies = movies.slice(0,4);
-      euroArr = trendingMovies;
-      console.log(euroArr)
-      
 })
 
 area = "DE";
 $.ajax({
+  dataType: 'json',
   type:"GET",
   // gets the first page of results
   url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
   success: function(data){
-      temp = data;
-  }
-}).done(function(){
-  // outputs the results of the movies
-  movies = temp.results;
+      let temp = data.results;
 
-  // call function to sort movies
-  sortMovies();
-  sortMovies(movies[0].vote_average)
-
-      // code to change image poster to changed to iterate dynamically
-      let imgUrl = "https://image.tmdb.org/t/p/original"+movies[0].backdrop_path;
-      $("#moviePoster").css("background-image","url(" + imgUrl + ")");
-    
-    
-      // code to add movie titles to cards
-      $("#cardTitleBrowse").html(movies[0].title);
-    
-      // load movies in trending section of browse page
-      sortMovies(movies);
-      let trendingMovies = movies.slice(0,4);
-      for(i = 0; i < 4; i++){
-        euroArr.push(trendingMovies[i])
+      for(i = 0; i < temp.length; i++){
+        euroArr.push(temp[i]);
       }
 
-      fillEuroMovies(euroArr);
-})
+      // sort by average vote, high to low
+      euroArr = euroArr.sort((a,b) =>{
+        return b.vote_average - a.vote_average;    
+      });
 
+      euroArr = euroArr.slice(0,8);
+
+     fillEuroMovies(euroArr);
+
+
+  }, error: function(error){
+
+  }
+})
 };
 
 function loadAfricanMovies(){
@@ -631,69 +583,49 @@ function loadAfricanMovies(){
   let afriArr = [];
   let area = "NG";
   $.ajax({
+    dataType: 'json',
     type:"GET",
     // gets the first page of results
     url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
     success: function(data){
-        temp = data;
+        let temp = data.results;
+      
+      // // load movies in trending section of browse page
+      afriArr = temp;
+  
+    },
+      error: function(error){
+        // handle as it comes
     }
-  }).done(function(){
-    // outputs the results of the movies
-    movies.length = 0;
-    movies = temp.results;
-  
-    // call function to sort movies
-    sortMovies();
-    sortMovies(movies[0].vote_average)
-  
-        // code to change image poster to changed to iterate dynamically
-        let imgUrl = "https://image.tmdb.org/t/p/original"+movies[0].backdrop_path;
-        $("#moviePoster").css("background-image","url(" + imgUrl + ")");
-      
-      
-        // code to add movie titles to cards
-        $("#cardTitleBrowse").html(movies[0].title);
-      
-        // load movies in trending section of browse page
-        let trendingMovies = movies.slice(0,4);
-        afriArr = trendingMovies;
-        
   })
   
   area = "ZA";
   $.ajax({
+    dataType: 'json',
     type:"GET",
     // gets the first page of results
     url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
     success: function(data){
-        temp = data;
-    }
-  }).done(function(){
-    // outputs the results of the movies
-    movies = temp.results;
+        let temp = data.results;
   
-    // call function to sort movies
-    sortMovies();
-    sortMovies(movies[0].vote_average)
-  
-        // code to change image poster to changed to iterate dynamically
-        let imgUrl = "https://image.tmdb.org/t/p/original"+movies[0].backdrop_path;
-        $("#moviePoster").css("background-image","url(" + imgUrl + ")");
-      
-      
-        // code to add movie titles to cards
-        $("#cardTitleBrowse").html(movies[0].title);
-      
-        // load movies in trending section of browse page
-        sortMovies(movies);
-        let trendingMovies = movies.slice(0,4);
-        for(i = 0; i < 4; i++){
-          afriArr.push(trendingMovies[i]);
+        for(i = 0; i < temp.length; i++){
+          afriArr.push(temp[i]);
         }
-
-        fillAfricanMovies(afriArr);
-  })
   
+        // sort by average vote, high to low
+        afriArr = afriArr.sort((a,b) =>{
+          return b.vote_average - a.vote_average;    
+        });
+  
+        afriArr = afriArr.slice(0,8);
+  
+       fillAfricanMovies(afriArr);
+  
+  
+    }, error: function(error){
+  
+    }
+  })
   };
 
 
@@ -702,102 +634,79 @@ function loadAfricanMovies(){
     let asiaArr = [];
     let area = "KR";
     $.ajax({
+      dataType: 'json',
       type:"GET",
       // gets the first page of results
       url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
       success: function(data){
-          temp = data;
+          let temp = data.results;
+        
+        // // load movies in trending section of browse page
+        asiaArr = temp;
+    
+      },
+        error: function(error){
+          // handle as it comes
       }
-    }).done(function(){
-      // outputs the results of the movies
-      movies.length = 0;
-      movies = temp.results;
-    
-      // call function to sort movies
-      sortMovies();
-      sortMovies(movies[0].vote_average)
-    
-          // code to change image poster to changed to iterate dynamically
-          let imgUrl = "https://image.tmdb.org/t/p/original"+movies[0].backdrop_path;
-          $("#moviePoster").css("background-image","url(" + imgUrl + ")");
-        
-        
-          // code to add movie titles to cards
-          $("#cardTitleBrowse").html(movies[0].title);
-        
-          // load movies in trending section of browse page
-          let trendingMovies = movies.slice(0,4);
-          asiaArr = trendingMovies;
-          
     })
     
     area = "JP";
     $.ajax({
+      dataType: 'json',
       type:"GET",
       // gets the first page of results
       url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
       success: function(data){
-          temp = data;
-      }
-    }).done(function(){
-      // outputs the results of the movies
-      movies = temp.results;
+          let temp = data.results;
     
-      // call function to sort movies
-      sortMovies();
-      sortMovies(movies[0].vote_average)
-    
-          // code to change image poster to changed to iterate dynamically
-          let imgUrl = "https://image.tmdb.org/t/p/original"+movies[0].backdrop_path;
-          $("#moviePoster").css("background-image","url(" + imgUrl + ")");
-        
-        
-          // code to add movie titles to cards
-          $("#cardTitleBrowse").html(movies[0].title);
-        
-          // load movies in trending section of browse page
-          sortMovies(movies);
-          let trendingMovies = movies.slice(0,4);
-          for(i = 0; i < 4; i++){
-            asiaArr.push(trendingMovies[i])
+          for(i = 0; i < temp.length; i++){
+            asiaArr.push(temp[i]);
           }
-
-          fillAsianMovies(asiaArr);
-    })
     
+          // sort by average vote, high to low
+          asiaArr = asiaArr.sort((a,b) =>{
+            return b.vote_average - a.vote_average;    
+          });
+    
+          asiaArr = asiaArr.slice(0,8);
+    
+         fillAsianMovies(asiaArr);
+    
+    
+      }, error: function(error){
+    
+      }
+    })
     };
+
+
+
 
     function loadIndianMovies(){
       // api Pulls
        
       area = "IN";
       $.ajax({
+        dataType: 'json',
         type:"GET",
         // gets the first page of results
         url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
         success: function(data){
-            temp = data;
+            let temp = data.results;
+      
+            // sort by average vote, high to low
+            temp = temp.sort((a,b) =>{
+              return b.vote_average - a.vote_average;    
+            });
+      
+            temp = temp.slice(0,8);
+      
+           fillIndianMovies(temp);
+      
+      
+        }, error: function(error){
+      
         }
-      }).done(function(){
-        // outputs the results of the movies
-        movies = temp.results;
-      
-        // call function to sort movies
-        sortMovies();
-        sortMovies(movies[0].vote_average)
-      
-            // code to change image poster to changed to iterate dynamically
-            let imgUrl = "https://image.tmdb.org/t/p/original"+movies[0].backdrop_path;
-            $("#moviePoster").css("background-image","url(" + imgUrl + ")");
-          
-          
-            // code to add movie titles to cards
-            $("#cardTitleBrowse").html(movies[0].title);
-          
-            // load movies in trending section of browse page
-            sortMovies(movies);
-            let indianMovies = movies.slice(0,8);
-            fillIndianMovies(indianMovies);
       })
       
       };
