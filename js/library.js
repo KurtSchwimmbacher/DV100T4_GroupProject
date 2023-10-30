@@ -66,46 +66,158 @@ loadTrendingMovies();
 function loadTrendingMovies(){
 
 let moviesToShow = [];
+let euroArr = [];
+let asiaArr = [];
+let afriArr = [];
+
 let area = "FR";
 $.ajax({
+  dataType: 'json',
   type:"GET",
   // gets the first page of results
   url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
   success: function(data){
-      temp = data;
-      
+      let temp = data.results;
+    
+    euroArr = temp;
+
+  },
+    error: function(error){
+      // handle as it comes
   }
-}).done(function(){
-  // outputs the results of the movies
-  movies.length = 0;
-  movies = temp.results;
-
-  // call function to sort movies
-  // sortedMovies = sortedMovies.sort((a,b) =>{
-  //   let VoteAva = a.vote_average;
-  //   let VoteAvb = b.vote_average;
-    
-  //   return VoteAvb-VoteAva;
-  //   });
-
-      // code to change image poster to changed to iterate dynamically
-      let imgUrl = "https://image.tmdb.org/t/p/original"+movies[0].backdrop_path;
-      $("#moviePoster").css("background-image","url(" + imgUrl + ")");
-    
-    
-      // code to add movie titles to cards
-      $("#cardTitleBrowse").html(movies[0].title);
-    
-      // load movies in trending section of browse page
-      let trendingMovies = movies.slice(0,4);
-      euroArr = trendingMovies;
-      console.log(euroArr)
-
-
-      
 })
 
-}
+area = "DE";
+$.ajax({
+  dataType: 'json',
+  type:"GET",
+  // gets the first page of results
+  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+  success: function(data){
+      let temp = data.results;
+
+      for(i = 0; i < temp.length; i++){
+        euroArr.push(temp[i]);
+      }
+
+  }, error: function(error){
+
+  }
+})
+
+  area = "NG";
+  $.ajax({
+    dataType: 'json',
+    type:"GET",
+    // gets the first page of results
+    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+    success: function(data){
+        let temp = data.results;
+      
+      // // load movies in trending section of browse page
+      afriArr = temp;
+  
+    },
+      error: function(error){
+        // handle as it comes
+    }
+  })
+  
+  area = "ZA";
+  $.ajax({
+    dataType: 'json',
+    type:"GET",
+    // gets the first page of results
+    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+    success: function(data){
+        let temp = data.results;
+  
+        for(i = 0; i < temp.length; i++){
+          afriArr.push(temp[i]);
+        }    
+  
+    }, error: function(error){
+  
+    }
+  })
+
+   area = "KR";
+  $.ajax({
+    dataType: 'json',
+    type:"GET",
+    // gets the first page of results
+    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+    success: function(data){
+        let temp = data.results;
+      
+      // // load movies in trending section of browse page
+      asiaArr = temp;
+  
+    },
+      error: function(error){
+        // handle as it comes
+    }
+  })
+
+
+  
+  area = "JP";
+  $.ajax({
+    dataType: 'json',
+    type:"GET",
+    // gets the first page of results
+    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+    success: function(data){
+        let temp = data.results;
+  
+        for(i = 0; i < temp.length; i++){
+          asiaArr.push(temp[i]);
+        }
+         
+  
+    }, error: function(error){
+  
+    }
+  })
+
+
+  area = "IN";
+      $.ajax({
+        dataType: 'json',
+        type:"GET",
+        // gets the first page of results
+        url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+        success: function(data){
+            let temp = data.results;
+      
+            moviesToShow = temp;
+      
+            for(i = 0; i <asiaArr.length; i++){
+              moviesToShow.push(asiaArr[i]);
+            }
+            for(i = 0; i <euroArr.length; i++){
+              moviesToShow.push(euroArr[i]);
+            }
+            for(i = 0; i <afriArr.length; i++){
+              moviesToShow.push(afriArr[i]);
+            }
+
+            // sort by average vote, high to low
+            moviesToShow = moviesToShow.sort((a,b) =>{
+              return b.vote_average - a.vote_average;    
+            });
+            
+            moviesToShow = moviesToShow.slice(0,8);
+            console.log(moviesToShow)
+            fillTrendingMovies(moviesToShow);
+            
+      
+        }, error: function(error){
+      
+        }
+      })
+
+};
 
 // load trending movies
 function fillTrendingMovies(moviesToShow){
@@ -649,6 +761,8 @@ function loadAfricanMovies(){
           // handle as it comes
       }
     })
+
+
     
     area = "JP";
     $.ajax({
@@ -662,12 +776,13 @@ function loadAfricanMovies(){
           for(i = 0; i < temp.length; i++){
             asiaArr.push(temp[i]);
           }
-    
+          
           // sort by average vote, high to low
           asiaArr = asiaArr.sort((a,b) =>{
             return b.vote_average - a.vote_average;    
           });
     
+
           asiaArr = asiaArr.slice(0,8);
     
          fillAsianMovies(asiaArr);
