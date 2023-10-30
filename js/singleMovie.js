@@ -12,6 +12,7 @@ $(document).ready(function(){
 
   if(movieID){
       getMovieDetails(movieID);
+      getMovieTrailer(movieID);
   }
   else{
       // error message
@@ -62,11 +63,9 @@ function getMovieDetails(movieID){
       method: 'GET',
       dataType: 'json',
       success: function(data){
-          console.log(data)
           const movie = data;
 
           let imgUrl = "https://image.tmdb.org/t/p/original"+movie.backdrop_path;
-          $("#trailerImg").css("background-image","url(" + imgUrl + ")");
           $("#miniPoster").attr('src', imgUrl);
           $("#singleFilmTitle").text(movie.title);
           $("#singleMovieDesc").text(movie.overview);
@@ -96,4 +95,31 @@ function getMovieDetails(movieID){
           // handle as it comes
       }
   })
+};
+
+function getMovieTrailer(movieID){
+  const apiURL = `https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=34e9f99aa672c944811b83fab5b6c232`;
+
+  $.ajax({
+      url: apiURL,
+      method: 'GET',
+      dataType: 'json',
+      success: function(data){
+          console.log(data.results[0])
+          const movie = data.results[0];
+
+          
+          let videoUrl = "https://www.youtube.com/embed/"+movie.key;
+
+    
+
+          $("#trailerVideo").attr('src',videoUrl);
+          console.log(videoUrl)
+          
+      },
+      error: function(error){
+          // handle as it comes
+      }
+  })
 }
+
