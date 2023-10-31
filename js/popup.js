@@ -1,4 +1,4 @@
-const review = document.getElementById("rReview");
+let review = document.getElementById("rReview");
 
 function openReview(){
     review.classList.remove('review');
