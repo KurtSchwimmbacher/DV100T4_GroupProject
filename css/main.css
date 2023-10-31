@@ -322,10 +322,7 @@ label, .form-text, p{
     object-position: center !important;
 }
 
-/* Carousel Btn Styling */
-.carousel-btn{
 
-}
 .btn-primary{
     background-color: coral !important;
     color: rgb(0, 0, 0) !important;
@@ -411,9 +408,7 @@ label, .form-text, p{
     }
 }
 @media(min-width: 1200px){
-    .carousel-heading h1{
-  
-    }
+
     .carousel-text h4{
         font-size: 24px; 
     }
@@ -888,7 +883,7 @@ footer i {
 
 .mini-poster{
     height: auto;
-    margin-left: 3rem;
+    width: 100%;
 }
 .filter-btn:hover, .filter-opt-con p:hover{
     cursor: pointer;
@@ -902,5 +897,5 @@ footer i {
 
 .add-icon:hover{
     cursor: pointer;
-} */
+}
 /* ============================================== */
