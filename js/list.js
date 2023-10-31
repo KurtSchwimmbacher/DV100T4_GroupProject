@@ -39,10 +39,7 @@ function loadShows(){
         const programs = arrPlaylist[index];
         
         console.log(programs)
-
-        $("#soapiesBox").children().eq(index).find("#title").text(programs.name)
-        $("#soapiesBox").children().eq(index).find("#description").text(programs.show)
-    }
+  }
 };
 
 
