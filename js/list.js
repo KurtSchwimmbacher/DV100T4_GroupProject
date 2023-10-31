@@ -9,7 +9,7 @@ $(document).ready(function(){
     let watchlist = JSON.parse(localStorage.getItem("WatchList"));
     $("#watchlistCon").empty();
     for(i = 0; i <watchlist.length;i++){
-        getMovies(watchlist[i]);
+      getMovies(watchlist[i]);
     }
 
 
@@ -18,7 +18,7 @@ $(document).ready(function(){
     $("input[name = 'sortRadio']").click(function(){
         const appliedSort = $(this).attr('value');
         console.log("Applied Sort: "+appliedSort);
-        displayStreams();
+        // displayStreams();
     });
 });
 
@@ -61,18 +61,11 @@ function getMovies(movieID){
             let imgUrl = "https://image.tmdb.org/t/p/original" + data.backdrop_path;
 
             const wlCard = $(`
-            <div id="soapiesBox" class="col-xl-3 col-lg-4 col-md-6 col-xs-12 watchlist-card">
-            <div class="card mb-3">
-              <div class="row g-0">
-                <div class="col-md-4 "> 
-                  <img src="${imgUrl}" class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">               
-                  <div class="card-body">
-                    <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif;" id="title">${data.title}</h5>
-                    <p class="card-text" id="description">${data.overview}</p>
-                  </div>
-                </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
+            <div class="card" style="width: 18rem;">
+              <img src="${imgUrl}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-text">${data.title}</h5>
               </div>
             </div>
           </div>`); 
@@ -89,36 +82,3 @@ function getMovies(movieID){
 };
 
 
-function showMovies(movies){
-    
-   console.log(movies);
-
-    // $("#watchlistCon").empty();
-
-    movies.forEach(movies => {
-
-      let imgUrl = "https://image.tmdb.org/t/p/original" + movies.backdrop_path;
-
-        const wlCard = $(`
-        <div id="soapiesBox" class="col-xl-3 col-lg-4 col-md-6 col-xs-12 watchlist-card">
-        <div class="card mb-3">
-          <div class="row g-0">
-            <div class="col-md-4 "> 
-              <img src="${imgUrl}" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">               
-              <div class="card-body">
-                <h5 class="card-title" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif;" id="title">${movies.title}</h5>
-                <p class="card-text" id="description">${movies.overview}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>`);
-  
-  
-        $("#watchlistCon").append(wlCard);
-  
-    });
-
-};
