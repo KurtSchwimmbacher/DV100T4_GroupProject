@@ -1,10 +1,13 @@
-let review = document.getElementById("review");
+const review = document.getElementById("rReview");
 
 function openReview(){
-    review.classList.add("openreview");
+    review.classList.remove('review');
+    review.classList.add('openreview');
 }
+
 function closeReview(){
     review.classList.remove("openreview");
+    review.classList.add('review');
 }
 
 

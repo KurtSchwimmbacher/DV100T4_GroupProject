@@ -95,9 +95,16 @@ background-size: cover;
 }
 
 .openreview{
-    visibility: visible;
-    top: 50%;
+    width: 25%;
+    height: 250px;
+    border-radius: 5px;
+    position: absolute;
+    top : 50%;
+    left: 50%;
     transform: translate(-50%,-50%) scale(1);
+    text-align: center; 
+    border: solid 5px #F18442;
+    visibility: visible;
 }
 
 .review{
@@ -111,7 +118,6 @@ background-size: cover;
     text-align: center; 
     border: solid 5px #F18442;
     visibility: hidden;
-    transition: transform 0.4s, top 0.4s;
 }
 
 .containerreview{
