@@ -30,8 +30,8 @@
 }
 
 .imagemovie11{
-    width: 120px;
-    height: 170px;
+    width: 120px !important;
+    height: 170px !important;
 }
 
 .col-md-4{
@@ -49,12 +49,12 @@
     height: 30px;
     border-radius: 100%;
     border: none;
-    background-image: url(/assets/logos/othumbsup.png);
+    background-image: url("../assets/logos/othumbsup.png");
     background-size: cover;
 }
 
 .upvote1:hover{
-    background-image: url(/assets/logos/bthumbsup.png);
+    background-image: url("../assets/logos/bthumbsup.png");
 }
 
 .downvote1{
@@ -86,7 +86,7 @@ background-size: cover;
 }
 
 .remove1:hover{
- background-image: url(/assets/logos/xhover.png);
+ background-image: url("../assets/logos/xhover.png");
 }
 
 .card-title{
