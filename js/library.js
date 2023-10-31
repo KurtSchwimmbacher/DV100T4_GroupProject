@@ -238,7 +238,7 @@ function fillTrendingMovies(moviesToShow){
           </div>
           <div id="cardBody" class="card-body mt-2 mb-3">
             <h2 id="cardTitleBrowse" class="card-text movie-title">${moviesToShow.title}</h2>
-            <p class="add-icon"><i class="bi bi-plus-circle"></i></p>
+            <p class="add-icon-lib"><i class="bi bi-plus-circle"></i></p>
         </div>
         </div>`);
   
@@ -252,7 +252,7 @@ function fillTrendingMovies(moviesToShow){
   
         // to add the movie from the library page to the watch list
         // when the button is clicked
-        card.on('click','.add-icon',function(){
+        card.on('click','.add-icon-lib',function(){
   
           // if checks if the the movie has been added, not foolproof
           if(!isAdded){
@@ -318,7 +318,7 @@ function fillEuroMovies(moviesToShow){
         </div>
         <div id="cardBody" class="card-body mt-2 mb-5">
           <h2 id="cardTitleBrowse" class="card-text movie-title">${moviesToShow.title}</h2>
-          <p class="add-icon"><i class="bi bi-plus-circle"></i></p>
+          <p class="add-icon-lib"><i class="bi bi-plus-circle"></i></p>
       </div>
       </div>`);
 
@@ -332,7 +332,7 @@ function fillEuroMovies(moviesToShow){
 
       // to add the movie from the library page to the watch list
       // when the button is clicked
-      card.on('click','.add-icon',function(){
+      card.on('click','.add-icon-lib',function(){
 
         // if checks if the the movie has been added, not foolproof
         if(!isAdded){
@@ -400,7 +400,7 @@ function fillAfricanMovies(moviesToShow){
         </div>
         <div id="cardBody" class="card-body mt-2 mb-3">
           <h2 id="cardTitleBrowse" class="card-text movie-title">${moviesToShow.title}</h2>
-          <p class="add-icon"><i class="bi bi-plus-circle"></i></p>
+          <p class="add-icon-lib"><i class="bi bi-plus-circle"></i></p>
       </div>
       </div>`);
 
@@ -414,7 +414,7 @@ function fillAfricanMovies(moviesToShow){
 
       // to add the movie from the library page to the watch list
       // when the button is clicked
-      card.on('click','.add-icon',function(){
+      card.on('click','.add-icon-lib',function(){
 
         // if checks if the the movie has been added, not foolproof
         if(!isAdded){
@@ -482,7 +482,7 @@ function fillAsianMovies(moviesToShow){
         </div>
         <div id="cardBody" class="card-body mt-2 mb-3">
           <h2 id="cardTitleBrowse" class="card-text movie-title">${moviesToShow.title}</h2>
-          <p class="add-icon"><i class="bi bi-plus-circle"></i></p>
+          <p class="add-icon-lib"><i class="bi bi-plus-circle"></i></p>
       </div>
       </div>`);
 
@@ -496,7 +496,7 @@ function fillAsianMovies(moviesToShow){
 
       // to add the movie from the library page to the watch list
       // when the button is clicked
-      card.on('click','.add-icon',function(){
+      card.on('click','.add-icon-lib',function(){
 
         // if checks if the the movie has been added, not foolproof
         if(!isAdded){
@@ -563,7 +563,7 @@ function fillIndianMovies(moviesToShow){
         </div>
         <div id="cardBody" class="card-body mt-2 mb-3">
           <h2 id="cardTitleBrowse" class="card-text movie-title">${moviesToShow.title}</h2>
-          <p class="add-icon"><i class="bi bi-plus-circle"></i></p>
+          <p class="add-icon-lib"><i class="bi bi-plus-circle"></i></p>
       </div>
       </div>`);
 
@@ -577,7 +577,7 @@ function fillIndianMovies(moviesToShow){
 
       // to add the movie from the library page to the watch list
       // when the button is clicked
-      card.on('click','.add-icon',function(){
+      card.on('click','.add-icon-lib',function(){
 
         // if(localStorage.getItem("WatchList") != null){
         //   watchlistArr = JSON.parse(localStorage.getItem("WatchList"));
