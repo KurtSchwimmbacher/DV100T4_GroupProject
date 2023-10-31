@@ -6,91 +6,13 @@ let filterCount = 1;
 let movies = [];
 let genres = [];
 
-const genreList =[
-    {
-        "id": 28,
-        "name": "Action"
-      },
-      {
-        "id": 12,
-        "name": "Adventure"
-      },
-      {
-        "id": 16,
-        "name": "Animation"
-      },
-      {
-        "id": 35,
-        "name": "Comedy"
-      },
-      {
-        "id": 80,
-        "name": "Crime"
-      },
-      {
-        "id": 99,
-        "name": "Documentary"
-      },
-      {
-        "id": 18,
-        "name": "Drama"
-      },
-      {
-        "id": 10751,
-        "name": "Family"
-      },
-      {
-        "id": 14,
-        "name": "Fantasy"
-      },
-      {
-        "id": 36,
-        "name": "History"
-      },
-      {
-        "id": 27,
-        "name": "Horror"
-      },
-      {
-        "id": 10402,
-        "name": "Music"
-      },
-      {
-        "id": 9648,
-        "name": "Mystery"
-      },
-      {
-        "id": 10749,
-        "name": "Romance"
-      },
-      {
-        "id": 878,
-        "name": "Science Fiction"
-      },
-      {
-        "id": 10770,
-        "name": "TV Movie"
-      },
-      {
-        "id": 53,
-        "name": "Thriller"
-      },
-      {
-        "id": 10752,
-        "name": "War"
-      },
-      {
-        "id": 37,
-        "name": "Western"
-      }
-];
+
 // ==========================================================================================
 
 
 
 
 $(document).ready(function(){
-    console.log("Hello World");
 // ==============================================================================================================
 // filters code
       // hide filters panel
@@ -124,60 +46,14 @@ loadTrendingMovies();
 })
 
 
-  // code to add movie titles to cards
-  $("#cardTitleBrowse").html(movies[0].title);
-
-  // load movies in trending section of browse page
-  let trendingMovies = movies.slice(0,4);
-  loadMovies(trendingMovies);
-  console.log(movies)
-
-
-});
 
 
 // ==============================================================================================================
 // api dynamic load page
 
-// movie click navigate to single movie page
-let movieName = "Default Name";
 
-$("#trendingContainer").on('click','#overlay',function(){
 
-  // stores name of movie clicked on to be sent to local storage
-  movieName = $(this).find("#cardTitleBrowse").text();
 
-  // sends movie name to local storage so that it can be pulled on single movies page
-  localStorage.setItem("clickedMovie", JSON.stringify(movieName));
-
-  // navigates to single movie page
-  window.location.href = "../pages/singleFilm.html";
-
-});
-
-// function to listen to clicked on movie and update info
-setInterval(function () {
-    // gets movie clicked on browse page's name from local storage
-    let singleMovieName = JSON.parse(localStorage.getItem("clickedMovie"));
-
-    // container for object from movie array to compare names and then update page
-    let movieInfo;
-    let genreArr = [];
-
-    // listens for changes to movie clicked on in local storage to update single movies page
-    if ($("#singleFilmTitle").text() !== singleMovieName) {
-        // updates name on single movies page
-        $("#singleFilmTitle").text(singleMovieName);
-
-        // loops through movies array to compare names and store movie object
-        for(i = 0; i <movies.length; i++){
-            if(movies[i].title === singleMovieName){
-              movieInfo = movies[i];
-            }
-        }
-
-    }
-}, 100);
 
 
 // ==========================================================================================
@@ -347,13 +223,89 @@ $.ajax({
 function fillTrendingMovies(moviesToShow){
   
     // Clear all cards before loading movies
+    let isAdded = false;
+    let watchlistArr = [];
     $("#trendingContainer").empty();
+  
+    moviesToShow.forEach(moviesToShow => {
+      let imgUrl = "https://image.tmdb.org/t/p/original" + moviesToShow.backdrop_path;
+        const card = $(`
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-5 movie-col">
+        <div class="card lib-card"  id="moviePoster" style="background-image: url(${imgUrl});">
+            <div class="overlay" id="overlay">
+                <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
+            </div>
+          </div>
+          <div id="cardBody" class="card-body mt-2 mb-3">
+            <h2 id="cardTitleBrowse" class="card-text movie-title">${moviesToShow.title}</h2>
+            <p class="add-icon"><i class="bi bi-plus-circle"></i></p>
+        </div>
+        </div>`);
+  
+        $(moviesToShow).find("#moviePoster").css("background-image","url(" + imgUrl + ")"); 
+  
+        // navigates to single movie page
+        card.on('click','.lib-card',function(){
+  
+          window.location.href = `singleFilm.html?id=${moviesToShow.id}`;
+        });
+  
+        // to add the movie from the library page to the watch list
+        // when the button is clicked
+        card.on('click','.add-icon',function(){
+  
+          // if checks if the the movie has been added, not foolproof
+          if(!isAdded){
+            // updates button appearance
+            $(this).children().addClass("bi bi-check-circle").removeClass("bi-plus-circle");
+  
+            // so the movie cant be added twice
+            isAdded = true;
+  
+            // adds movie to the array to be sent to local storage
+            watchlistArr.push(moviesToShow.id);
+            
+            // sends movie Id to wishlist
+            let moviesData = JSON.stringify(watchlistArr);
+            localStorage.setItem("WatchList",moviesData);
+          }
+  
+          // method for if already added to wishlist, not foolproof
+          else{
+            // change button appearance
+            $(this).children().addClass("bi-plus-circle").removeClass("bi bi-check-circle");
+            isAdded = false;
+            
+            // fetches watchlist and removes movie clicked on from array
+            let watchlist = JSON.parse(localStorage.getItem("WatchList"));
+            for(i = 0; i<watchlist.length;i++){
+              if(moviesToShow.id === watchlist[i]){
+                console.log(watchlist[i] +" to be removed")
+                watchlist = delete watchlist[i];
+              }
+            }
+  
+            // send updated list to local storage
+            let moviesData = JSON.stringify(watchlist);
+            localStorage.setItem("WatchList",moviesData);
+  
+          }
+          
+        });
+  
+      $("#trendingContainer").append(card);
+  
+    });
 
-    for(let i = 0; i < moviesToShow.length; i++){
-        const currentMovie = moviesToShow[i];
+};
 
-        // ===============================================================
-        // load movies
+// load european movies
+function fillEuroMovies(moviesToShow){
+  
+  // Clear all cards before loading movies
+  let isAdded = false;
+  let watchlistArr = [];
+  $("#europeContainer").empty();
 
   moviesToShow.forEach(moviesToShow => {
     let imgUrl = "https://image.tmdb.org/t/p/original" + moviesToShow.backdrop_path;
@@ -370,8 +322,54 @@ function fillTrendingMovies(moviesToShow){
       </div>
       </div>`);
 
-        // Create a variable that contains the most recently added card
-        let current = $("#trendingContainer").children().eq(i);
+      $(moviesToShow).find("#moviePoster").css("background-image","url(" + imgUrl + ")"); 
+
+      // navigates to single movie page
+      card.on('click','.lib-card',function(){
+
+        window.location.href = `singleFilm.html?id=${moviesToShow.id}`;
+      });
+
+      // to add the movie from the library page to the watch list
+      // when the button is clicked
+      card.on('click','.add-icon',function(){
+
+        // if checks if the the movie has been added, not foolproof
+        if(!isAdded){
+          // updates button appearance
+          $(this).children().addClass("bi bi-check-circle").removeClass("bi-plus-circle");
+
+          // so the movie cant be added twice
+          isAdded = true;
+
+          // adds movie to the array to be sent to local storage
+          watchlistArr.push(moviesToShow.id);
+          
+          // sends movie Id to wishlist
+          let moviesData = JSON.stringify(watchlistArr);
+          localStorage.setItem("WatchList",moviesData);
+        }
+
+        // method for if already added to wishlist, not foolproof
+        else{
+          // change button appearance
+          $(this).children().addClass("bi-plus-circle").removeClass("bi bi-check-circle");
+          isAdded = false;
+          
+          // fetches watchlist and removes movie clicked on from array
+          let watchlist = JSON.parse(localStorage.getItem("WatchList"));
+          for(i = 0; i<watchlist.length;i++){
+            if(moviesToShow.id === watchlist[i]){
+              console.log(watchlist[i] +" to be removed")
+              watchlist = delete watchlist[i];
+            }
+          }
+
+          // send updated list to local storage
+          let moviesData = JSON.stringify(watchlist);
+          localStorage.setItem("WatchList",moviesData);
+
+        }
         
       });
 
@@ -742,8 +740,6 @@ function loadAfricanMovies(){
   })
   };
 
-// ===============================================================================================================
-// Add to watchlist
 
   function loadAsianMovies(){
     // api Pulls
@@ -830,6 +826,4 @@ function loadAfricanMovies(){
       
       };
 
-  // Save the updated array back to local storage
-  localStorage.setItem("clickedMovies", JSON.stringify(movies));
-}
+      
