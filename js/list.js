@@ -61,11 +61,16 @@ function getMovies(movieID){
             let imgUrl = "https://image.tmdb.org/t/p/original" + data.backdrop_path;
 
             const wlCard = $(`
-            <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
-            <div class="card" style="width: 18rem;">
+            <div class="col-xl-4 col-lg-4 col-md-6 col-xs-12">
+            <div class="card" >
               <img src="${imgUrl}" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-text">${data.title}</h5>
+                <div class="btn-grp-wl">
+                  <button class="upvote1"></button>
+                  <button class="downvote1"></button>  
+                  <button class="remove1"></button>
+                </div>
               </div>
             </div>
           </div>`); 

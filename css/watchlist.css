@@ -171,8 +171,24 @@ footer .row{
 
 
 /* watchlist card styling */
+
+.card{
+    background-color: #2b2b2b;
+    border: 5px solid #F18442;
+}
+
 .card-text{
-    color: black;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.btn-grp-wl{
+    display: flex;
+}
+
+.remove1{
+    margin-left: 85%;
 }
 
 /* =========================================================================== */
