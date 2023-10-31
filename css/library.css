@@ -105,6 +105,9 @@ label, .form-text, p{
     cursor: pointer;
     opacity: 1;
 }
+.movie-title{
+    font-size: 12px;
+}
 
     
     
@@ -173,6 +176,9 @@ label, .form-text, p{
     cursor: pointer;
     opacity: 1;
 }
+.movie-title{
+    font-size: 14px;
+}
 
 
 }
@@ -232,6 +238,11 @@ label, .form-text, p{
     opacity: 1;
 }
 
+.movie-title{
+    font-size: 16px;
+}
+
+
 }
 
 /* 991px */
@@ -250,6 +261,7 @@ label, .form-text, p{
 
 .movie-col{
     height: 90%;
+    margin-top: 25px;
 }
 
 .lib-card{
@@ -334,6 +346,7 @@ label, .form-text, p{
     
     .movie-col{
         height: 90%;
+        margin-top: 25px;
     }
 
     .lib-card{
@@ -473,4 +486,5 @@ footer i {
 .add-icon:hover{
     cursor: pointer;
 }
+
 /* ============================================== */

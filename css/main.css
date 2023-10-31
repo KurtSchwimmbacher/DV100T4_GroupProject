@@ -841,9 +841,52 @@ footer i {
     text-align: center;
 } */
 
-/* library filter buttons */
-/* .filter-btn{
-    width: 24px;
+.placeholderFour{
+    width: 200px;
+    height: 250px;
+    border: 2px solid gray;
+    border-radius: 2px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    background-color: black;
+    background-image: url(../assets/indie\ movie\ 1.2.jpg);
+    background-size: cover;
+    background-position:center;
+}
+
+
+/* ============================================================================ */
+/* Single Movie Section */
+.single-film-title{
+    color: white;
+}
+
+.badge{
+    vertical-align: top;
+}
+
+.info-circle{
+    float: right;
+}
+
+
+.trailer-img{
+    height: 80vh;
+    width: 60%;
+    background-image: url("../assets/Ao\ to\ Orenji.jpg");
+    background-position: center;
+    background-size: cover;
+}
+.play-trailer{
+    width: 80px;
+}
+
+.video-player{
+    width: 80%;
+    height: 75vh;
+}
+
+.mini-poster{
     height: auto;
     margin-left: 3rem;
 }
