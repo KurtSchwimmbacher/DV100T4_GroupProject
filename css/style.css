@@ -94,3 +94,70 @@ background-size: cover;
     font-size: 10px;
 }
 
+.Review{
+    width: 25%;
+    height: 250px;
+    border-radius: 5px;
+    position: absolute;
+    top : 0%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.1);
+    text-align: center; 
+    border: solid 5px #F18442;
+    visibility: hidden;
+}
+
+.containerreview{
+    width: 100%;
+    height: 100%;
+    background-color: #2b2b2b;
+    opacity: 90%;
+    padding-left: 10%;
+}
+
+.rheader{
+    text-align: center;
+    left: 50%;
+}
+
+.rinput{
+    width: 90%;  
+    margin-right: 10%;
+    height: 55px;
+    border-radius: 5px;
+    text-align: left;
+    padding: 5px;
+}
+
+.rlabel{
+    float: left;
+}
+
+.rcheckbox{
+    float: left;
+    margin-top: 20px;
+}
+
+.rlabel2{
+    float: right;
+    margin-top: 13px;
+    margin-left: 5px;
+    margin-right: 38%;
+}
+
+.rsubmit{
+    width: 30%;
+    height: 40px;
+    text-align: center;
+    margin-top: 30px;
+    margin-right: 10% ;
+    background-color: #2b2b3b;
+    border-radius: 10px;
+    border: solid 2px #F18442;
+    color: aliceblue;
+}
+
+.rsubmit:hover{
+color: #2b2b2b;
+background-color: #F18442;
+}
