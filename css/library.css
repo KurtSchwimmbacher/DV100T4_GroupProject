@@ -478,12 +478,12 @@ footer i {
 }
 
 
-.add-icon{
+.add-icon-lib{
     float: right;
     margin-top: -11%;
 }
 
-.add-icon:hover{
+.add-icon-lib:hover{
     cursor: pointer;
 }
 
