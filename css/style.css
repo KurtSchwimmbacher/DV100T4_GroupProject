@@ -94,17 +94,24 @@ background-size: cover;
     font-size: 10px;
 }
 
-.Review{
+.openreview{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(1);
+}
+
+.review{
     width: 25%;
     height: 250px;
     border-radius: 5px;
     position: absolute;
-    top : 0%;
+    top : 0;
     left: 50%;
     transform: translate(-50%,-50%) scale(0.1);
     text-align: center; 
     border: solid 5px #F18442;
     visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
 }
 
 .containerreview{

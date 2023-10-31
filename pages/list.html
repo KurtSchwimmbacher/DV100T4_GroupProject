@@ -20,7 +20,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="/js/popup.js"></script>
     <script src="../js/list.js"></script>
+    
     
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -117,8 +119,8 @@
           <div class="card-body">
             <h5 class="card-title2" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif;" id="title">The green knight</h5>            
             <p class="card-text2" id="description2">7.9/10 IMDB</p>
-            <button id="reviewpop" class="upvote1"></button>
-            <button class="downvote1"></button>           
+            <button class="upvote1" onclick="openReview()"></button>
+            <button class="downvote1"  onclick="openReview()"></button>           
           </div>
         </div>
         </div>
@@ -460,15 +462,15 @@
 <!--Popup-->
 
 
-<div class="Review" id="review">
+<div class="review" id="review">
   <div class="containerreview">
-    <button class="remove1" id="reviewclose"></button>
+    <button class="remove1" onclick="closeReview()"></button>
     <h2 class="rheader">REVIEW</h2>
     <label for="rinput" class="rlabel">Write a Review?</label>
     <input type="text" class="rinput" placeholder="Type here...">
     <input type="checkbox" class="rcheckbox">
     <label for="rcheckbox" class="rlabel2">Would u reccomend this?</label>
-    <button class="rsubmit" id="reviewclose">Submit</button>
+    <button class="rsubmit" onclick="closeReview()">Submit</button>
   </div>          
 </div>
 
