@@ -10,4 +10,8 @@ function closeReview(){
     review.classList.add('review');
 }
 
+$(document).ready(functino(){
 
+    
+
+});
