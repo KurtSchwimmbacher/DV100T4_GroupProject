@@ -885,13 +885,73 @@ function loadAfricanMovies(){
       function filterSortMovies(genre,region){
         console.log(genre)
         console.log(region)
+        let area1,area2 = "";
         switch(region) {
           case "Europe":
-            console.log("Europe Selected")
+            let euroArr = [];
+let area = "FR";
+$.ajax({
+  dataType: 'json',
+  type:"GET",
+  // gets the first page of results
+  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+  success: function(data){
+      let temp = data.results;
+    
+    euroArr = temp;
+
+  },
+    error: function(error){
+      // handle as it comes
+  }
+})
+
+area = "DE";
+$.ajax({
+  dataType: 'json',
+  type:"GET",
+  // gets the first page of results
+  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+  success: function(data){
+      let temp = data.results;
+
+      for(i = 0; i < temp.length; i++){
+        euroArr.push(temp[i]);
+      }
+
+      // sort by average vote, high to low
+      euroArr = euroArr.sort((a,b) =>{
+        return b.vote_average - a.vote_average;    
+      });
+
+      
+
+     console.log(euroArr)
+
+
+  }, error: function(error){
+
+  }
+})
             break;
-          case y:
-            // code block
+          case "Africa":
+            area1 = "ZA";
+            area2 = "NG";
+            console.log(area1 + area2)
+            break;
+          case "Asia":
+            area1 = "KR";
+            area2 = "JP";
+            console.log(area1 + area2)
+            break;
+          case "India":
+            area1 = "IN";
+            console.log(area1)
+            break;
+          case "All":
+            console.log("All Selected")
             break;
           default:
+            console.log("All Selected") 
         }
       }
