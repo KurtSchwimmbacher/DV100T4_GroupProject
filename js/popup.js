@@ -1,17 +1,23 @@
-let review = document.getElementById("rReview");
+$(document).ready(function(){
 
-function openReview(){
-    review.classList.remove('rrreview');
-    review.classList.add('openreview');
-}
+$("#upvoteOpen").on('click',function(){
+    console.log("Works");
+    $("#rReview").addClass("openreview");
+    $("#rReview").removeClass("review")
+});
 
-function closeReview(){
-    review.classList.remove("openreview");
-    review.classList.add('rrreview');
-}
+$("#closeBtn").on('click',function(){
+    $("#rReview").removeClass("openreview");
+    $("#rReview").addClass("review")
+})
+
+ 
+})
 
 $(document).ready(function(){
 
     
 
-});
+
+
+})
