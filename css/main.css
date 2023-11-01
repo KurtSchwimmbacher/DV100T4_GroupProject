@@ -618,7 +618,7 @@ label, .form-text, p{
         font-size: 22px;
     }
      
- /* Library Page */
+ /* Homepage */
  .movie-card{
     width: 25%;
 }
@@ -671,7 +671,7 @@ label, .form-text, p{
 /* ------------------------------------------------------------------------------- */
 
 @media(min-width:991px){
- /* Library Page */
+ /* Homepage */
  .movie-card{
     width: 25%;
 }
@@ -756,7 +756,7 @@ label, .form-text, p{
         font-size: 36px;
     }
 
-    /* Library Page */
+    /* Homepage */
     .movie-card{
         width: 25%;
     }
@@ -824,40 +824,3 @@ footer i {
 .footer-api-img{
     margin-top: 7px;
 }
-
-
-
-/* ============================================== */
-/* library page */
-
-/* .filters-con{
-    display: flex;
-    justify-content: end;
-}
-
-.filter-opt-con{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-} */
-
-/* library filter buttons */
-/* .filter-btn{
-    width: 24px;
-    height: auto;
-    margin-left: 3rem;
-}
-.filter-btn:hover, .filter-opt-con p:hover{
-    cursor: pointer;
-}
-
-
-.add-icon{
-    float: right;
-    margin-top: -11%;
-}
-
-.add-icon:hover{
-    cursor: pointer;
-} */
-/* ============================================== */
