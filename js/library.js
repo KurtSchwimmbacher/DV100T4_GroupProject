@@ -884,18 +884,17 @@ function loadAfricanMovies(){
       function filterSortMovies(genre,region){
         console.log(genre)
         console.log(region)
-        let area1,area2 = "";
         switch(region) {
           // europe case
           // ===============================================================================================
           case "Europe":
             let euroArr = [];
-            let area = "FR";
+            let areaEu = "FR";
             $.ajax({
               dataType: 'json',
               type:"GET",
               // gets the first page of results
-              url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+              url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${areaEu}`,
             success: function(data){
               let temp = data.results;
     
@@ -906,12 +905,12 @@ function loadAfricanMovies(){
             }
           })
 
-          area = "DE";
+          areaEu = "DE";
           $.ajax({
             dataType: 'json',
             type:"GET",
             // gets the first page of results
-            url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+            url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${areaEu}`,
             success: function(data){
                 let temp = data.results;
 
@@ -937,18 +936,56 @@ function loadAfricanMovies(){
           })
             break;
           case "Africa":
-            area1 = "ZA";
-            area2 = "NG";
-            console.log(area1 + area2)
+            let afriArr = [];
+  let areaAf = "NG";
+  $.ajax({
+    dataType: 'json',
+    type:"GET",
+    // gets the first page of results
+    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${areaAf}`,
+    success: function(data){
+        let temp = data.results;
+      
+      // // load movies in trending section of browse page
+      afriArr = temp;
+  
+    },
+      error: function(error){
+        // handle as it comes
+    }
+  })
+  
+  areaAf = "ZA";
+  $.ajax({
+    dataType: 'json',
+    type:"GET",
+    // gets the first page of results
+    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${areaAf}`,
+    success: function(data){
+        let temp = data.results;
+  
+        for(i = 0; i < temp.length; i++){
+          afriArr.push(temp[i]);
+        }
+  
+        // sort by average vote, high to low
+        afriArr = afriArr.sort((a,b) =>{
+          return b.vote_average - a.vote_average;    
+        });
+  
+        afriArr = afriArr.slice(0,20);
+        displaySortedMovies("Africa",afriArr)  
+  
+    }, error: function(error){
+  
+    }
+  })
             break;
           case "Asia":
-            area1 = "KR";
-            area2 = "JP";
-            console.log(area1 + area2)
+
             break;
           case "India":
-            area1 = "IN";
-            console.log(area1)
+
             break;
           case "All":
             console.log("All Selected")
@@ -960,21 +997,40 @@ function loadAfricanMovies(){
 
 
 function displaySortedMovies(country,moviesToDisplay){
+  $("#trendingContainer").hide();
+  $("#trendingRow").hide();
+  $("#asianContainer").hide();
+  $("#asianRow").hide();
+  $("#africanContainer").hide();
+  $("#africanRow").hide();
+  $("#indianContainer").hide();
+  $("#indianRow").hide();
+  $("#europeContainer").hide();
+  $("#europeRow").hide();
   // hides other categories
   switch(country){
     case "Europe":
-      $("#trendingContainer").hide();
-      $("#trendingTitle").hide();
-      $("#asianContainer").hide();
-      $("#asianTitle").hide();
-      $("#africanContainer").hide();
-      $("#africanTitle").hide();
-      $("#indianContainer").hide();
-      $("#indianTitle").hide();
-      // $("#europeContainer").hide();
+      $("#europeContainer").show();
+      $("#europeRow").show();
 
       // fills the euro container
       fillEuroMovies(moviesToDisplay);
+
+      // fix footer margin
+      $("#footerLib").addClass("extend-footer")
+      break;
+      
+      
+    case "Africa":
+
+    $("#africanContainer").show();
+    $("#africanRow").show();
+
+      // fills the euro container
+      fillAfricanMovies(moviesToDisplay);
+
+      // fix footer margin
+      $("#footerLib").addClass("extend-footer")
       break;
       
   }
