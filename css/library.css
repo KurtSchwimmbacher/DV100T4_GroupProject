@@ -464,4 +464,9 @@ footer i {
     margin-top: 120%;
 }
 
+.filter-active{
+    color: #F18442;
+    font-weight: bold;
+}
+
 /* ============================================== */
