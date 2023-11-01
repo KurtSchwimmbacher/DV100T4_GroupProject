@@ -1060,6 +1060,8 @@ function loadAfricanMovies(){
             })
             break;
           case "All":
+
+          
             $("#trendingContainer").show();
             $("#trendingRow").show();
             $("#asianContainer").show();
