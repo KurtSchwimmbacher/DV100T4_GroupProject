@@ -41,7 +41,7 @@ loadAfricanMovies();
 loadAsianMovies();
 loadIndianMovies();
 loadTrendingMovies();
-
+getFilters();
 
 })
 
@@ -826,4 +826,72 @@ function loadAfricanMovies(){
       
       };
 
-      
+      function getFilters(){
+        let genreFilter = "";
+        let regionFilter = "";
+
+
+          // regions
+          let regions = ["Africa","Europe","Asia","India","All"];
+          $("#regionCon").empty();
+          regions.forEach(regions =>{
+            console.log(regions)
+
+            const regionTitle = $(`
+              <p class="region-link" id="regionLink">${regions}</p>
+            `);
+
+            $("#regionCon").append(regionTitle);
+
+            regionTitle.on('click',function(){
+              regionFilter = regions;
+              filterSortMovies(genreFilter,regionFilter);
+            });
+
+          });
+
+        // genres filters 
+          $.ajax({
+          dataType: 'json',
+          type:"GET",
+          // gets the first page of results
+          url:` https://api.themoviedb.org/3/genre/movie/list?api_key=34e9f99aa672c944811b83fab5b6c232&`,
+          success: function(data){
+            $("#genreCon").empty();
+              let temp = data.genres;
+
+              temp.forEach(temp =>{
+                
+                const genreTitle = $(`
+                <p class="genre-link" id = "genreLink">${temp.name}</p>
+                `);
+                $("#genreCon").append(genreTitle);
+
+                genreTitle.on('click',function(){
+                  genreFilter = temp.name;
+                  filterSortMovies(genreFilter,regionFilter);
+                });
+              });
+        
+          }, error: function(error){
+        
+          }
+        })
+
+      }
+
+
+
+      function filterSortMovies(genre,region){
+        console.log(genre)
+        console.log(region)
+        switch(region) {
+          case "Europe":
+            console.log("Europe Selected")
+            break;
+          case y:
+            // code block
+            break;
+          default:
+        }
+      }

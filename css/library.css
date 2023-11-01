@@ -448,4 +448,8 @@ footer i {
     cursor: pointer;
 }
 
+.genre-link:hover{
+    cursor: pointer;
+}
+
 /* ============================================== */
