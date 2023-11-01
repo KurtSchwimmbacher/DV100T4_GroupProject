@@ -322,10 +322,7 @@ label, .form-text, p{
     object-position: center !important;
 }
 
-/* Carousel Btn Styling */
-.carousel-btn{
 
-}
 .btn-primary{
     background-color: coral !important;
     color: rgb(0, 0, 0) !important;
@@ -411,9 +408,7 @@ label, .form-text, p{
     }
 }
 @media(min-width: 1200px){
-    .carousel-heading h1{
-  
-    }
+
     .carousel-text h4{
         font-size: 24px; 
     }
@@ -824,3 +819,83 @@ footer i {
 .footer-api-img{
     margin-top: 7px;
 }
+
+
+
+/* ============================================== */
+/* library page */
+
+/* .filters-con{
+    display: flex;
+    justify-content: end;
+}
+
+.filter-opt-con{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+} */
+
+.placeholderFour{
+    width: 200px;
+    height: 250px;
+    border: 2px solid gray;
+    border-radius: 2px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    background-color: black;
+    background-image: url(../assets/indie\ movie\ 1.2.jpg);
+    background-size: cover;
+    background-position:center;
+}
+
+
+/* ============================================================================ */
+/* Single Movie Section */
+.single-film-title{
+    color: white;
+}
+
+.badge{
+    vertical-align: top;
+}
+
+.info-circle{
+    float: right;
+}
+
+
+.trailer-img{
+    height: 80vh;
+    width: 60%;
+    background-image: url("../assets/Ao\ to\ Orenji.jpg");
+    background-position: center;
+    background-size: cover;
+}
+.play-trailer{
+    width: 80px;
+}
+
+.video-player{
+    width: 80%;
+    height: 75vh;
+}
+
+.mini-poster{
+    height: auto;
+    width: 100%;
+}
+.filter-btn:hover, .filter-opt-con p:hover{
+    cursor: pointer;
+}
+
+
+.add-icon{
+    float: right;
+    margin-top: -11%;
+}
+
+.add-icon:hover{
+    cursor: pointer;
+}
+/* ============================================== */

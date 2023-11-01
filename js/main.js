@@ -12,6 +12,20 @@ $(document).ready(function(){
     // set the validation text to be invisible
     clearValidationText();
 
+    const urlParams = new URLSearchParams(window.location.search);
+    const userID= urlParams.get('id');
+  
+    console.log(userID)
+    if(userID){
+        let users = JSON.parse(localStorage.getItem("userProfiles"));
+        console.log(users)
+        let currentUser;
+
+        $("#signUpNav").text(users.user)
+    }
+    else{
+        // error message
+    }
   
 
     // navigate from splash screen to login screen
