@@ -888,251 +888,224 @@ function loadAfricanMovies(){
       function filterSortMovies(genre,region){
         console.log(genre)
         console.log(region)
-        switch(region) {
-          // europe case
-          // ===============================================================================================
-          case "Europe":
-            let euroArr = [];
-            let areaEu = "FR";
+
+        if(genre){
+          
+          // get the id chosen as id and not name
+          let chosenGenreID;
+          for(i = 0; i <genres.length; i++){
+            if(genres[i].name === genre){
+              chosenGenreID = genres[i].id;
+              console.log(genres[i].id)
+            }
+          }
+
+          switch(region) {
+            // europe case
+            // ===============================================================================================
+            case "Europe":
+              let euroArr = [];
+              let areaEu = "FR";
+              $.ajax({
+                dataType: 'json',
+                type:"GET",
+                // gets the first page of results
+                url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${chosenGenreID}&with_origin_country=${areaEu}`,
+              success: function(data){
+                let temp = data.results;
+                console.log(genres)
+  
+                euroArr = temp;
+                
+            },
+              error: function(error){
+                // handle as it comes
+              }
+            })
+  
+            areaEu = "DE";
             $.ajax({
               dataType: 'json',
               type:"GET",
               // gets the first page of results
-              url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${areaEu}`,
-            success: function(data){
-              let temp = data.results;
-              console.log(genres)
+              url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${chosenGenreID}&with_origin_country=${areaEu}`,
+              success: function(data){
+                  let temp = data.results;
 
-              if(genre != ""){
-                // get the id chosen as id and not name
-              let chosenGenreID;
-              for(i = 0; i <genres.length; i++){
-                if(genres[i].name === genre){
-                  chosenGenreID = genres[i].id;
-                }
-              }
-              
-              euroArr = temp.filter(chosenGenre =>chosenGenre.genre_ids.includes(chosenGenreID));
-              console.log("filtered euro movies by genre: ")
-              console.log(euroArr)
-              }
-              else{
-                euroArr = temp;
-              }
-              
-          },
-            error: function(error){
-              // handle as it comes
-            }
-          })
-
-          areaEu = "DE";
-          $.ajax({
-            dataType: 'json',
-            type:"GET",
-            // gets the first page of results
-            url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${areaEu}`,
-            success: function(data){
-                let temp = data.results;
-
-                if(genre != ""){
-                  // get the id chosen as id and not name
-                  let chosenGenreID;
-                  for(i = 0; i <genres.length; i++){
-                    if(genres[i].name === genre){
-                      chosenGenreID = genres[i].id;
-                    }
-                  }
-                
-                  let newArr = temp.filter(chosenGenre =>chosenGenre.genre_ids.includes(chosenGenreID));
-
-
-                  for(i = 0; i <newArr.length; i++){
-                    euroArr.push(newArr[i]);
-                  }
-
-                  console.log("filtered euro movies by genre: ")
-                  console.log(euroArr)
-
-
-                  // sort by average vote, high to low
-                  euroArr = euroArr.sort((a,b) =>{
-                    return b.vote_average - a.vote_average;    
-                  });
-                }
-                else{
                   for(i = 0; i < temp.length; i++){
                     euroArr.push(temp[i]);
                   }
-  
+    
                   // sort by average vote, high to low
                   euroArr = euroArr.sort((a,b) =>{
                     return b.vote_average - a.vote_average;    
                   });
-  
+    
                   euroArr = euroArr.splice(0,20);
-                }
-                
-                displaySortedMovies("Europe",euroArr);
-
-              
-
-
-            }, error: function(error){
-
-            }
-          })
-            break;
-          case "Africa":
-            
-            let afriArr = [];
-            let areaAf = "NG";
-            $.ajax({
-              dataType: 'json',
-              type:"GET",
-              // gets the first page of results
-              url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${areaAf}`,
-              success: function(data){
-                  let temp = data.results;
-                
-                // // load movies in trending section of browse page
-                afriArr = temp;
-            
-              },
-                error: function(error){
-                  // handle as it comes
-              }
-            })
-            
-            areaAf = "ZA";
-            $.ajax({
-              dataType: 'json',
-              type:"GET",
-              // gets the first page of results
-              url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${areaAf}`,
-              success: function(data){
-                  let temp = data.results;
-            
-                  for(i = 0; i < temp.length; i++){
-                    afriArr.push(temp[i]);
-                  }
-            
-                  // sort by average vote, high to low
-                  afriArr = afriArr.sort((a,b) =>{
-                    return b.vote_average - a.vote_average;    
-                  });
-            
-                  afriArr = afriArr.slice(0,20);
-                  displaySortedMovies("Africa",afriArr)  
-            
-              }, error: function(error){
-            
-              }
-            })
-            break;
-          case "Asia":
-            console.log("asia selected")
-            let asiaArr = [];
-            let areaAs = "KR";
-            $.ajax({
-              dataType: 'json',
-              type:"GET",
-              // gets the first page of results
-              url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${areaAs}`,
-              success: function(data){
-                  let temp = data.results;
-                
-                // // load movies in trending section of browse page
-                asiaArr = temp;
-            
-              },
-                error: function(error){
-                  // handle as it comes
-              }
-            })
-        
-        
-            
-            areaAs = "JP";
-            $.ajax({
-              dataType: 'json',
-              type:"GET",
-              // gets the first page of results
-              url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${areaAs}`,
-              success: function(data){
-                  let temp = data.results;
-            
-                  for(i = 0; i < temp.length; i++){
-                    asiaArr.push(temp[i]);
-                  }
                   
-                  // sort by average vote, high to low
-                  asiaArr = asiaArr.sort((a,b) =>{
-                    return b.vote_average - a.vote_average;    
-                  });
-            
-        
-                  asiaArr = asiaArr.slice(0,20);
-            
-                 displaySortedMovies("Asia",asiaArr);
-            
-            
+                  displaySortedMovies("Europe",euroArr);
+                    
               }, error: function(error){
-            
+  
               }
             })
-            break;
-          case "India":
-            area = "IN";
-            $.ajax({
-              dataType: 'json',
-              type:"GET",
-              // gets the first page of results
-              url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
-              success: function(data){
-                  let temp = data.results;
-            
-                  // sort by average vote, high to low
-                  temp = temp.sort((a,b) =>{
-                    return b.vote_average - a.vote_average;    
-                  });
-            
-                  temp = temp.slice(0,20);
-            
-                 displaySortedMovies("India",temp);
-            
-            
-              }, error: function(error){
-            
-              }
-            })
-            break;
-          case "All":
-
+              break;
+            case "Africa":
+              
+              let afriArr = [];
+              let areaAf = "NG";
+              $.ajax({
+                dataType: 'json',
+                type:"GET",
+                // gets the first page of results
+                url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${areaAf}`,
+                success: function(data){
+                    let temp = data.results;
+                  
+                  // // load movies in trending section of browse page
+                  afriArr = temp;
+              
+                },
+                  error: function(error){
+                    // handle as it comes
+                }
+              })
+              
+              areaAf = "ZA";
+              $.ajax({
+                dataType: 'json',
+                type:"GET",
+                // gets the first page of results
+                url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${areaAf}`,
+                success: function(data){
+                    let temp = data.results;
+              
+                    for(i = 0; i < temp.length; i++){
+                      afriArr.push(temp[i]);
+                    }
+              
+                    // sort by average vote, high to low
+                    afriArr = afriArr.sort((a,b) =>{
+                      return b.vote_average - a.vote_average;    
+                    });
+              
+                    afriArr = afriArr.slice(0,20);
+                    displaySortedMovies("Africa",afriArr)  
+              
+                }, error: function(error){
+              
+                }
+              })
+              break;
+            case "Asia":
+              console.log("asia selected")
+              let asiaArr = [];
+              let areaAs = "KR";
+              $.ajax({
+                dataType: 'json',
+                type:"GET",
+                // gets the first page of results
+                url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${areaAs}`,
+                success: function(data){
+                    let temp = data.results;
+                  
+                  // // load movies in trending section of browse page
+                  asiaArr = temp;
+              
+                },
+                  error: function(error){
+                    // handle as it comes
+                }
+              })
           
-            $("#trendingContainer").show();
-            $("#trendingRow").show();
-            $("#asianContainer").show();
-            $("#asianRow").show();
-            $("#africanContainer").show();
-            $("#africanRow").show();
-            $("#indianContainer").show();
-            $("#indianRow").show();
-            $("#europeContainer").show();
-            $("#europeRow").show();
+          
+              
+              areaAs = "JP";
+              $.ajax({
+                dataType: 'json',
+                type:"GET",
+                // gets the first page of results
+                url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${areaAs}`,
+                success: function(data){
+                    let temp = data.results;
+              
+                    for(i = 0; i < temp.length; i++){
+                      asiaArr.push(temp[i]);
+                    }
+                    
+                    // sort by average vote, high to low
+                    asiaArr = asiaArr.sort((a,b) =>{
+                      return b.vote_average - a.vote_average;    
+                    });
+              
+          
+                    asiaArr = asiaArr.slice(0,20);
+              
+                   displaySortedMovies("Asia",asiaArr);
+              
+              
+                }, error: function(error){
+              
+                }
+              })
+              break;
+            case "India":
+              area = "IN";
+              $.ajax({
+                dataType: 'json',
+                type:"GET",
+                // gets the first page of results
+                url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+                success: function(data){
+                    let temp = data.results;
+              
+                    // sort by average vote, high to low
+                    temp = temp.sort((a,b) =>{
+                      return b.vote_average - a.vote_average;    
+                    });
+              
+                    temp = temp.slice(0,20);
+              
+                   displaySortedMovies("India",temp);
+              
+              
+                }, error: function(error){
+              
+                }
+              })
+              break;
+            case "All":
+  
+            
+              $("#trendingContainer").show();
+              $("#trendingRow").show();
+              $("#asianContainer").show();
+              $("#asianRow").show();
+              $("#africanContainer").show();
+              $("#africanRow").show();
+              $("#indianContainer").show();
+              $("#indianRow").show();
+              $("#europeContainer").show();
+              $("#europeRow").show();
+  
+  
+              loadAfricanMovies();
+              loadAsianMovies();
+              loadEuroMovies();
+              loadIndianMovies();
+              loadTrendingMovies();
+  
+              $("#footerLib").removeClass("extend-footer")
+  
+              break;
+            default:
+              console.log("All Selected") 
+          }
 
 
-            loadAfricanMovies();
-            loadAsianMovies();
-            loadEuroMovies();
-            loadIndianMovies();
-            loadTrendingMovies();
+        }
+        else{
 
-            $("#footerLib").removeClass("extend-footer")
-
-            break;
-          default:
-            console.log("All Selected") 
         }
       }
 
