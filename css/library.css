@@ -61,7 +61,7 @@ label, .form-text, p{
 }
 
 .row-con{
-    height: 300vh;
+    height: 100vh;
     margin-bottom: 300vh;
 }
 
@@ -101,7 +101,7 @@ label, .form-text, p{
     opacity: 1;
 }
 .movie-title{
-    font-size: 12px;
+    font-size: 16px;
 }
 
     
@@ -116,6 +116,12 @@ label, .form-text, p{
         .footer-api{
             text-align: center;
         }
+
+        .add-icon{
+            float: right;
+            margin-top: -6%;
+        }
+        
 
 }
 
@@ -163,6 +169,11 @@ label, .form-text, p{
 }
 .movie-title{
     font-size: 14px;
+}
+
+.add-icon{
+    float: right;
+    margin-top: -11%;
 }
 
 
@@ -217,6 +228,12 @@ label, .form-text, p{
 .movie-title{
     font-size: 16px;
 }
+
+.add-icon{
+    float: right;
+    margin-top: -11%;
+}
+
 
 
 }
@@ -292,6 +309,12 @@ label, .form-text, p{
         text-align: center;
     }
 
+    .add-icon{
+        float: right;
+        margin-top: -11%;
+    }
+    
+
 }
 
 
@@ -346,6 +369,11 @@ label, .form-text, p{
         opacity: 1;
     }
 
+    .add-icon{
+        float: right;
+        margin-top: -11%;
+    }
+    
 
 
 
@@ -439,10 +467,6 @@ footer i {
 }
 
 
-.add-icon{
-    float: right;
-    margin-top: -11%;
-}
 
 .add-icon:hover{
     cursor: pointer;
