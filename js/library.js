@@ -31,6 +31,8 @@ $(document).ready(function(){
         
     });
 
+    
+
 // ==============================================================================================================
 // filters code end
 
@@ -826,7 +828,7 @@ function loadAfricanMovies(){
       };
 
       function getFilters(){
-        let genreFilter = "";
+        let genreFilter = [];
         let regionFilter = "";
 
 
@@ -858,6 +860,8 @@ function loadAfricanMovies(){
           success: function(data){
             $("#genreCon").empty();
               let temp = data.genres;
+
+              storeGenreObj(temp);
 
               temp.forEach(temp =>{
                 
@@ -897,8 +901,25 @@ function loadAfricanMovies(){
               url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${areaEu}`,
             success: function(data){
               let temp = data.results;
-    
-              euroArr = temp;
+              console.log(genres)
+
+              if(genre != ""){
+                // get the id chosen as id and not name
+              let chosenGenreID;
+              for(i = 0; i <genres.length; i++){
+                if(genres[i].name === genre){
+                  chosenGenreID = genres[i].id;
+                }
+              }
+              
+              euroArr = temp.filter(chosenGenre =>chosenGenre.genre_ids.includes(chosenGenreID));
+              console.log("filtered euro movies by genre: ")
+              console.log(euroArr)
+              }
+              else{
+                euroArr = temp;
+              }
+              
           },
             error: function(error){
               // handle as it comes
@@ -914,16 +935,43 @@ function loadAfricanMovies(){
             success: function(data){
                 let temp = data.results;
 
-                for(i = 0; i < temp.length; i++){
-                  euroArr.push(temp[i]);
+                if(genre != ""){
+                  // get the id chosen as id and not name
+                  let chosenGenreID;
+                  for(i = 0; i <genres.length; i++){
+                    if(genres[i].name === genre){
+                      chosenGenreID = genres[i].id;
+                    }
+                  }
+                
+                  let newArr = temp.filter(chosenGenre =>chosenGenre.genre_ids.includes(chosenGenreID));
+
+
+                  for(i = 0; i <newArr.length; i++){
+                    euroArr.push(newArr[i]);
+                  }
+
+                  console.log("filtered euro movies by genre: ")
+                  console.log(euroArr)
+
+
+                  // sort by average vote, high to low
+                  euroArr = euroArr.sort((a,b) =>{
+                    return b.vote_average - a.vote_average;    
+                  });
                 }
-
-                // sort by average vote, high to low
-                euroArr = euroArr.sort((a,b) =>{
-                  return b.vote_average - a.vote_average;    
-                });
-
-                euroArr = euroArr.splice(0,20);
+                else{
+                  for(i = 0; i < temp.length; i++){
+                    euroArr.push(temp[i]);
+                  }
+  
+                  // sort by average vote, high to low
+                  euroArr = euroArr.sort((a,b) =>{
+                    return b.vote_average - a.vote_average;    
+                  });
+  
+                  euroArr = euroArr.splice(0,20);
+                }
                 
                 displaySortedMovies("Europe",euroArr);
 
@@ -1151,3 +1199,8 @@ function displaySortedMovies(country,moviesToDisplay){
       
   }
 }
+
+// store genre objects
+function storeGenreObj(GenreObjArr){
+  genres = GenreObjArr;
+};
