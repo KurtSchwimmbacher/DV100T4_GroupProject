@@ -224,53 +224,67 @@
         
       </div>
 
-      <!-- ----------------------------------------------------------- -->
+  <!-- =========================================================================================================== -->
+  <!-- Cards -->
 
-      <!-- Cards -->
-
-  
-  <!-- Trending Movies -->
+  <!-- Popular Movies -->
   <div class="container mt-5 mb-5 pb-5">
       <div class="row">
-          <div class="col-sm-12">
+          <div class="col-sm-12 mt-5">
               <h2 id="test">Trending</h2>
           </div>
       </div>
+
       <!-- row contains trending movie cards -->
-      <div class="row row-con" id="trendingContainer" style="margin-bottom: 60vh;">
+      <div class="row mt-3 row-con" id="trendingContainer" style="margin-bottom: 5vh;">
           <!-- Trending rows append here -->
       </div>
 
-      <!-- trending images template -->
-      <template id="moviePosterTemplate">
-        <div class="col-sm-6 col-md-4 col-lg-3 mb-5 movie-col">
-          <div class="card lib-card"  id="moviePoster" style="background-image: url(${imgUrl});">
-              <div class="overlay" id="overlay">
-                  <img class="play-logo" src="../assets/svgs/plus-circle.svg">
-              </div>
-            </div>
-            <div id="cardBody" class="card-body lib-body">
-              <h2 id="cardTitleBrowse" class="card-text movie-title">${moviesToShow.title}</h2>
-          </div>
-          </div>
       </template>
-       <!-- region rows -->
-        <!-- africa row -->
-        <div class="row mt-5 mb-3">
-          <div class="col-12 mt-5 ">
-              <h2>African Titles</h2>
-          </div>
-      </div>
-      <div class="row mt-5 row-con" id="africanContainer">
-
-      </div>
-
-  </div>
-
-  </div>
-
       
-      <!-- ----------------------------------------------------------- -->
+      <!-- --------------------------------------------------------- -->
+        <!-- Hidden Gems -->
+        <div class="row mt-3 mb-3">
+          <div class="col-12 mt-5 ">
+              <h2>Hidden Gems</h2>
+          </div>
+        </div>
+      <div class="row mt-3 row-con" id="hiddenGemContainer" style="margin-bottom: 5vh;">
+        <!-- cards to be appended here -->
+
+      </div>
+
+      <!-- --------------------------------------------------------- -->
+        <!-- Most Recent Movies -->
+        <div class="row mt-3 mb-3">
+          <div class="col-12 mt-5 ">
+              <h2>Most Votes</h2>
+          </div>
+        </div>
+      <div class="row mt-3 row-con" id="highestVotedContainer" style="margin-bottom: 8vh;">
+        <!-- cards to be appended here -->
+
+      </div>
+       
+  </div>
+   
+
+  <!-- =================================================================================================================== -->
+  <!-- About us -->
+      <section class="about-us" style="height: 48vh;">
+        <div class="container-fluid">
+            <div class="row mb-3">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="mt-4 mb-4">About  IndieStreams</h1>
+                    <p class="mb-4">IndieStreams is your ultimate destination for discovering and streaming a wide range of foreign movies from various genres and cultures. Our curated collection of indie films from around the world ensures a unique cinematic experience for our viewers. Dive into the world of international cinema with IndieStreams and explore the richness of storytelling from different cultures.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+  <!-- =================================================================================================================== -->
+
+
       <!-- Footer -->
       <footer>
         <div class="container mt-5 pt-5 mb-5 footer-con">
