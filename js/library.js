@@ -46,14 +46,15 @@ getFilters();
 // functions
 
 
-function loadTrendingMovies(){
+function loadTrendingMovies(genre){
 
 let moviesToShow = [];
 let euroArr = [];
 let asiaArr = [];
 let afriArr = [];
 
-let area = "FR";
+if(!genre){
+  let area = "FR";
 $.ajax({
   dataType: 'json',
   type:"GET",
@@ -199,6 +200,155 @@ $.ajax({
       
         }
       })
+}
+else{
+  let area = "FR";
+$.ajax({
+  dataType: 'json',
+  type:"GET",
+  // gets the first page of results
+  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
+  success: function(data){
+      let temp = data.results;
+    
+    euroArr = temp;
+
+  },
+    error: function(error){
+      // handle as it comes
+  }
+})
+
+area = "DE";
+$.ajax({
+  dataType: 'json',
+  type:"GET",
+  // gets the first page of results
+  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+  success: function(data){
+      let temp = data.results;
+
+      for(i = 0; i < temp.length; i++){
+        euroArr.push(temp[i]);
+      }
+
+  }, error: function(error){
+
+  }
+})
+
+  area = "NG";
+  $.ajax({
+    dataType: 'json',
+    type:"GET",
+    // gets the first page of results
+    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+    success: function(data){
+        let temp = data.results;
+      
+      // // load movies in trending section of browse page
+      afriArr = temp;
+  
+    },
+      error: function(error){
+        // handle as it comes
+    }
+  })
+  
+  area = "ZA";
+  $.ajax({
+    dataType: 'json',
+    type:"GET",
+    // gets the first page of results
+    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+    success: function(data){
+        let temp = data.results;
+  
+        for(i = 0; i < temp.length; i++){
+          afriArr.push(temp[i]);
+        }    
+  
+    }, error: function(error){
+  
+    }
+  })
+
+   area = "KR";
+  $.ajax({
+    dataType: 'json',
+    type:"GET",
+    // gets the first page of results
+    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+    success: function(data){
+        let temp = data.results;
+      
+      // // load movies in trending section of browse page
+      asiaArr = temp;
+  
+    },
+      error: function(error){
+        // handle as it comes
+    }
+  })
+
+
+  
+  area = "JP";
+  $.ajax({
+    dataType: 'json',
+    type:"GET",
+    // gets the first page of results
+    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+    success: function(data){
+        let temp = data.results;
+  
+        for(i = 0; i < temp.length; i++){
+          asiaArr.push(temp[i]);
+        }
+         
+  
+    }, error: function(error){
+  
+    }
+  })
+
+
+  area = "IN";
+      $.ajax({
+        dataType: 'json',
+        type:"GET",
+        // gets the first page of results
+        url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+        success: function(data){
+            let temp = data.results;
+      
+            moviesToShow = temp;
+      
+            for(i = 0; i <asiaArr.length; i++){
+              moviesToShow.push(asiaArr[i]);
+            }
+            for(i = 0; i <euroArr.length; i++){
+              moviesToShow.push(euroArr[i]);
+            }
+            for(i = 0; i <afriArr.length; i++){
+              moviesToShow.push(afriArr[i]);
+            }
+
+            // sort by average vote, high to low
+            moviesToShow = moviesToShow.sort((a,b) =>{
+              return b.vote_average - a.vote_average;    
+            });
+            
+            moviesToShow = moviesToShow.slice(0,8);
+            console.log(moviesToShow)
+            fillTrendingMovies(moviesToShow);
+            
+      
+        }, error: function(error){
+      
+        }
+      })
+}
 
 };
 
@@ -620,7 +770,7 @@ function fillIndianMovies(moviesToShow){
 
 
 
-function loadEuroMovies(){
+function loadEuroMovies(genre){
 // api Pulls
 let euroArr = [];
 let area = "FR";
@@ -669,7 +819,7 @@ $.ajax({
 })
 };
 
-function loadAfricanMovies(){
+function loadAfricanMovies(genre){
   // api Pulls
   let afriArr = [];
   let area = "NG";
@@ -719,7 +869,7 @@ function loadAfricanMovies(){
   })
 };
 
-function loadAsianMovies(){
+function loadAsianMovies(genre){
     // api Pulls
     let asiaArr = [];
     let area = "KR";
@@ -772,7 +922,7 @@ function loadAsianMovies(){
     })
 };
 
-function loadIndianMovies(){
+function loadIndianMovies(genre){
       // api Pulls
        
       area = "IN";
@@ -864,7 +1014,8 @@ function getFilters(){
 
 
 function filterSortMovies(genre,region){
-  if(genre === "All"){
+  if(genre === "All" || genre.length === 0){
+    console.log("just sort by region")
     switch(region) {
       // europe case
       // ===============================================================================================
@@ -1050,7 +1201,7 @@ function filterSortMovies(genre,region){
           console.log("All Selected") 
       }
   }
-  else if(genre != "All" && genre !=""){
+  else if(genre != "All" && region !="All" && genre != ""){
     if(genre && region){
           
       // get the id chosen as id and not name
@@ -1243,9 +1394,10 @@ function filterSortMovies(genre,region){
             console.log("All Selected") 
       }
     }
-    else if(genre != "" && region === ""){
-      console.log("just sort by genre")
-    }
+  }
+  else if(region === "All"){
+    console.log("just sort by genre")
+    loadTrendingMovies(genre)
   }
 
 }
