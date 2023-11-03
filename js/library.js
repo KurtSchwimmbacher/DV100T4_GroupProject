@@ -1185,6 +1185,8 @@ function getFilters(){
 
 
 function filterSortMovies(genre,region){
+  console.log(region === "")
+  console.log(genre)
   if(genre === "All" || genre.length === 0){
     console.log("just sort by region")
     switch(region) {
@@ -1372,7 +1374,7 @@ function filterSortMovies(genre,region){
           console.log("All Selected") 
       }
   }
-  else if(genre != "All" && region !="All" && genre != ""){
+  else if(genre != "All" && region !="All" && genre != "" && region != ""){
     if(genre && region){
           
       // get the id chosen as id and not name
