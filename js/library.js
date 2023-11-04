@@ -356,13 +356,32 @@ $.ajax({
 
 // load trending movies
 function fillTrendingMovies(moviesToShow){
-  
     // Clear all cards before loading movies
-    let isAdded = false;
+    let isAdded = 0;
     let watchlistArr = [];
+    let watchlist = JSON.parse(localStorage.getItem("WatchList"));
     $("#trendingContainer").empty();
   
     moviesToShow.forEach(moviesToShow => {
+
+      let iconState = "bi bi-plus-circle";
+    
+      // checks if movie is in watchlist and updates icon accordingly
+      if(watchlist){
+        for(i = 0; i < watchlist.length; i++){
+          if(moviesToShow.id === watchlist[i]){
+            isAdded++;
+            console.log(moviesToShow.title + " is in the watchlist")
+          }
+        }
+
+        if(isAdded > 0){
+          iconState = "bi bi-check-circle";
+        }
+
+      }
+
+
       let imgUrl = "https://image.tmdb.org/t/p/original" + moviesToShow.backdrop_path;
         const card = $(`
         <div class="col-sm-6 col-md-4 col-lg-3 mb-5 movie-col">
@@ -373,7 +392,7 @@ function fillTrendingMovies(moviesToShow){
           </div>
           <div id="cardBody" class="card-body mt-2 mb-3">
             <h2 id="cardTitleBrowse" class="card-text movie-title">${moviesToShow.title}</h2>
-            <p class="add-icon"><i class="bi bi-plus-circle"></i></p>
+            <p class="add-icon"><i class="${iconState}"></i></p>
         </div>
         </div>`);
   
@@ -388,47 +407,50 @@ function fillTrendingMovies(moviesToShow){
         // to add the movie from the library page to the watch list
         // when the button is clicked
         card.on('click','.add-icon',function(){
-  
-          // if checks if the the movie has been added, not foolproof
-          if(!isAdded){
-            // updates button appearance
-            $(this).children().addClass("bi bi-check-circle").removeClass("bi-plus-circle");
-  
-            // so the movie cant be added twice
-            isAdded = true;
-  
-            // adds movie to the array to be sent to local storage
-            watchlistArr.push(moviesToShow.id);
-            
-            // sends movie Id to wishlist
-            let moviesData = JSON.stringify(watchlistArr);
-            localStorage.setItem("WatchList",moviesData);
-          }
-  
-          // method for if already added to wishlist, not foolproof
-          else{
-            // change button appearance
-            $(this).children().addClass("bi-plus-circle").removeClass("bi bi-check-circle");
-            isAdded = false;
-            
-            // fetches watchlist and removes movie clicked on from array
-            let watchlist = JSON.parse(localStorage.getItem("WatchList"));
-            for(i = 0; i<watchlist.length;i++){
+          let is
+          if(watchlist){
+            // checks if movie is in watchlist
+            isAdded = 0;
+            for(i = 0; i < watchlist.length; i++){
               if(moviesToShow.id === watchlist[i]){
-                watchlist = delete watchlist[i];
+                isAdded++;
+                console.log(moviesToShow.title + " is in the watchlist")
               }
             }
-  
-            // send updated list to local storage
-            let moviesData = JSON.stringify(watchlist);
-            localStorage.setItem("WatchList",moviesData);
-  
+            // if its not in the list, add it
+            if(isAdded === 0){
+              watchlistArr.push(parseInt(moviesToShow.id));
+              console.log(watchlistArr)
+              let toStore = JSON.stringify(watchlistArr);
+              localStorage.setItem("WatchList",toStore);
+              $(this).children().removeClass("bi-plus-circle").addClass("bi bi-check-circle");
+            }
+            // if it is in the list, remove it
+            else if(isAdded > 0){
+              for(i = 0; i <watchlist.length; i++){
+                if(moviesToShow.id === watchlist[i]){
+                  watchlist.splice(i,1);
+                  let toStore = JSON.stringify(watchlist);
+                  console.log(watchlistArr)
+                  localStorage.setItem("WatchList",toStore);
+                  $(this).children().addClass("bi-plus-circle").removeClass("bi bi-check-circle");
+                }
+              }
+            }
           }
+          else{
+            watchlistArr.push(parseInt(moviesToShow.id));
+            console.log(watchlistArr)
+            let toStore = JSON.stringify(watchlistArr);
+            localStorage.setItem("WatchList",toStore);
+            console.log("added first item in watchlist")
+          }
+          
           
         });
   
       $("#trendingContainer").append(card);
-  
+      isAdded = 0;
     });
 
 };
