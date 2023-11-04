@@ -407,13 +407,15 @@ function fillTrendingMovies(moviesToShow){
         // to add the movie from the library page to the watch list
         // when the button is clicked
         card.on('click','.add-icon',function(){
-          let is
+          let watchlist = JSON.parse(localStorage.getItem("WatchList"));
           if(watchlist){
             // checks if movie is in watchlist
-            isAdded = 0;
+            let isAdded = 0;
             for(i = 0; i < watchlist.length; i++){
               if(moviesToShow.id === watchlist[i]){
+                console.log(watchlist[i])
                 isAdded++;
+                console.log(isAdded)
                 console.log(moviesToShow.title + " is in the watchlist")
               }
             }
@@ -424,13 +426,16 @@ function fillTrendingMovies(moviesToShow){
               let toStore = JSON.stringify(watchlistArr);
               localStorage.setItem("WatchList",toStore);
               $(this).children().removeClass("bi-plus-circle").addClass("bi bi-check-circle");
+              console.log("not in list,adding it, addedcount: "+isAdded)
             }
+
             // if it is in the list, remove it
             else if(isAdded > 0){
               for(i = 0; i <watchlist.length; i++){
                 if(moviesToShow.id === watchlist[i]){
                   watchlist.splice(i,1);
                   let toStore = JSON.stringify(watchlist);
+                  console.log("watchlist:")
                   console.log(watchlistArr)
                   localStorage.setItem("WatchList",toStore);
                   $(this).children().addClass("bi-plus-circle").removeClass("bi bi-check-circle");
@@ -438,7 +443,7 @@ function fillTrendingMovies(moviesToShow){
               }
             }
           }
-          else{
+          else if(!watchlist){
             watchlistArr.push(parseInt(moviesToShow.id));
             console.log(watchlistArr)
             let toStore = JSON.stringify(watchlistArr);
@@ -1680,3 +1685,5 @@ function displaySortedMovies(country,moviesToDisplay){
 function storeGenreObj(GenreObjArr){
   genres = GenreObjArr;
 };
+
+
