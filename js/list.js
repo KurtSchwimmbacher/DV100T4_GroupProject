@@ -22,6 +22,10 @@ const arrPlaylist = [
    
 ];
 
+
+ 
+
+
 // for watch list
 function loadShows(){
     console.log(arrPlaylist);
@@ -48,6 +52,20 @@ $(document).ready(function(){
         
     });
 
+    $("#movies").click(function(){
+        const appliedSort = $(this).attr('value');
+        
+        console.log(appliedSort);
+        
+    });
+
+    $("#allShows").click(function(){
+        const appliedSort = $(this).attr('value');
+        
+        console.log(appliedSort);
+        
+    });
+
 
     $("input[name= 'filterRadio']").click(function(){
         appliedFilter = $(this).attr('value');
@@ -56,7 +74,7 @@ $(document).ready(function(){
     });
     
     
-    $("input[name = 'sortRadio']").click( function(){
+    $("input[name = 'filterRadio']").click( function(){
         appliedSort = $(this).attr('value');
         console.log(appliedSort);
         basicFilterSortShows();
@@ -67,38 +85,48 @@ $(document).ready(function(){
 })
 
 
-// ================================================================================================
-function basicFilterSortShows(){
 
-        if(appliedSort){
-            if(appliedSort === "name"){
-                // sort by price
-                filterSortShowsArr= filterSortShowsArr.sort((a,b) =>{
-                    return a.name.localeCompare(b.name);     
-                });
-            }
-            else if(appliedSort === "show"){
-                // sort by alphabetically, a to z
-                filterSortShowsArr= filterSortShowsArr.sort((a,b) =>{
-                    return a.name.localeCompare(b.name);    
-                });
-            }
-            
-        }
+  $(document).ready(function () {
+    const radioButtons = $('input[name="sortRadio"]');
+    const movieCards = $('.watchlist-card');
+    const storageKey = 'selectedFilter';
 
-      //console.log(filterSortTripArr);
+    // Check for a previously selected filter in local storage
+    const selectedFilter = localStorage.getItem(storageKey);
+    if (selectedFilter) {
+      const matchingRadio = $(`input[value="${selectedFilter}"]`);
+      if (matchingRadio.length > 0) {
+        matchingRadio.prop('checked', true);
+        applyFilter(selectedFilter);
+      }
+    }
+
+    radioButtons.on('change', function () {
+      const selectedFilter = this.value;
+
+      // Store the selected filter in local storage
+      localStorage.setItem(storageKey, selectedFilter);
+
+      applyFilter(selectedFilter);
+    });
+
+    function applyFilter(filter) {
+      // Hide all movie cards
+      movieCards.hide();
+
+      // Show movie cards with the selected category
+      if (filter === 'allStreams') {
+        // Show all movies if "All Shows" is selected
+        movieCards.show();
+      } else {
+        var selectedCategory = '.' + filter;
+        var matchingCards = movieCards.filter(selectedCategory);
+        matchingCards.show();
+      }
+    }
+  });
 
 
-       //loadtrips();
-}
 
 
-
-
-//if(appliedSort){
-  //  if(appliedSort === "low to high"){
-        // sort by price
-   //     filterSortShowsArr= filterSortShowsArr.sort((a,b) =>{
-   //         return a.name.localeCompare(b.name);     
- //       });
- //   }
+  
