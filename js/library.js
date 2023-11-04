@@ -359,7 +359,6 @@ function fillTrendingMovies(moviesToShow){
     // Clear all cards before loading movies
     let isAdded = 0;
     let canAdd = true;
-    let watchlistArr = [];
     let watchlist = JSON.parse(localStorage.getItem("WatchList"));
     $("#trendingContainer").empty();
   
@@ -379,6 +378,7 @@ function fillTrendingMovies(moviesToShow){
 
         if(isAdded > 0){
           iconState = "bi bi-check-circle";
+          canAdd = true;
         }
 
       }
@@ -414,35 +414,17 @@ function fillTrendingMovies(moviesToShow){
 
             // if its not in the list, add it
             if(canAdd){
-              watchlistArr.push(parseInt(moviesToShow.id));
-              let toStore = JSON.stringify(watchlistArr);
+              watchlist.push(parseInt(moviesToShow.id));
+              let toStore = JSON.stringify(watchlist);
               localStorage.setItem("WatchList",toStore);
               $(this).children().removeClass("bi-plus-circle").addClass("bi bi-check-circle");
               canAdd = false;
             }
-            // if it is in the list, remove it
-            else if(!canAdd){
-              let removeIndex = 500;
-              for(i = 0; i < watchlist.length; i++){
-                console.log(watchlist[i] === moviesToShow.id)
-                console.log(watchlist[i])
-                console.log(moviesToShow.id)
-                if(watchlist[i] === moviesToShow.id){
-                  removeIndex = i;
-                }
-              }
-              watchlist.splice(removeIndex,1);
-              let toStore = JSON.stringify(watchlist);
-              localStorage.setItem("WatchList",toStore);
-              $(this).children().addClass("bi-plus-circle").removeClass("bi bi-check-circle");
-              console.log("already in watchlist, removing now")
-              canAdd = true;
-            }
-            
+                       
           }
           else if(!watchlist){
-            watchlistArr.push(parseInt(moviesToShow.id));
-            let toStore = JSON.stringify(watchlistArr);
+            watchlist.push(parseInt(moviesToShow.id));
+            let toStore = JSON.stringify(watchlist);
             localStorage.setItem("WatchList",toStore);
             canAdd = false;
           }
