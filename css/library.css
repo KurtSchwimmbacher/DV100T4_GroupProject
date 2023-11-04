@@ -493,4 +493,9 @@ footer i {
     font-weight: bold;
 }
 
+
+.filter-title{
+    display: flex;
+    justify-content: center;
+}
 /* ============================================== */

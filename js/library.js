@@ -1144,6 +1144,8 @@ function getFilters(){
             $("#regionCon").append(regionTitle);
 
             regionTitle.on('click',function(){
+              $("#regionCon").children().removeClass("active")
+              $(this).addClass("active")
               regionFilter = regions;
               filterSortMovies(genreFilter,regionFilter);
             });
@@ -1174,7 +1176,16 @@ function getFilters(){
             $("#genreCon").append(genreTitle);
 
             genreTitle.on('click',function(){
+              $("#genreCon").children().removeClass("active")
+              $(this).addClass("active")
               genreFilter = temp.name;
+
+              let genreTitle = `Showing ${genreFilter}`;
+              if(genreFilter === "All"){
+                genreTitle = `Showing ${genreFilter} Genres`;
+              }
+              $("#filterByTitle").text(genreTitle)
+
               filterSortMovies(genreFilter,regionFilter);
             });
           });
