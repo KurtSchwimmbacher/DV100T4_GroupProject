@@ -358,6 +358,7 @@ $.ajax({
 function fillTrendingMovies(moviesToShow){
     // Clear all cards before loading movies
     let isAdded = 0;
+    let canAdd = true;
     let watchlistArr = [];
     let watchlist = JSON.parse(localStorage.getItem("WatchList"));
     $("#trendingContainer").empty();
@@ -371,7 +372,8 @@ function fillTrendingMovies(moviesToShow){
         for(i = 0; i < watchlist.length; i++){
           if(moviesToShow.id === watchlist[i]){
             isAdded++;
-            console.log(moviesToShow.title + " is in the watchlist")
+            canAdd= false;
+            console.log(moviesToShow.title + " is already in the watchlist")
           }
         }
 
@@ -409,38 +411,40 @@ function fillTrendingMovies(moviesToShow){
         card.on('click','.add-icon',function(){
           let watchlist = JSON.parse(localStorage.getItem("WatchList"));
           if(watchlist){
-            // checks if movie is in watchlist
-            let isAdded = 0;
-            for(i = 0; i < watchlist.length; i++){
-              console.log(i)
-              if(moviesToShow.id === watchlist[i]){
-                
-                isAdded++;
-              }
-            }
+
             // if its not in the list, add it
-            if(isAdded === 0){
+            if(canAdd){
               watchlistArr.push(parseInt(moviesToShow.id));
               let toStore = JSON.stringify(watchlistArr);
               localStorage.setItem("WatchList",toStore);
               $(this).children().removeClass("bi-plus-circle").addClass("bi bi-check-circle");
+              canAdd = false;
             }
             // if it is in the list, remove it
-            else{
-              for(i = 0; i <watchlist.length; i++){
-                if(moviesToShow.id === watchlist[i]){
-                  watchlist.splice(i,1);
-                  let toStore = JSON.stringify(watchlist);
-                  localStorage.setItem("WatchList",toStore);
-                  $(this).children().addClass("bi-plus-circle").removeClass("bi bi-check-circle");
+            else if(!canAdd){
+              let removeIndex = 500;
+              for(i = 0; i < watchlist.length; i++){
+                console.log(watchlist[i] === moviesToShow.id)
+                console.log(watchlist[i])
+                console.log(moviesToShow.id)
+                if(watchlist[i] === moviesToShow.id){
+                  removeIndex = i;
                 }
               }
+              watchlist.splice(removeIndex,1);
+              let toStore = JSON.stringify(watchlist);
+              localStorage.setItem("WatchList",toStore);
+              $(this).children().addClass("bi-plus-circle").removeClass("bi bi-check-circle");
+              console.log("already in watchlist, removing now")
+              canAdd = true;
             }
+            
           }
           else if(!watchlist){
             watchlistArr.push(parseInt(moviesToShow.id));
             let toStore = JSON.stringify(watchlistArr);
             localStorage.setItem("WatchList",toStore);
+            canAdd = false;
           }
           
         });
