@@ -412,31 +412,25 @@ function fillTrendingMovies(moviesToShow){
             // checks if movie is in watchlist
             let isAdded = 0;
             for(i = 0; i < watchlist.length; i++){
+              console.log(i)
               if(moviesToShow.id === watchlist[i]){
-                console.log(watchlist[i])
+                
                 isAdded++;
-                console.log(isAdded)
-                console.log(moviesToShow.title + " is in the watchlist")
               }
             }
             // if its not in the list, add it
             if(isAdded === 0){
               watchlistArr.push(parseInt(moviesToShow.id));
-              console.log(watchlistArr)
               let toStore = JSON.stringify(watchlistArr);
               localStorage.setItem("WatchList",toStore);
               $(this).children().removeClass("bi-plus-circle").addClass("bi bi-check-circle");
-              console.log("not in list,adding it, addedcount: "+isAdded)
             }
-
             // if it is in the list, remove it
-            else if(isAdded > 0){
+            else{
               for(i = 0; i <watchlist.length; i++){
                 if(moviesToShow.id === watchlist[i]){
                   watchlist.splice(i,1);
                   let toStore = JSON.stringify(watchlist);
-                  console.log("watchlist:")
-                  console.log(watchlistArr)
                   localStorage.setItem("WatchList",toStore);
                   $(this).children().addClass("bi-plus-circle").removeClass("bi bi-check-circle");
                 }
@@ -445,12 +439,9 @@ function fillTrendingMovies(moviesToShow){
           }
           else if(!watchlist){
             watchlistArr.push(parseInt(moviesToShow.id));
-            console.log(watchlistArr)
             let toStore = JSON.stringify(watchlistArr);
             localStorage.setItem("WatchList",toStore);
-            console.log("added first item in watchlist")
           }
-          
           
         });
   
@@ -1212,10 +1203,8 @@ function getFilters(){
 
 
 function filterSortMovies(genre,region){
-  console.log(region === "")
   console.log(genre)
   if(genre === "All" || genre.length === 0){
-    console.log("just sort by region")
     switch(region) {
       // europe case
       // ===============================================================================================
