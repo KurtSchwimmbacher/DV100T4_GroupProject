@@ -76,6 +76,11 @@ function getMovies(movieID){
           </div>`); 
            
           $("#watchlistCon").append(wlCard);
+
+          wlCard.on('click',".card-img-top",function(){
+            window.location.href = `singleFilm.html?id=${data.id}`;
+          })
+
         },
         error: function(error){
             // handle as it comes
