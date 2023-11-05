@@ -45,7 +45,7 @@ $(document).ready(function(){
     });
    
 trendingMovies();
-hiddenGemMovies();
+highestGrossingMovies();
 highestVotedMovies();
 
 });
@@ -119,7 +119,7 @@ function trendingMovies(){
 $.ajax({
   type:"GET",
   // gets the first page of results
-  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=JP`,
+  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=DE|IN|NG|ZA|JP|KR`,
   success: function(data){
       temp = data;
   }
@@ -285,13 +285,13 @@ function loadTrendingMovies(moviesToShow){
 // Hidden gem movies functionality
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-function hiddenGemMovies(){
+function highestGrossingMovies(){
   
 // load trending movies
 $.ajax({
   type:"GET",
   // gets the first page of results
-  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.acs&with_origin_country=JP`,
+  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=revenue.desc&with_origin_country=JP|DE|IN|NG|ZA|KR`,
   success: function(data){
       temp = data;
   }
@@ -312,8 +312,8 @@ $.ajax({
       $("#cardTitleBrowse").html(movies[0].title);
     
       // load movies in trending section of browse page
-      let gemMovies = movies.slice(0,4);
-      loadGemMovies(gemMovies);
+      let moneyMovies = movies.slice(0,4);
+      loadHighestGrossingMovies(moneyMovies);
 
 })
 
@@ -323,7 +323,7 @@ $.ajax({
 // movie click navigate to single movie page
 let movieName = "Default Name";
 
-$("#hiddenGemContainer").on('click','#overlay',function(){
+$("#highestGrossingContainer").on('click','#overlay',function(){
 
   // stores name of movie clicked on to be sent to local storage
   movieName = $(this).find("#cardTitleBrowse").text();
@@ -373,12 +373,12 @@ function sortMovies(){
 }
 
 // load trending movies
-function loadGemMovies(moviesToShow){
+function loadHighestGrossingMovies(moviesToShow){
   
     // Clear all cards before loading movies
     let isAdded = false;
     let watchlistArr = [];
-    $("#hiddenGemContainer").empty();
+    $("#highestGrossingContainer").empty();
   
     moviesToShow.forEach(moviesToShow => {
       let imgUrl = "https://image.tmdb.org/t/p/original" + moviesToShow.backdrop_path;
@@ -446,7 +446,7 @@ function loadGemMovies(moviesToShow){
           
         });
   
-      $("#hiddenGemContainer").append(card);
+      $("#highestGrossingContainer").append(card);
   
     });
 
@@ -454,7 +454,7 @@ function loadGemMovies(moviesToShow){
 
 
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------
-// Recent movies functionality
+// highest Rated movies functionality
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 function highestVotedMovies(){
@@ -463,7 +463,7 @@ function highestVotedMovies(){
   $.ajax({
     type:"GET",
     // gets the first page of results
-    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=vote_count.desc&with_origin_country=JP`,
+    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=vote_count.desc&with_origin_country=DE|IN|NG|ZA`,
     success: function(data){
         temp = data;
     }
@@ -495,7 +495,7 @@ function highestVotedMovies(){
   // movie click navigate to single movie page
   let movieName = "Default Name";
   
-  $("#recentMoviesContainer").on('click','#overlay',function(){
+  $("#highestVitedContainer").on('click','#overlay',function(){
   
     // stores name of movie clicked on to be sent to local storage
     movieName = $(this).find("#cardTitleBrowse").text();
@@ -624,7 +624,3 @@ function highestVotedMovies(){
   
   };
   
-  
-  
-  
-

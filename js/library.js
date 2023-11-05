@@ -63,6 +63,7 @@ loadTrendingMovies();
 // functions
 
 
+
 function loadTrendingMovies(){
 
 let moviesToShow = [];
@@ -373,7 +374,10 @@ function fillEuroMovies(moviesToShow){
         
       });
 
-    $("#europeContainer").append(card);
+      $("#europFilter").on('click', function () {
+        $("#europeContainer").append(card);
+      });
+    
 
   });
 
@@ -392,7 +396,8 @@ function fillAfricanMovies(moviesToShow){
   moviesToShow.forEach(moviesToShow => {
     let imgUrl = "https://image.tmdb.org/t/p/original" + moviesToShow.backdrop_path;
       const card = $(`
-      <div class="col-sm-6 col-md-4 col-lg-3 mb-5 movie-col">
+      
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-5 movie-col mt-5">
       <div class="card lib-card"  id="moviePoster" style="background-image: url(${imgUrl});">
           <div class="overlay" id="overlay">
               <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
@@ -455,8 +460,10 @@ function fillAfricanMovies(moviesToShow){
         
       });
 
-
-    $("#africanContainer").append(card);
+      $("#africaFilter").on('click', function () {
+        $("#africanContainer").append(card);
+      });
+  
 
   });
 
@@ -537,8 +544,10 @@ function fillAsianMovies(moviesToShow){
         
       });
 
-
-    $("#asianContainer").append(card);
+      $("#asiaFilter").on('click', function () {
+        $("#asianContainer").append(card);
+      });
+    
 
   });
 
@@ -632,7 +641,10 @@ function fillIndianMovies(moviesToShow){
         
       });
 
-    $("#indianContainer").append(card);
+      $("#indiaFilter").on('click', function () {
+        $("#indianContainer").append(card);
+      });
+    
 
   });
 
@@ -681,8 +693,8 @@ $.ajax({
 
       euroArr = euroArr.slice(0,8);
 
-     fillEuroMovies(euroArr);
-
+      fillEuroMovies(euroArr);
+     
 
   }, error: function(error){
 
@@ -826,4 +838,3 @@ function loadAfricanMovies(){
       
       };
 
-      
