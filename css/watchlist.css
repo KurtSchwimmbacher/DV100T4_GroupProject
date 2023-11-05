@@ -115,6 +115,10 @@ label, .form-text, p{
         text-align: center;
     }
 
+    .card-WL-container{
+        margin-bottom: 5%;
+    }
+
 }
 
 @media(min-width:576px){
@@ -129,6 +133,9 @@ label, .form-text, p{
 
 
 @media(min-width:991px){
+
+
+    
 /* footer */
 footer .row{
     display: table;
