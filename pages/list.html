@@ -7,7 +7,6 @@
 
     <!-- Css Links -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/watchlist.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     
@@ -20,9 +19,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="../js/popup.js"></script>
     <script src="../js/list.js"></script>
-    
     
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,379 +97,51 @@
 </div>
 
 <!--SECTION ONE OF THE CARDS-->
-<div class="container-fluid" id="temp">
-  <div class="row">
+<div class="container-fluid" >
+  <div class="row" id="watchlistCon">
 
-  <div id="soapiesBox"  class="col-xl-3 col-lg-4 col-md-6 col-xs-12 watchlist-card">
-    <div class="card mb-3">
-      <div class="row g-0">
- 
-       <div class="style4">
-        <div class="style2">
-          <div class="col-md-4 "> 
-            <img src="../assets/indie movie 1.2.jpg" class="imagemovie11" alt="...">
-          </div>         
+    <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
+      <div class="card mb-3" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
-       <div class="style3">
-        <button class="remove1"></button>
-        <div class="col-md-8">               
-          <div class="card-body">
-            <h5 class="card-title2" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif;" id="title">The green knight</h5>            
-            <p class="card-text2" id="description2">7.9/10 IMDB</p>
-            <button id="upvoteOpen" class="upvote1" onclick="openReview()"></button>
-            <button class="downvote1"  onclick="openReview()"></button>           
-          </div>
-        </div>
-        </div>
-      </div>
-
       </div>
     </div>
+
   </div>
 
-  <div id="soapiesBox" class="col-xl-3 col-lg-4 col-md-6 col-xs-12 watchlist-card">
-    <div class="card mb-3">
-      <div class="row g-0">
-
-        <div class="style4">
-          <div class="style2">
-            <div class="col-md-4 "> 
-              <img src="../assets/indie movie 1.2.jpg" class="imagemovie11" alt="...">
-            </div>         
-          </div>
-         <div class="style3">
-          <button class="remove1"></button>
-          <div class="col-md-8">               
-            <div class="card-body">
-              <h5 class="card-title2" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif;" id="title">The green knight</h5>            
-              <p class="card-text2" id="description2">7.9/10 IMDB</p>
-              <button class="upvote1"  onclick="openReview()"></button>
-              <button class="downvote1"   onclick="openReview()"></button>           
+  <template>
+    <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
+      <div class="card mb-3">
+        <div class="row g-0">
+  
+          <div class="style4">
+            <div class="style2">
+              <div class="col-md-4 "> 
+                <img src="../assets/indie movie 1.2.jpg" class="imagemovie11" alt="...">
+              </div>         
+            </div>
+           <div class="style3">
+            <button class="remove1"></button>
+            <div class="col-md-8">               
+              <div class="card-body">
+                <h5 class="card-title2" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif;" id="title">The green knight</h5>            
+                <p class="card-text2" id="description2">7.9/10 IMDB</p>
+                <button class="upvote1"></button>
+                <button class="downvote1"></button>           
+              </div>
+            </div>
             </div>
           </div>
-          </div>
+  
         </div>
-
       </div>
-    </div>
-  </div>
+    </div> 
+  </template>
 
-  <div id="soapiesBox" class="col-xl-3 col-lg-4 col-md-6 col-xs-12 watchlist-card">
-    <div class="card mb-3">
-      <div class="row g-0">
-
-        <div class="style4">
-          <div class="style2">
-            <div class="col-md-4 "> 
-              <img src="../assets/indie movie 1.2.jpg" class="imagemovie11" alt="...">
-            </div>         
-          </div>
-         <div class="style3">
-          <button class="remove1"></button>
-          <div class="col-md-8">               
-            <div class="card-body">
-              <h5 class="card-title2" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif;" id="title">The green knight</h5>            
-              <p class="card-text2" id="description2">7.9/10 IMDB</p>
-              <button class="upvote1"></button>
-              <button class="downvote1"></button>           
-            </div>
-          </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-
-  <div id="soapiesBox" class="col-xl-3 col-lg-4 col-md-6 col-xs-12 watchlist-card">
-    <div class="card mb-3">
-      <div class="row g-0">
-
-        <div class="style4">
-          <div class="style2">
-            <div class="col-md-4 "> 
-              <img src="../assets/indie movie 1.2.jpg" class="imagemovie11" alt="...">
-            </div>         
-          </div>
-         <div class="style3">
-          <button class="remove1"></button>
-          <div class="col-md-8">               
-            <div class="card-body">
-              <h5 class="card-title2" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif;" id="title">The green knight</h5>            
-              <p class="card-text2" id="description2">7.9/10 IMDB</p>
-              <button class="upvote1"></button>
-              <button class="downvote1"></button>           
-            </div>
-          </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-
-  </div>
 </div>
 
- <!--SECTION TWO OF THE CARDS-->
- <div class="container-fluid"  id="temp">
-  <div class="row" style="padding-top: 20px; background-color: #2B2B27;">
-    
-      <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
-        <div class="card mb-3">
-          <div class="row g-0">
-
-            <div class="style4">
-              <div class="style2">
-                <div class="col-md-4 "> 
-                  <img src="../assets/indie movie 1.2.jpg" class="imagemovie11" alt="...">
-                </div>         
-              </div>
-             <div class="style3">
-              <button class="remove1"></button>
-              <div class="col-md-8">               
-                <div class="card-body">
-                  <h5 class="card-title2" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif;" id="title">The green knight</h5>            
-                  <p class="card-text2" id="description2">7.9/10 IMDB</p>
-                  <button class="upvote1"></button>
-                  <button class="downvote1"></button>           
-                </div>
-              </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div> 
-
-
-      <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
-        <div class="card mb-3">
-          <div class="row g-0">
-
-            <div class="style4">
-              <div class="style2">
-                <div class="col-md-4 "> 
-                  <img src="../assets/indie movie 1.2.jpg" class="imagemovie11" alt="...">
-                </div>         
-              </div>
-             <div class="style3">
-              <button class="remove1"></button>
-              <div class="col-md-8">               
-                <div class="card-body">
-                  <h5 class="card-title2" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif;" id="title">The green knight</h5>            
-                  <p class="card-text2" id="description2">7.9/10 IMDB</p>
-                  <button class="upvote1"></button>
-                  <button class="downvote1"></button>           
-                </div>
-              </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
-        <div class="card mb-3" >
-          <div class="row g-0">
-
-       <div class="style4">
-        <div class="style2">
-          <div class="col-md-4 "> 
-            <img src="../assets/indie movie 1.2.jpg" class="imagemovie11" alt="...">
-          </div>         
-        </div>
-       <div class="style3">
-        <button class="remove1"></button>
-        <div class="col-md-8">               
-          <div class="card-body">
-            <h5 class="card-title2" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif;" id="title">The green knight</h5>            
-            <p class="card-text2" id="description2">7.9/10 IMDB</p>
-            <button class="upvote1"></button>
-            <button class="downvote1"></button>           
-          </div>
-        </div>
-        </div>
-      </div>
-
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
-        <div class="card mb-3">
-          <div class="row g-0">
-
-       <div class="style4">
-        <div class="style2">
-          <div class="col-md-4 "> 
-            <img src="../assets/indie movie 1.2.jpg" class="imagemovie11" alt="...">
-          </div>         
-        </div>
-       <div class="style3">
-        <button class="remove1"></button>
-        <div class="col-md-8">               
-          <div class="card-body">
-            <h5 class="card-title2" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif;" id="title">The green knight</h5>            
-            <p class="card-text2" id="description2">7.9/10 IMDB</p>
-            <button class="upvote1"></button>
-            <button class="downvote1"></button>           
-          </div>
-        </div>
-        </div>
-      </div>
-
-          </div>
-        </div>
-      </div>
-
-
-    </div>
-  </div>
- </div>
-
-<!--SECTION THREE OF THE CARDS-->
- <div class="container-fluid"  id="temp">
-  <div class="row" style="padding-top: 20px; background-color: #2B2B27;">
-    
-      <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
-        <div class="card mb-3">
-          <div class="row g-0">
-
-            <div class="style4">
-              <div class="style2">
-                <div class="col-md-4 "> 
-                  <img src="../assets/indie movie 1.5.jpg" class="imagemovie11" alt="...">
-                </div>         
-              </div>
-             <div class="style3">
-              <button class="remove1"></button>
-              <div class="col-md-8">               
-                <div class="card-body">
-                  <h5 class="card-title2" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif;" id="title">Pearl</h5>            
-                  <p class="card-text2" id="description2">5.2/10 IMDB</p>
-                  <button class="upvote1"></button>
-                  <button class="downvote1"></button>           
-                </div>
-              </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
-        <div class="card mb-3">
-          <div class="row g-0">
-
-            <div class="style4">
-              <div class="style2">
-                <div class="col-md-4 "> 
-                  <img src="../assets/indie movie 1.5.jpg" class="imagemovie11" alt="...">
-                </div>         
-              </div>
-             <div class="style3">
-              <button class="remove1"></button>
-              <div class="col-md-8">               
-                <div class="card-body">
-                  <h5 class="card-title2" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif;" id="title">Pearl</h5>            
-                  <p class="card-text2" id="description2">5.2/10 IMDB</p>
-                  <button class="upvote1"></button>
-                  <button class="downvote1"></button>           
-                </div>
-              </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
-        <div class="card mb-3">
-          <div class="row g-0">
-            
-            <div class="style4">
-              <div class="style2">
-                <div class="col-md-4 "> 
-                  <img src="../assets/indie movie 1.5.jpg" class="imagemovie11" alt="...">
-                </div>         
-              </div>
-             <div class="style3">
-              <button class="remove1"></button>
-              <div class="col-md-8">               
-                <div class="card-body">
-                  <h5 class="card-title2" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif;" id="title">Pearl</h5>            
-                  <p class="card-text2" id="description2">5.2/10 IMDB</p>
-                  <button class="upvote1"></button>
-                  <button class="downvote1"></button>           
-                </div>
-              </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
-        <div class="card mb-3">
-          <div class="row g-0">
-            
-            <div class="style4">
-              <div class="style2">
-                <div class="col-md-4 "> 
-                  <img src="../assets/indie movie 1.5.jpg" class="imagemovie11" alt="...">
-                </div>         
-              </div>
-             <div class="style3">
-              <button class="remove1"></button>
-              <div class="col-md-8">               
-                <div class="card-body">
-                  <h5 class="card-title2" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif;" id="title">Pearl</h5>            
-                  <p class="card-text2" id="description2">5.2/10 IMDB</p>
-                  <button class="upvote1"></button>
-                  <button class="downvote1"></button>           
-                </div>
-              </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-
-    </div>
-
-  </div>
- </div>
-
-
-
-<!--Popup-->
-
-
-<div class="rrreview" id="rReview">
-  <div class="containerreview">
-    <button class="remove1" id="closeBtn"></button>
-    <h2 class="rheader">REVIEW</h2>
-    <label for="rinput" class="rlabel">Write a Review?</label>
-    <input type="text" class="rinput" placeholder="Type here...">
-    <input type="checkbox" class="rcheckbox">
-    <label for="rcheckbox" class="rlabel2">Would u reccomend this?</label>
-    <button class="rsubmit" id="closeReview" >Submit</button>
-  </div>          
-</div>
 
 <!-- ------------------------------------------------------------------------------------------------ -->
     <!-- footer -->
