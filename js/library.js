@@ -13,6 +13,8 @@ $(document).ready(function(){
 // filters code
       // hide filters panel
       $(".filter-opt-con").hide(); 
+      // hide the search bar
+      $("#searchbar").hide();
 
     // show and hide filters
     $("#filtersIcon").on('click',function(){ 
@@ -29,6 +31,17 @@ $(document).ready(function(){
 
 // ==============================================================================================================
 // filters code end
+
+// search bar code
+// show and hide filters
+$("#settingsIcon").on('click',function(){ 
+  
+  $("#searchbar").toggle();
+
+});
+// search bar code end
+
+
 
 loadEuroMovies();
 loadAfricanMovies();
