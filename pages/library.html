@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="../css/library.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
 <!-- ajax -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
@@ -52,17 +54,17 @@
 
             <!-- Our Movies Nav Link -->
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="library.html">Our Movies</a>
+              <a class="nav-link active" aria-current="page" href="../pages/library.html">Our Movies</a>
             </li>
 
             <!-- My List Nav Link -->
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="list.html">My List</a>
+              <a class="nav-link" aria-current="page" href="../pages/list.html">My List</a>
             </li>
 
             <!-- Sign Up Nav Link -->
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="signup.html">Sign Up</a>
+              <a class="nav-link" aria-current="page" href="../pages/signup.html">Sign Up</a>
             </li>
           </ul>
         </div>
@@ -106,62 +108,62 @@
             </div>
         </div>
         <!-- row contains trending movie cards -->
-        <div class="row row-con" id="trendingContainer">
+        <div class="row row-con" id="trendingContainer" style="margin-bottom: 60vh;">
             <!-- Trending rows append here -->
         </div>
 
         <!-- trending images template -->
         <template id="moviePosterTemplate">
-            <div class="col-sm-6 col-md-4 col-lg-3 mb-5 movie-col">
-                <div class="card lib-card"  id="moviePoster">
-                    <div class="overlay" id="overlay">
-                        <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
-                        <div id="cardBody" class="card-body lib-body">
-                            <h2 id="cardTitleBrowse" class="card-text movie-title">Movie Title</h2>
-                        </div>
-                    </div>
+          <div class="col-sm-6 col-md-4 col-lg-3 mb-5 movie-col">
+            <div class="card lib-card"  id="moviePoster" style="background-image: url(${imgUrl});">
+                <div class="overlay" id="overlay">
+                    <img class="play-logo" src="../assets/svgs/plus-circle.svg">
                 </div>
+              </div>
+              <div id="cardBody" class="card-body lib-body">
+                <h2 id="cardTitleBrowse" class="card-text movie-title">${moviesToShow.title}</h2>
+            </div>
             </div>
         </template>
         
         <!-- region rows -->
         <!-- africa row -->
-        <div class="row mt-5">
-            <div class="col-12">
+        <div class="row mt-5 mb-3">
+            <div class="col-12 mt-5 ">
                 <h2>African Titles</h2>
             </div>
         </div>
-        <div class="row mt-2 row-con" >
+        <div class="row mt-5 row-con" id="africanContainer">
 
         </div>
 
             <!-- European row -->
             <div class="row mt-5">
-                <div class="col-12">
+                <div class="col-12  mt-5 mb-3">
                     <h2>European Titles</h2>
                 </div>
             </div>
-            <div class="row mt-2 row-con" >
+            <div class="row mt-2 row-con" id="europeContainer">
 
             </div>
 
             <!-- Asia row -->
             <div class="row mt-5">
-                <div class="col-12">
+                <div class="col-12  mt-5 mb-3">
                     <h2>Asian Titles</h2>
                 </div>
             </div>
-            <div class="row mt-2 row-con">
+            <div class="row mt-2 row-con" id="asianContainer">
 
             </div>
 
         <!-- Indian row -->
         <div class="row mt-5">
-            <div class="col-12">
+            <div class="col-12  mt-5 mb-3">
                 <h2>Indian Titles</h2>
             </div>
         </div>
-        <div class="row mt-2 row-con">
+        <div class="row mt-2 row-con" id="indianContainer">
 
         </div>
 
