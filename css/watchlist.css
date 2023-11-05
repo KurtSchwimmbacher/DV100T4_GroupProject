@@ -188,7 +188,17 @@ footer .row{
 }
 
 .remove1{
-    margin-left: 85%;
+    width: 35px;
+    height: 35px;
+    background-color: #F18442;
+    border-radius: 100%;
+    background-image: url(/assets/logos/ox.png);
+    background-size: cover;
+    margin-left: 70%;
+}
+
+.remove1:hover{
+    background-image: url(/assets/logos/bx.png);
 }
 
 /* =========================================================================== */
@@ -212,3 +222,39 @@ footer i {
 }
 /* ============================================================================ */
 /* footer end */
+
+
+
+.upvote1{
+    width: 35px;
+    height: 35px;
+    background-color: #F18442;
+    border-radius: 100%;
+    border: 0;
+    background-image: url(/assets/logos/oup.png);
+    background-size: cover;
+    margin-left: 10px;
+}
+
+.upvote1:hover{
+    background-image: url(/assets/logos/bup.png);
+}
+
+.downvote1{
+    width: 35px;
+    height: 35px;
+    background-color: #F18442;
+    border-radius: 100%;
+    border: 0;
+    background-image: url(/assets/logos/odown.png);
+    background-size: cover;
+}
+
+.downvote1:hover{
+    background-image: url(/assets/logos/bdown.png);
+}
+
+
+
+
+
