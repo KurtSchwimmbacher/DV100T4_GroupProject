@@ -48,8 +48,8 @@ Both the Login and Sign Up page are similar in design plus effective and efficie
 ### Built With
 * [Javascript]()
 * [Jquery]()
-* [Bootstrap]()
-* [API]
+* [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+* [API](https://developer.themoviedb.org/reference/intro/getting-started)
 
 ### Members of the group project
      Kurt S
@@ -58,4 +58,3 @@ Both the Login and Sign Up page are similar in design plus effective and efficie
      Masego M
 
 
-### Authors
