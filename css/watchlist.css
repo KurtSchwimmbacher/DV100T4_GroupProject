@@ -256,7 +256,7 @@ footer i {
 
 .openreview{
     top: 50%;
-    transform: translate(-50%,-50%) scale(0.1);
+    transform: translate(-50%,-50%) scale(1);
     visibility: visible;
 }
 
