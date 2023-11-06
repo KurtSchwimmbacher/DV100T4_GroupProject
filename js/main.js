@@ -535,9 +535,7 @@ function highestVotedMovies(){
   
   };
   
-  
-  // ===============================================================================================================
-  // functions
+  // Sort Movie
   function sortMovies(){
       movies.sort(function(a, b)
       {return b.vote_average - a.vote_average}
@@ -623,4 +621,5 @@ function highestVotedMovies(){
       });
   
   };
+  
   
