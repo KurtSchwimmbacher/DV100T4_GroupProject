@@ -57,4 +57,5 @@ Both the Login and Sign Up page are similar in design plus effective and efficie
      Loraynne VT
      Masego M
 
-
+### Video
+![](assets/ClipChamp.mp4)
