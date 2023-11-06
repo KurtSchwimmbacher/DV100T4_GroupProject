@@ -16,8 +16,4 @@ $("#closeBtn").on('click',function(){
 
 $(document).ready(function(){
 
-    
-
-
-
 })

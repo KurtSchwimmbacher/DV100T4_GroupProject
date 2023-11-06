@@ -254,6 +254,56 @@ footer i {
     background-image: url(/assets/logos/bdown.png);
 }
 
+.openreview{
+    top: 50%;
+    transform: translate(-50%,-50%) scale(0.1);
+    visibility: visible;
+}
+
+.review{
+    width: 25%;
+    height: 250px;
+    position: absolute;
+    background-color: #2b2b2b;
+    opacity: 80%;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.1);
+    border-radius: 20px;
+    border: solid #F18442 5px;
+    visibility: hidden;
+}
+
+.remove12{
+    width: 35px;
+    height: 35px;
+    background-color: #F18442;
+    border-radius: 100%;
+    background-image: url(/assets/logos/ox.png);
+    background-size: cover;
+   float: right;
+   margin: 10px;
+}
+
+.remove12:hover{
+    background-image: url(/assets/logos/bx.png);
+}
+
+.logoreview{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    background-image: url(../assets/logos/Logo\ Main.svg);
+    background-size: cover;
+    margin-left: 38%;
+    margin-top: 50px;
+}
+
+.votedd{
+    margin-left: 27%;
+    margin-top: 20px;
+}
+
 
 
 
