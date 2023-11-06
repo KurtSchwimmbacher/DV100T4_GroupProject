@@ -51,16 +51,22 @@ $("#ratingRange").on('input',function(){
 });
 
 $("#submitFilter").on('click',function(){
-  let year = $("#yearRange").val();
-  let rating = $("#ratingRange").val();
+   yearSort = $("#yearRange").val();
+  ratingSort = $("#ratingRange").val();
 
-  
+  loadEuroMovies();
+  loadAfricanMovies();
+  loadAsianMovies();
+  loadIndianMovies();
+  loadTrendingMovies();
+  getFilters();
 
   console.log(yearSort)
+  console.log(ratingSort)
 
 })
 $("#removeFilter").on('click',function(){
-  let rating = "";
+  ratingSort = "";
   yearSort = "";
   console.log(yearSort)
   loadEuroMovies();
@@ -235,6 +241,18 @@ $.ajax({
               return b.vote_average - a.vote_average;    
             });
             
+            if(yearSort != ""){
+              moviesToShow= moviesToShow.filter(movie =>movie.release_date.split("-")[0] === yearSort);
+              console.log(moviesToShow)
+            }
+            if(ratingSort != ""){
+              moviesToShow= moviesToShow.filter(movie =>movie.vote_average >= ratingSort);
+              console.log(moviesToShow)
+            }
+            
+            
+            console.log(moviesToShow)
+            
             moviesToShow = moviesToShow.slice(0,8);
             fillTrendingMovies(moviesToShow);
             
@@ -382,6 +400,14 @@ $.ajax({
             moviesToShow = moviesToShow.sort((a,b) =>{
               return b.vote_average - a.vote_average;    
             });
+            if(yearSort != ""){
+              moviesToShow= moviesToShow.filter(movie =>movie.release_date.split("-")[0] === yearSort);
+              console.log(moviesToShow)
+            }
+            if(ratingSort != ""){
+              moviesToShow= moviesToShow.filter(movie =>movie.vote_average >= ratingSort);
+              console.log(moviesToShow)
+            }
             
             moviesToShow = moviesToShow.slice(0,8);
             console.log("movies to show: ")
@@ -855,6 +881,13 @@ $.ajax({
         return b.vote_average - a.vote_average;    
       });
 
+      if(yearSort != ""){
+        euroArr= euroArr.filter(movie =>movie.release_date.split("-")[0] === yearSort);
+      }
+      if(ratingSort != ""){
+        euroArr= euroArr.filter(movie =>movie.vote_average >= ratingSort);
+      }
+
       euroArr = euroArr.slice(0,8);
 
      fillEuroMovies(euroArr);
@@ -900,6 +933,13 @@ $.ajax({
       euroArr = euroArr.sort((a,b) =>{
         return b.vote_average - a.vote_average;    
       });
+
+      if(yearSort != ""){
+        euroArr= euroArr.filter(movie =>movie.release_date.split("-")[0] === yearSort);
+      }
+      if(ratingSort != ""){
+        euroArr= euroArr.filter(movie =>movie.vote_average >= ratingSort);
+      }
 
       euroArr = euroArr.slice(0,8);
 
@@ -953,6 +993,13 @@ function loadAfricanMovies(genre){
             return b.vote_average - a.vote_average;    
           });
     
+          if(yearSort != ""){
+            afriArr=afriArr.filter(movie =>movie.release_date.split("-")[0] === yearSort);
+          }
+          if(ratingSort != ""){
+            afriArr= afriArr.filter(movie =>movie.vote_average >= ratingSort);
+          }
+
           afriArr = afriArr.slice(0,8);
     
          fillAfricanMovies(afriArr);
@@ -999,6 +1046,14 @@ function loadAfricanMovies(genre){
           afriArr = afriArr.sort((a,b) =>{
             return b.vote_average - a.vote_average;    
           });
+
+
+          if(yearSort != ""){
+            afriArr= afriArr.filter(movie =>movie.release_date.split("-")[0] === yearSort);
+          }
+          if(ratingSort != ""){
+            afriArr= afriArr.filter(movie =>movie.vote_average >= ratingSort);
+          }
     
           afriArr = afriArr.slice(0,8);
     
@@ -1054,6 +1109,13 @@ function loadAsianMovies(genre){
               return b.vote_average - a.vote_average;    
             });
       
+
+            if(yearSort != ""){
+              asiaArr= asiaArr.filter(movie =>movie.release_date.split("-")[0] === yearSort);
+            }
+            if(ratingSort != ""){
+              asiaArr= asiaArr.filter(movie =>movie.vote_average >= ratingSort);
+            }
   
             asiaArr = asiaArr.slice(0,8);
       
@@ -1104,6 +1166,13 @@ function loadAsianMovies(genre){
               return b.vote_average - a.vote_average;    
             });
       
+
+            if(yearSort != ""){
+              asiaArr= asiaArr.filter(movie =>movie.release_date.split("-")[0] === yearSort);
+            }
+            if(ratingSort != ""){
+              asiaArr=asiaArr.filter(movie =>movie.vote_average >= ratingSort);
+            }
   
             asiaArr = asiaArr.slice(0,8);
       
@@ -1133,6 +1202,14 @@ function loadIndianMovies(genre){
           temp = temp.sort((a,b) =>{
             return b.vote_average - a.vote_average;    
           });
+
+
+          if(yearSort != ""){
+            temp=  temp.filter(movie =>movie.release_date.split("-")[0] === yearSort);
+          }
+          if(ratingSort != ""){
+            temp= temp.filter(movie =>movie.vote_average >= ratingSort);
+          }
     
           temp = temp.slice(0,8);
     
@@ -1158,6 +1235,14 @@ function loadIndianMovies(genre){
           temp = temp.sort((a,b) =>{
             return b.vote_average - a.vote_average;    
           });
+
+
+          if(yearSort != ""){
+            temp=  temp.filter(movie =>movie.release_date.split("-")[0] === yearSort);
+          }
+          if(ratingSort != ""){
+            temp=  temp.filter(movie =>movie.vote_average >= ratingSort);
+          }
     
           temp = temp.slice(0,8);
     
@@ -1281,6 +1366,14 @@ function filterSortMovies(genre,region){
             euroArr = euroArr.sort((a,b) =>{
               return b.vote_average - a.vote_average;    
             });
+
+
+            if(yearSort != ""){
+              euroArr= euroArr.filter(movie =>movie.release_date.split("-")[0] === yearSort);
+            }
+            if(ratingSort != ""){
+              euroArr= euroArr.filter(movie =>movie.vote_average >= ratingSort);
+            }
       
             euroArr = euroArr.splice(0,20);
                     
@@ -1326,6 +1419,13 @@ function filterSortMovies(genre,region){
             afriArr = afriArr.sort((a,b) =>{
               return b.vote_average - a.vote_average;    
             });
+
+            if(yearSort != ""){
+              afriArr= afriArr.filter(movie =>movie.release_date.split("-")[0] === yearSort);
+            }
+            if(ratingSort != ""){
+              afriArr= afriArr.filter(movie =>movie.vote_average >= ratingSort);
+            }
                 
             afriArr = afriArr.slice(0,20);
             displaySortedMovies("Africa",afriArr)  
@@ -1370,7 +1470,14 @@ function filterSortMovies(genre,region){
                 return b.vote_average - a.vote_average;    
               });
                 
-            
+              if(yearSort != ""){
+                asiaArr= asiaArr.filter(movie =>movie.release_date.split("-")[0] === yearSort);
+              }
+              if(ratingSort != ""){
+                asiaArr= asiaArr.filter(movie =>movie.vote_average >= ratingSort);
+              }
+
+
               asiaArr = asiaArr.slice(0,20);
                 
               displaySortedMovies("Asia",asiaArr);
@@ -1394,6 +1501,13 @@ function filterSortMovies(genre,region){
               temp = temp.sort((a,b) =>{
                 return b.vote_average - a.vote_average;    
               });
+
+              if(yearSort != ""){
+                temp= temp.filter(movie =>movie.release_date.split("-")[0] === yearSort);
+              }
+              if(ratingSort != ""){
+                temp= temp.filter(movie =>movie.vote_average >= ratingSort);
+              }
                 
               temp = temp.slice(0,20);
                 
@@ -1485,6 +1599,13 @@ function filterSortMovies(genre,region){
                   euroArr = euroArr.sort((a,b) =>{
                     return b.vote_average - a.vote_average;    
                   });
+
+                  if(yearSort != ""){
+                    euroArr= euroArr.filter(movie =>movie.release_date.split("-")[0] === yearSort);
+                  }
+                  if(ratingSort != ""){
+                    euroArr= euroArr.filter(movie =>movie.vote_average >= ratingSort);
+                  }
       
                   euroArr = euroArr.splice(0,20);
                     
@@ -1528,6 +1649,13 @@ function filterSortMovies(genre,region){
             afriArr = afriArr.sort((a,b) =>{
               return b.vote_average - a.vote_average;    
             });
+
+            if(yearSort != ""){
+              afriArr=  afriArr.filter(movie =>movie.release_date.split("-")[0] === yearSort);
+            }
+            if(ratingSort != ""){
+              afriArr=  afriArr.filter(movie =>movie.vote_average >= ratingSort);
+            }
                 
             afriArr = afriArr.slice(0,20);
             displaySortedMovies("Africa",afriArr)  
@@ -1567,6 +1695,13 @@ function filterSortMovies(genre,region){
               return b.vote_average - a.vote_average;    
             });
   
+            if(yearSort != ""){
+              asiaArr=  asiaArr.filter(movie =>movie.release_date.split("-")[0] === yearSort);
+            }
+            if(ratingSort != ""){
+              asiaArr=  asiaArr.filter(movie =>movie.vote_average >= ratingSort);
+            }
+
             asiaArr = asiaArr.slice(0,20);
                 
             displaySortedMovies("Asia",asiaArr);
@@ -1589,6 +1724,14 @@ function filterSortMovies(genre,region){
           temp = temp.sort((a,b) =>{
             return b.vote_average - a.vote_average;    
           });
+
+
+          if(yearSort != ""){
+            temp= temp.filter(movie =>movie.release_date.split("-")[0] === yearSort);
+          }
+          if(ratingSort != ""){
+            temp= temp.filter(movie =>movie.vote_average >= ratingSort);
+          }
                 
           temp = temp.slice(0,20);
                 
@@ -2017,6 +2160,13 @@ $.ajax({
         return b.vote_average - a.vote_average;    
       });
 
+      if(yearSort != ""){
+        euroArr= euroArr.filter(movie =>movie.release_date.split("-")[0] === yearSort);
+      }
+      if(ratingSort != ""){
+        euroArr= euroArr.filter(movie =>movie.vote_average >= ratingSort);
+      }
+
       euroArr = euroArr.slice(0,8);
 
      fillEuroMovies(euroArr);
@@ -2066,6 +2216,13 @@ function loadAfricanMovies(){
         afriArr = afriArr.sort((a,b) =>{
           return b.vote_average - a.vote_average;    
         });
+
+        if(yearSort != ""){
+          afriArr= afriArr.filter(movie =>movie.release_date.split("-")[0] === yearSort);
+        }
+        if(ratingSort != ""){
+          afriArr= afriArr.filter(movie =>movie.vote_average >= ratingSort);
+        }
   
         afriArr = afriArr.slice(0,8);
   
@@ -2120,6 +2277,12 @@ function loadAfricanMovies(){
             return b.vote_average - a.vote_average;    
           });
     
+          if(yearSort != ""){
+            asiaArr= asiaArr.filter(movie =>movie.release_date.split("-")[0] === yearSort);
+          }
+          if(ratingSort != ""){
+            asiaArr= asiaArr.filter(movie =>movie.vote_average >= ratingSort);
+          }
 
           asiaArr = asiaArr.slice(0,8);
     
@@ -2151,6 +2314,13 @@ function loadAfricanMovies(){
             temp = temp.sort((a,b) =>{
               return b.vote_average - a.vote_average;    
             });
+
+            if(yearSort != ""){
+              temp= temp.filter(movie =>movie.release_date.split("-")[0] === yearSort);
+            }
+            if(ratingSort != ""){
+              temp= temp.filter(movie =>movie.vote_average >= ratingSort);
+            }
       
             temp = temp.slice(0,8);
       
