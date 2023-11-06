@@ -11,6 +11,7 @@ const adminPass = "Pass";
 $(document).ready(function(){
     // set the validation text to be invisible
     clearValidationText();
+    loadImgToCarousel();
 
     const urlParams = new URLSearchParams(window.location.search);
     const userID= urlParams.get('id');
@@ -629,4 +630,50 @@ function highestVotedMovies(){
   
   };
   
-  
+  function loadImgToCarousel(){
+    let pic1 = $("#carouselImg1");
+    let pic2 = $("#carouselImg2");
+    let pic3 = $("#carouselImg3");
+    let pic4 = $("#carouselImg4");
+    let pic5 = $("#carouselImg5");
+
+    $.ajax({
+      type:"GET",
+      // gets the first page of results
+      url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=DE|IN|NG|ZA|JP|KR`,
+      success: function(data){
+          temp = data;
+      }
+    }).done(function(){
+      // outputs the results of the movies
+      movies = temp.results;
+    
+        // sort by average vote, high to low
+        movies = movies.sort((a,b) =>{
+          return b.vote_average - a.vote_average;    
+        });
+
+        movies = movies.splice(0,5);
+
+        let imgUrl = "https://image.tmdb.org/t/p/original"+movies[0].backdrop_path;
+        console.log(imgUrl)
+        pic1.prop("src", imgUrl);
+        imgUrl = "https://image.tmdb.org/t/p/original"+movies[1].backdrop_path;
+        console.log(imgUrl)
+        pic2.prop("src", imgUrl);
+        imgUrl = "https://image.tmdb.org/t/p/original"+movies[2].backdrop_path;
+        console.log(imgUrl)
+        pic3.prop("src", imgUrl);
+        imgUrl = "https://image.tmdb.org/t/p/original"+movies[3].backdrop_path;
+        console.log(imgUrl)
+        pic4.prop("src", imgUrl);
+        imgUrl = "https://image.tmdb.org/t/p/original"+movies[4].backdrop_path;
+        console.log(imgUrl)
+        pic5.prop("src", imgUrl);
+    
+    
+         
+          
+      
+    })
+  }
