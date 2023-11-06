@@ -39,9 +39,16 @@ $(document).ready(function(){
     });
 
     $("#loginBtn").click(function(){
+      let users = [];
+      users.push( JSON.parse(localStorage.getItem("userProfiles")));
+        console.log(users.user)
         let userIn = $("#UsernameInput").val()+"";
         let passIn = $("#PasswordInput").val() +"";
-        validateLogin(adminUser,adminPass, userIn, passIn);
+          for(i = 0; i < users.length; i++){
+            console.log(users)
+            validateLogin(users[i].user,users[i].pass, userIn, passIn);
+            
+          }
     });
    
 trendingMovies();
@@ -79,8 +86,8 @@ function clearValidationText(){
 // validates user login
 function validateLogin(username, password, userIn, passIn){
     clearValidationText();
-    if(username === userIn && password === passIn){
-        return "enter";
+    if(username == userIn && password == passIn){
+      window.location.href = `../index.html?id=${username}`;
     }
     else if (username != userIn && password === passIn){
         $("#UsernameLabel").text("Incorrect Username");
