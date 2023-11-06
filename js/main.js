@@ -631,11 +631,9 @@ function highestVotedMovies(){
   };
   
   function loadImgToCarousel(){
-    let pic1 = $("#carouselImg1");
-    let pic2 = $("#carouselImg2");
-    let pic3 = $("#carouselImg3");
-    let pic4 = $("#carouselImg4");
-    let pic5 = $("#carouselImg5");
+    let pic1 = $("#carouselImg3");
+    let pic2 = $("#carouselImg4");
+    let pic3 = $("#carouselImg5");
 
     $.ajax({
       type:"GET",
@@ -653,7 +651,7 @@ function highestVotedMovies(){
           return b.vote_average - a.vote_average;    
         });
 
-        movies = movies.splice(0,5);
+        movies = movies.splice(0,6);
 
         let imgUrl = "https://image.tmdb.org/t/p/original"+movies[0].backdrop_path;
         console.log(imgUrl)
@@ -664,16 +662,53 @@ function highestVotedMovies(){
         imgUrl = "https://image.tmdb.org/t/p/original"+movies[2].backdrop_path;
         console.log(imgUrl)
         pic3.prop("src", imgUrl);
-        imgUrl = "https://image.tmdb.org/t/p/original"+movies[3].backdrop_path;
-        console.log(imgUrl)
-        pic4.prop("src", imgUrl);
-        imgUrl = "https://image.tmdb.org/t/p/original"+movies[4].backdrop_path;
-        console.log(imgUrl)
-        pic5.prop("src", imgUrl);
+
+        $("#title1").text(movies[0].title)
+        $("#title2").text(movies[1].title)
+        $("#title3").text(movies[2].title)
     
-    
-         
-          
+        let id1 = movies[0].id;
+        let id2 = movies[1].id;
+        let id3 = movies[2].id;
+       
+        $.ajax({
+          type:"GET",
+          // gets the first page of results
+          url:`https://api.themoviedb.org/3/movie/${id1}?api_key=34e9f99aa672c944811b83fab5b6c232`,
+          success: function(data){
+              temp = data;
+              console.log(temp.vote_average)
+              
+              $("#Director1").text("Producded by " + temp.production_companies[0].name)
+              $("#rating1").text("And was rated: " + Math.round(temp.vote_average * 100) / 100 + "/10")
+          }
+        }); 
+
+        $.ajax({
+          type:"GET",
+          // gets the first page of results
+          url:`https://api.themoviedb.org/3/movie/${id2}?api_key=34e9f99aa672c944811b83fab5b6c232`,
+          success: function(data){
+              temp = data;
+              console.log(temp.vote_average)
+              
+              $("#Director2").text("Producded by " + temp.production_companies[0].name)
+              $("#rating2").text("And was rated: " + Math.round(temp.vote_average * 100) / 100 + "/10")
+          }
+        }); 
+
+        $.ajax({
+          type:"GET",
+          // gets the first page of results
+          url:`https://api.themoviedb.org/3/movie/${id3}?api_key=34e9f99aa672c944811b83fab5b6c232`,
+          success: function(data){
+              temp = data;
+              console.log(temp.vote_average)
+              
+              $("#Director3").text("Producded by " + temp.production_companies[0].name)
+              $("#rating3").text("And was rated: " +Math.round(temp.vote_average * 100) / 100 + "/10")
+          }
+        }); 
       
     })
   }
