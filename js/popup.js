@@ -9,9 +9,9 @@ $("#upvoteOpen").on('click',function(){
 $("#closeBtn").on('click',function(){
     $("#review").removeClass("openreview");
     $("#review").addClass("review")
-})
+
 
  
+});
+
 })
-
-
