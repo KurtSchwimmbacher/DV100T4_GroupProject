@@ -32,6 +32,15 @@ $(document).ready(function(){
 // ==============================================================================================================
 // filters code end
 
+// search bar code
+// show and hide filters
+$("#settingsIcon").on('click',function(){ 
+  
+  $("#searchbar").toggle();
+
+});
+// search bar code end
+
 
 
 loadEuroMovies();
@@ -39,18 +48,9 @@ loadAfricanMovies();
 loadAsianMovies();
 loadIndianMovies();
 loadTrendingMovies();
-
+getFilters();
 
 })
-
-
-
-
-
-
-
-
-
 
 // ==========================================================================================
 
@@ -565,8 +565,7 @@ function fillAfricanMovies(moviesToShow){
 
     let imgUrl = "https://image.tmdb.org/t/p/original" + moviesToShow.backdrop_path;
       const card = $(`
-      
-      <div class="col-sm-6 col-md-4 col-lg-3 mb-5 movie-col mt-5">
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-5 movie-col">
       <div class="card lib-card"  id="moviePoster" style="background-image: url(${imgUrl});">
           <div class="overlay" id="overlay">
               <img class="play-logo" src="../assets/svgs/play-circle-fill.svg">
@@ -828,8 +827,8 @@ $.ajax({
 
       euroArr = euroArr.slice(0,8);
 
-      fillEuroMovies(euroArr);
-     
+     fillEuroMovies(euroArr);
+
 
   }, error: function(error){
 
@@ -1687,6 +1686,7 @@ function displaySortedMovies(country,moviesToDisplay){
 function storeGenreObj(GenreObjArr){
   genres = GenreObjArr;
 };
+
 
 
 // load african movies
