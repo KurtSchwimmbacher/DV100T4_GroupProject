@@ -22,27 +22,35 @@ $(document).ready(function(){
   //add to watch list button 
   $("#singleFilmAddToList").on('click',function(){
     let inList = 0;
-    
     // check if movie is in watchlist
     let localMovies = JSON.parse(localStorage.getItem("WatchList"));
-    for(i = 0; i < localMovies.length; i++){
-      if(movieID === localMovies[i]+''){
-        inList++;
+    if(localMovies){
+      for(i = 0; i < localMovies.length; i++){
+        if(movieID === localMovies[i]+''){
+          inList++;
+        }
+
+      // if id isnt in list, then add it
+      if(inList === 0){
+        localMovies.push(parseInt(movieID));
+        console.log(localMovies)
+        let toStore = JSON.stringify(localMovies);
+        localStorage.setItem("WatchList",toStore);
+    }
+      else{
+        console.log(localMovies + " has already been addded")
       }
     }
+    }
 
-    // if id isnt in list, then add it
-    if(inList === 0){
-      localMovies.push(parseInt(movieID));
-      console.log(localMovies)
+    else if(localMovies === null){
+      console.log("adding movie to watchlist")
+      localMovies = (parseInt(movieID));
       let toStore = JSON.stringify(localMovies);
       localStorage.setItem("WatchList",toStore);
     }
-    else{
-      console.log(localMovies + " has already been addded")
-    }
 
-  });
+});
 
 });
 

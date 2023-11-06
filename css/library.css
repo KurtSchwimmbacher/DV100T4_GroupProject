@@ -59,7 +59,7 @@ label, .form-text, p{
 }
 
 .row-con{
-    height: 300vh;
+    height: 100vh;
     margin-bottom: 300vh;
 }
 
@@ -106,7 +106,7 @@ label, .form-text, p{
     opacity: 1;
 }
 .movie-title{
-    font-size: 12px;
+    font-size: 16px;
 }
 
     
@@ -121,6 +121,12 @@ label, .form-text, p{
         .footer-api{
             text-align: center;
         }
+
+        .add-icon{
+            float: right;
+            margin-top: -6%;
+        }
+        
 
 }
 
@@ -178,6 +184,11 @@ label, .form-text, p{
 }
 .movie-title{
     font-size: 14px;
+}
+
+.add-icon{
+    float: right;
+    margin-top: -11%;
 }
 
 
@@ -241,6 +252,12 @@ label, .form-text, p{
 .movie-title{
     font-size: 16px;
 }
+
+.add-icon{
+    float: right;
+    margin-top: -11%;
+}
+
 
 
 }
@@ -325,6 +342,12 @@ label, .form-text, p{
         text-align: center;
     }
 
+    .add-icon{
+        float: right;
+        margin-top: -11%;
+    }
+    
+
 }
 
 /* 12000px */
@@ -387,6 +410,14 @@ label, .form-text, p{
         cursor: pointer;
         opacity: 1;
     }
+
+    .add-icon{
+        float: right;
+        margin-top: -11%;
+    }
+    
+
+
 
 }
 
@@ -478,13 +509,35 @@ footer i {
 }
 
 
-.add-icon-lib{
-    float: right;
-    margin-top: -11%;
-}
 
 .add-icon-lib:hover{
     cursor: pointer;
 }
 
+.genre-link:hover{
+    cursor: pointer;
+    color: #F18442;
+    font-weight: bold;
+}
+
+.region-link:hover{
+    cursor: pointer;
+    color: #F18442;
+    font-weight: bold;
+}
+
+.extend-footer{
+    margin-top: 100%;
+}
+
+.filter-active{
+    color: #F18442;
+    font-weight: bold;
+}
+
+
+.filter-title{
+    display: flex;
+    justify-content: center;
+}
 /* ============================================== */

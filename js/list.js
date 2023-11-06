@@ -9,7 +9,7 @@ $(document).ready(function(){
     let watchlist = JSON.parse(localStorage.getItem("WatchList"));
     $("#watchlistCon").empty();
     for(i = 0; i <watchlist.length;i++){
-        getMovies(watchlist[i]);
+      getMovies(watchlist[i]);
     }
 
 
@@ -18,7 +18,7 @@ $(document).ready(function(){
     $("input[name = 'sortRadio']").click(function(){
         const appliedSort = $(this).attr('value');
         console.log("Applied Sort: "+appliedSort);
-        displayStreams();
+        // displayStreams();
     });
 });
 
@@ -56,26 +56,18 @@ function getMovies(movieID){
             console.log(data)
             
             let imgUrl = "https://image.tmdb.org/t/p/original" + data.backdrop_path;
-           
-          const wlCard = $(`
-          <div id="soapiesBox" class="col-xl-3 col-lg-4 col-md-6 col-xs-12 watchlist-card">
-      <div class="card mb-3">
-        <div class="row g-0">
-  
-          <div class="style4">
-            <div class="style2">
-              <div class="col-md-4 "> 
-                <img src="${imgUrl}" class="imagemovie11" alt="...">
-              </div>         
-            </div>
-           <div class="style3">
-            <button class="remove1"></button>
-            <div class="col-md-8">               
+
+            const wlCard = $(`
+            <div class="col-xl-4 col-lg-4 col-md-6 col-xs-12 card-WL-container" >
+            <div class="card" >
+              <img src="${imgUrl}" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title2" style="margin-bottom: 20px; font-size:x-large; font-weight: 400; font-family:'Dosis', sans-serif;" id="title">${data.title}</h5>            
-                <p class="card-text2" id="description2">7.9/10 IMDB</p>
-                <button class="upvote1"></button>
-                <button class="downvote1"></button>           
+                <h5 class="card-text">${data.title}</h5>
+                <div class="btn-grp-wl">
+                  <button class="upvote1"></button>
+                  <button class="downvote1"></button>  
+                  <button class="remove1"></button>
+                </div>
               </div>
             </div>
             </div>
@@ -86,9 +78,11 @@ function getMovies(movieID){
     </div>`);
     
           $("#watchlistCon").append(wlCard);
-          $(wlCard).find(".remove1").click(function(){
-              $(wlCard).remove();
-          });
+
+          wlCard.on('click',".card-img-top",function(){
+            window.location.href = `singleFilm.html?id=${data.id}`;
+          })
+
         },
         error: function(error){
             // handle as it comes
