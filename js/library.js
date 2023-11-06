@@ -479,11 +479,12 @@ function fillTrendingMovies(moviesToShow){
         // when the button is clicked
         card.on('click','.add-icon',function(){
           let watchlist = JSON.parse(localStorage.getItem("WatchList"));
-          if(watchlist){
+          if(watchlist != null){
 
             // if its not in the list, add it
             if(canAdd){
               watchlist.push(parseInt(moviesToShow.id));
+              console.log(watchlist +" not in list")
               let toStore = JSON.stringify(watchlist);
               localStorage.setItem("WatchList",toStore);
               $(this).children().removeClass("bi-plus-circle").addClass("bi bi-check-circle");
@@ -493,6 +494,7 @@ function fillTrendingMovies(moviesToShow){
           }
           else if(!watchlist){
             watchlist.push(parseInt(moviesToShow.id));
+            console.log(watchlist)
             let toStore = JSON.stringify(watchlist);
             localStorage.setItem("WatchList",toStore);
             canAdd = false;
@@ -562,11 +564,13 @@ function fillEuroMovies(moviesToShow){
        // when the button is clicked
        card.on('click','.add-icon',function(){
          let watchlist = JSON.parse(localStorage.getItem("WatchList"));
-         if(watchlist){
+         if(watchlist != null){
 
            // if its not in the list, add it
            if(canAdd){
+            console.log(watchlist)
              watchlist.push(parseInt(moviesToShow.id));
+             console.log(watchlist)
              let toStore = JSON.stringify(watchlist);
              localStorage.setItem("WatchList",toStore);
              $(this).children().removeClass("bi-plus-circle").addClass("bi bi-check-circle");
@@ -729,11 +733,12 @@ function fillAsianMovies(moviesToShow){
        // when the button is clicked
        card.on('click','.add-icon',function(){
          let watchlist = JSON.parse(localStorage.getItem("WatchList"));
-         if(watchlist){
+         if(watchlist != null){
 
            // if its not in the list, add it
            if(canAdd){
              watchlist.push(parseInt(moviesToShow.id));
+             console.log(watchlist)
              let toStore = JSON.stringify(watchlist);
              localStorage.setItem("WatchList",toStore);
              $(this).children().removeClass("bi-plus-circle").addClass("bi bi-check-circle");
@@ -770,7 +775,7 @@ function fillIndianMovies(moviesToShow){
     let iconState = "bi bi-plus-circle";
   
     // checks if movie is in watchlist and updates icon accordingly
-    if(watchlist){
+    if(watchlist != null){
       for(i = 0; i < watchlist.length; i++){
         if(moviesToShow.id === watchlist[i]){
           isAdded++;
@@ -812,9 +817,10 @@ function fillIndianMovies(moviesToShow){
       // to add the movie from the library page to the watch list
       // when the button is clicked
       card.on('click','.add-icon',function(){
-        let watchlist = JSON.parse(localStorage.getItem("WatchList"));
-        if(watchlist){
-
+        watchlist = JSON.parse(localStorage.getItem("WatchList"));
+        console.log(watchlist)
+        if(watchlist != null){
+          console.log(canAdd + "canAdd")
           // if its not in the list, add it
           if(canAdd){
             watchlist.push(parseInt(moviesToShow.id));
@@ -825,7 +831,7 @@ function fillIndianMovies(moviesToShow){
           }
                      
         }
-        else if(!watchlist){
+        else if(watchlist === null){
           watchlist.push(parseInt(moviesToShow.id));
           let toStore = JSON.stringify(watchlist);
           localStorage.setItem("WatchList",toStore);
