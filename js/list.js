@@ -33,7 +33,7 @@ $(document).ready(function(){
 
 // for watch list
 function loadShows(){
-    console.log(arrPlaylist);
+  console.log(arrPlaylist);
 
     for (let index = 0; index < arrPlaylist.length; index++) {
         const programs = arrPlaylist[index];
