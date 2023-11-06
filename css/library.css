@@ -39,6 +39,8 @@ label, .form-text, p{
 }
 
 
+
+
 /*============================================================================================= */
 /* Media Queries */
 @media(min-width: 300px){
@@ -88,13 +90,6 @@ label, .form-text, p{
     padding-top: 50%;
 }
 
-.add-icon{
-    font-size: 3rem;
-    color: white;
-    margin-left: 10%;
-   
-}
-
 .overlay{
     width: 100%;    
     height: 100%;
@@ -130,9 +125,6 @@ label, .form-text, p{
 
 }
 
-/* 576px */
-/* ------------------------------------------------------------------------------- */
-
 @media(min-width:576px){
  /* Library Page */
  .movie-card{
@@ -165,13 +157,6 @@ label, .form-text, p{
     padding-top: 50%;
 }
 
-.add-icon{
-    font-size: 2rem;
-    color: wite;
-    margin-left: 10%;
-   
-}
-
 .overlay{
     width: 100%;    
     height: 100%;
@@ -193,9 +178,6 @@ label, .form-text, p{
 
 
 }
-
-/* 768px */
-/* ------------------------------------------------------------------------------- */
 
 @media(min-width:768px){
     h1{
@@ -232,12 +214,6 @@ label, .form-text, p{
     padding-top: 50%;
 }
 
-.add-icon{
-    font-size: 2rem;
-    color: white;
-    margin-left: 10%;
-   
-}
 .overlay{
     width: 100%;    
     height: 100%;
@@ -262,8 +238,6 @@ label, .form-text, p{
 
 }
 
-/* 991px */
-/* ------------------------------------------------------------------------------- */
 
 @media(min-width:991px){
  /* Library Page */
@@ -300,13 +274,6 @@ label, .form-text, p{
     width: 30%;
     margin-left: 33%;
     padding-top: 50%;
-}
-
-.add-icon{
-    font-size: 3rem;
-    color: white;
-    margin-left: 10%;
-   
 }
 
 .overlay{
@@ -350,8 +317,6 @@ label, .form-text, p{
 
 }
 
-/* 12000px */
-/* ------------------------------------------------------------------------------- */
 
 @media(min-width:1200px){
     h1{
@@ -391,13 +356,6 @@ label, .form-text, p{
         width: 30%;
         margin-left: 33%;
         padding-top: 50%;
-    }
-
-    .add-icon{
-        font-size: 3rem;
-        color: white;
-        margin-left: 10%;
-       
     }
 
     .overlay{
@@ -510,7 +468,7 @@ footer i {
 
 
 
-.add-icon-lib:hover{
+.add-icon:hover{
     cursor: pointer;
 }
 
