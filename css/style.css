@@ -81,13 +81,10 @@ width: 25px;
 height: 25px;
 border-radius: 100%;
 border: none;
-background-image: url(/assets/logos/x.png);
+background-image: url("../assets/logos/xhover.png");
 background-size: cover;
 }
 
-.remove1:hover{
- background-image: url("../assets/logos/xhover.png");
-}
 
 .card-title{
     width: 100%;
