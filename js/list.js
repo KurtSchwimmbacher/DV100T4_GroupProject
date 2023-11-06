@@ -68,7 +68,7 @@ function getMovies(movieID){
               <h5 class="card-text">${data.title}</h5>
               <div class="btn-grp-wl">
                 <button class="upvote1"></button>
-                <button class="downvote1"></button>  
+                <button id="upvoteOpen" class="downvote1"></button>  
                 <button class="remove1"></button>
               </div>
             </div>
