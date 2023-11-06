@@ -63,9 +63,9 @@ function getMovies(movieID){
               <img src="${imgUrl}" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-text">${data.title}</h5>
+                <p class="card-text">IMDB Rating: ${data.vote_average}</p>
                 <div class="btn-grp-wl">
-                  <button class="upvote1"></button>
-                  <button class="downvote1"></button>  
+ 
                   <button class="remove1"></button>
                 </div>
               </div>
@@ -82,6 +82,26 @@ function getMovies(movieID){
           wlCard.on('click',".card-img-top",function(){
             window.location.href = `singleFilm.html?id=${data.id}`;
           })
+
+          wlCard.on('click',".remove1",function(){
+            let currentID = data.id;
+            let local = JSON.parse(localStorage.getItem("WatchList"));
+            if(local != null){
+              let index = local.indexOf(data.id);
+              if(index > -1){
+                local.splice(index,1);
+              }
+
+              let toStore = JSON.stringify(local);
+              localStorage.setItem("WatchList",toStore);
+              $("#watchlistCon").empty();
+              console.log(local)
+              for(i = 0; i < local.length; i++){
+                getMovies(local[i])
+              }
+            }
+          })
+
 
         },
         error: function(error){
