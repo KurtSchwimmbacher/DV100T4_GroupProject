@@ -78,7 +78,6 @@
     <div class="container mt-5 filters-con">
         <div class="row">
             <div class="col-12">
-                <input id="searchbar" type="text" class="form-control" placeholder="Search">
                 <img id="settingsIcon" class="filter-btn" src="../assets/svgs/gear.svg">
                 <img id="filtersIcon" class="filter-btn" src="../assets/svgs/funnel.svg">
             </div>
@@ -98,6 +97,24 @@
             </div>
         </div>
     </div>
+    <div class="container filter-inp-con">
+      <div class="row filter-options">
+          <div class="col-12">
+              <h3>Year of Release</h3>
+              <div class="year-container" id="yearCon">
+                <input type="range" class="form-range mt-3" min="1950" max="2023" value="2006" id="yearRange">
+                <p id="showYear" style="color: white;">Year of Release:</p>
+              </div>
+              <h3>IMDB Rating</h3>
+              <div class="rating-container" id="ratingCon">
+                <input type="range" class="form-range mt-3" min="0" max="10" value="6" id="ratingRange">
+                <p id="showRating" style="color: white;">IMDB Rating:</p>
+              </div> 
+              <button class="submit-filters btn btn-primary mt-4" id="submitFilter">Filter</button>
+              <button class="submit-filters btn btn-primary mt-4" id="removeFilter">Remove Filter</button>
+          </div>
+      </div>
+  </div>
     
     <!-- Trending Movies -->
     <div class="container mt-5 mb-5 pb-5">

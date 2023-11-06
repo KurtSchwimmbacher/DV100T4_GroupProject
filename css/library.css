@@ -450,7 +450,7 @@ footer i {
     justify-content: end;
 }
 
-.filter-opt-con{
+.filter-opt-con,.filter-inp-con{
     display: flex;
     justify-content: center;
     text-align: center;
@@ -498,4 +498,21 @@ footer i {
     display: flex;
     justify-content: center;
 }
+
+.form-range{
+    width: 200%;
+    height: 20px;
+    margin-left: -50%;
+    color: #F18442;
+}
+
+.submit-filters{
+    margin-right: 2%;
+    width: 200px;
+    background-color: #F18442;
+    border: 2px solid white;
+    border-radius: 15px;
+}
+
+
 /* ============================================== */

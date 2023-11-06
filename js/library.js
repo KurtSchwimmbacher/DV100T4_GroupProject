@@ -5,6 +5,8 @@
 let filterCount = 1;
 let movies = [];
 let genres = [];
+let yearSort = "";
+let ratingSort = "";
 
 // ==========================================================================================
 
@@ -13,8 +15,7 @@ $(document).ready(function(){
 // filters code
       // hide filters panel
       $(".filter-opt-con").hide(); 
-      // hide the search bar
-      $("#searchbar").hide();
+      $(".filter-inp-con").hide();
 
     // show and hide filters
     $("#filtersIcon").on('click',function(){ 
@@ -32,15 +33,48 @@ $(document).ready(function(){
 // ==============================================================================================================
 // filters code end
 
-// search bar code
+// filter
 // show and hide filters
 $("#settingsIcon").on('click',function(){ 
-  
-  $("#searchbar").toggle();
+
+  $(".filter-inp-con").toggle();
 
 });
-// search bar code end
 
+$("#yearRange").on('input',function(){
+  let year = $("#yearRange").val();
+  $("#showYear").text("Year of Release: "+year)
+});
+$("#ratingRange").on('input',function(){
+  let rating = $("#ratingRange").val();
+  $("#showRating").text("IMDB Rating: "+rating)
+});
+
+$("#submitFilter").on('click',function(){
+  let year = $("#yearRange").val();
+  let rating = $("#ratingRange").val();
+
+  yearSort = `&primary_release_year=${year}`
+  console.log(yearSort)
+  loadEuroMovies();
+  loadAfricanMovies();
+  loadAsianMovies();
+  loadIndianMovies();
+  loadTrendingMovies();
+  getFilters();
+})
+$("#removeFilter").on('click',function(){
+  let rating = "";
+  yearSort = "";
+  console.log(yearSort)
+  loadEuroMovies();
+  loadAfricanMovies();
+  loadAsianMovies();
+  loadIndianMovies();
+  loadTrendingMovies();
+  getFilters();
+  console.log(yearSort)
+})
 
 
 loadEuroMovies();
@@ -67,13 +101,14 @@ let euroArr = [];
 let asiaArr = [];
 let afriArr = [];
 
+
 if(!genre){
   let area = "FR";
 $.ajax({
   dataType: 'json',
   type:"GET",
   // gets the first page of results
-  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${area}`,
   success: function(data){
       let temp = data.results;
     
@@ -108,7 +143,7 @@ $.ajax({
     dataType: 'json',
     type:"GET",
     // gets the first page of results
-    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&${yearSort}sort_by=popularity.desc&with_origin_country=${area}`,
     success: function(data){
         let temp = data.results;
       
@@ -126,7 +161,7 @@ $.ajax({
     dataType: 'json',
     type:"GET",
     // gets the first page of results
-    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${area}`,
     success: function(data){
         let temp = data.results;
   
@@ -144,7 +179,7 @@ $.ajax({
     dataType: 'json',
     type:"GET",
     // gets the first page of results
-    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${area}`,
     success: function(data){
         let temp = data.results;
       
@@ -164,7 +199,7 @@ $.ajax({
     dataType: 'json',
     type:"GET",
     // gets the first page of results
-    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${area}`,
     success: function(data){
         let temp = data.results;
   
@@ -184,7 +219,7 @@ $.ajax({
         dataType: 'json',
         type:"GET",
         // gets the first page of results
-        url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+        url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${area}`,
         success: function(data){
             let temp = data.results;
       
@@ -221,7 +256,7 @@ $.ajax({
   dataType: 'json',
   type:"GET",
   // gets the first page of results
-  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
+  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
   success: function(data){
       let temp = data.results;
     
@@ -238,7 +273,7 @@ $.ajax({
   dataType: 'json',
   type:"GET",
   // gets the first page of results
-  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
+  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
   success: function(data){
       let temp = data.results;
 
@@ -256,7 +291,7 @@ $.ajax({
     dataType: 'json',
     type:"GET",
     // gets the first page of results
-    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
+    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
     success: function(data){
         let temp = data.results;
       
@@ -274,7 +309,7 @@ $.ajax({
     dataType: 'json',
     type:"GET",
     // gets the first page of results
-    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
+    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
     success: function(data){
         let temp = data.results;
   
@@ -292,7 +327,7 @@ $.ajax({
     dataType: 'json',
     type:"GET",
     // gets the first page of results
-    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
+    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
     success: function(data){
         let temp = data.results;
       
@@ -312,7 +347,7 @@ $.ajax({
     dataType: 'json',
     type:"GET",
     // gets the first page of results
-    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
+    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
     success: function(data){
         let temp = data.results;
   
@@ -332,7 +367,7 @@ $.ajax({
         dataType: 'json',
         type:"GET",
         // gets the first page of results
-        url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
+        url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
         success: function(data){
             let temp = data.results;
       
@@ -795,7 +830,7 @@ $.ajax({
   dataType: 'json',
   type:"GET",
   // gets the first page of results
-  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${area}`,
   success: function(data){
       let temp = data.results;
     
@@ -812,7 +847,7 @@ $.ajax({
   dataType: 'json',
   type:"GET",
   // gets the first page of results
-  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${area}`,
   success: function(data){
       let temp = data.results;
 
@@ -841,7 +876,7 @@ $.ajax({
   dataType: 'json',
   type:"GET",
   // gets the first page of results
-  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
+  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&${yearSort}sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
   success: function(data){
       let temp = data.results;
     
@@ -858,7 +893,7 @@ $.ajax({
   dataType: 'json',
   type:"GET",
   // gets the first page of results
-  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
+  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
   success: function(data){
       let temp = data.results;
 
@@ -892,7 +927,7 @@ function loadAfricanMovies(genre){
       dataType: 'json',
       type:"GET",
       // gets the first page of results
-      url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+      url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${area}`,
       success: function(data){
           let temp = data.results;
         
@@ -910,7 +945,7 @@ function loadAfricanMovies(genre){
       dataType: 'json',
       type:"GET",
       // gets the first page of results
-      url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+      url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${area}`,
       success: function(data){
           let temp = data.results;
     
@@ -939,7 +974,7 @@ function loadAfricanMovies(genre){
       dataType: 'json',
       type:"GET",
       // gets the first page of results
-      url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
+      url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
       success: function(data){
           let temp = data.results;
         
@@ -957,7 +992,7 @@ function loadAfricanMovies(genre){
       dataType: 'json',
       type:"GET",
       // gets the first page of results
-      url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
+      url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
       success: function(data){
           let temp = data.results;
     
@@ -991,7 +1026,7 @@ function loadAsianMovies(genre){
         dataType: 'json',
         type:"GET",
         // gets the first page of results
-        url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+        url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${area}`,
         success: function(data){
             let temp = data.results;
           
@@ -1011,7 +1046,7 @@ function loadAsianMovies(genre){
         dataType: 'json',
         type:"GET",
         // gets the first page of results
-        url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+        url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${area}`,
         success: function(data){
             let temp = data.results;
       
@@ -1041,7 +1076,7 @@ function loadAsianMovies(genre){
         dataType: 'json',
         type:"GET",
         // gets the first page of results
-        url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
+        url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
         success: function(data){
             let temp = data.results;
           
@@ -1061,7 +1096,7 @@ function loadAsianMovies(genre){
         dataType: 'json',
         type:"GET",
         // gets the first page of results
-        url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
+        url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
         success: function(data){
             let temp = data.results;
       
@@ -1095,7 +1130,7 @@ function loadIndianMovies(genre){
       dataType: 'json',
       type:"GET",
       // gets the first page of results
-      url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+      url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${area}`,
       success: function(data){
           let temp = data.results;
     
@@ -1120,7 +1155,7 @@ function loadIndianMovies(genre){
       dataType: 'json',
       type:"GET",
       // gets the first page of results
-      url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
+      url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_genres=${genre}&with_origin_country=${area}`,
       success: function(data){
           let temp = data.results;
     
@@ -1226,7 +1261,7 @@ function filterSortMovies(genre,region){
         $.ajax({
           dataType: 'json',
           type:"GET",
-          url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${areaEu}`,
+          url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${areaEu}`,
           success: function(data){
             let temp = data.results;
               euroArr = temp;   
@@ -1239,7 +1274,7 @@ function filterSortMovies(genre,region){
         $.ajax({
           dataType: 'json',
           type:"GET",
-          url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${areaEu}`,
+          url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${areaEu}`,
           success: function(data){
             let temp = data.results;
   
@@ -1268,7 +1303,7 @@ function filterSortMovies(genre,region){
         $.ajax({
           dataType: 'json',
           type:"GET",   
-          url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${areaAf}`,
+          url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${areaAf}`,
           success: function(data){
             let temp = data.results;
                     
@@ -1284,7 +1319,7 @@ function filterSortMovies(genre,region){
         $.ajax({
           dataType: 'json',
           type:"GET",
-          url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${areaAf}`,
+          url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&${yearSort}sort_by=popularity.desc&with_origin_country=${areaAf}`,
           success: function(data){
             let temp = data.results;
                 
@@ -1311,7 +1346,7 @@ function filterSortMovies(genre,region){
           $.ajax({
             dataType: 'json',
             type:"GET",
-            url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${areaAs}`,
+            url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${areaAs}`,
             success: function(data){
               let temp = data.results;
                     
@@ -1327,7 +1362,7 @@ function filterSortMovies(genre,region){
           $.ajax({
             dataType: 'json',
             type:"GET",
-            url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${areaAs}`,
+            url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${areaAs}`,
             success: function(data){
               let temp = data.results;
                 
@@ -1356,7 +1391,7 @@ function filterSortMovies(genre,region){
           $.ajax({
             dataType: 'json',
             type:"GET",
-            url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+            url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${area}`,
             success: function(data){
               let temp = data.results;
                 
@@ -1426,7 +1461,7 @@ function filterSortMovies(genre,region){
               dataType: 'json',
               type:"GET",
               // gets the first page of results
-              url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${chosenGenreID}&with_origin_country=${areaEu}`,
+              url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_genres=${chosenGenreID}&with_origin_country=${areaEu}`,
               success: function(data){
                 let temp = data.results;
                 euroArr = temp;    
@@ -1442,7 +1477,7 @@ function filterSortMovies(genre,region){
                 dataType: 'json',
                 type:"GET",
                 // gets the first page of results
-                url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${chosenGenreID}&with_origin_country=${areaEu}`,
+                url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_genres=${chosenGenreID}&with_origin_country=${areaEu}`,
                 success: function(data){
                   let temp = data.results;
   
@@ -1472,7 +1507,7 @@ function filterSortMovies(genre,region){
             dataType: 'json',
             type:"GET",
             // gets the first page of results
-            url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${chosenGenreID}&with_origin_country=${areaAf}`,
+            url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_genres=${chosenGenreID}&with_origin_country=${areaAf}`,
             success: function(data){
               let temp = data.results;
               // load movies in trending section of browse page
@@ -1486,7 +1521,7 @@ function filterSortMovies(genre,region){
           $.ajax({
           dataType: 'json',
           type:"GET",
-          url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${chosenGenreID}&with_origin_country=${areaAf}`,
+          url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_genres=${chosenGenreID}&with_origin_country=${areaAf}`,
           success: function(data){
             let temp = data.results;
                 
@@ -1513,7 +1548,7 @@ function filterSortMovies(genre,region){
         $.ajax({
           dataType: 'json',
           type:"GET",
-          url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${chosenGenreID}&with_origin_country=${areaAs}`,
+          url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_genres=${chosenGenreID}&with_origin_country=${areaAs}`,
           success: function(data){
             let temp = data.results;
             // load movies in trending section of browse page
@@ -1526,7 +1561,7 @@ function filterSortMovies(genre,region){
         $.ajax({
         dataType: 'json',
         type:"GET",
-        url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${chosenGenreID}&with_origin_country=${areaAs}`,
+        url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_genres=${chosenGenreID}&with_origin_country=${areaAs}`,
         success: function(data){
           let temp = data.results;
             for(i = 0; i < temp.length; i++){
@@ -1551,7 +1586,7 @@ function filterSortMovies(genre,region){
           dataType: 'json',
           type:"GET",
           // gets the first page of results
-          url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${chosenGenreID}&with_origin_country=${area}`,
+          url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=false&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_genres=${chosenGenreID}&with_origin_country=${area}`,
           success: function(data){
           let temp = data.results;
                 
@@ -1957,7 +1992,7 @@ $.ajax({
   dataType: 'json',
   type:"GET",
   // gets the first page of results
-  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${area}`,
   success: function(data){
       let temp = data.results;
     
@@ -1974,7 +2009,7 @@ $.ajax({
   dataType: 'json',
   type:"GET",
   // gets the first page of results
-  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+  url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${area}`,
   success: function(data){
       let temp = data.results;
 
@@ -2006,7 +2041,7 @@ function loadAfricanMovies(){
     dataType: 'json',
     type:"GET",
     // gets the first page of results
-    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${area}`,
     success: function(data){
         let temp = data.results;
       
@@ -2024,7 +2059,7 @@ function loadAfricanMovies(){
     dataType: 'json',
     type:"GET",
     // gets the first page of results
-    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+    url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${area}`,
     success: function(data){
         let temp = data.results;
   
@@ -2057,7 +2092,7 @@ function loadAfricanMovies(){
       dataType: 'json',
       type:"GET",
       // gets the first page of results
-      url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+      url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${area}`,
       success: function(data){
           let temp = data.results;
         
@@ -2077,7 +2112,7 @@ function loadAfricanMovies(){
       dataType: 'json',
       type:"GET",
       // gets the first page of results
-      url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+      url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${area}`,
       success: function(data){
           let temp = data.results;
     
@@ -2113,7 +2148,7 @@ function loadAfricanMovies(){
         dataType: 'json',
         type:"GET",
         // gets the first page of results
-        url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_origin_country=${area}`,
+        url:`https://api.themoviedb.org/3/discover/movie?api_key=34e9f99aa672c944811b83fab5b6c232&include_adult=false&include_video=true&language=en-US&page=1&${yearSort}sort_by=popularity.desc&with_origin_country=${area}`,
         success: function(data){
             let temp = data.results;
       
